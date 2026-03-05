@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Stats | CricPulse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Cric<span>Pulse</span></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="match-center.html">Live Center</a></li>
+                <li><a href="stats.html" style="color: var(--accent-neon);">Stats</a></li>
+                <li><a href="#">Teams</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div id="stats-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <h2 class="section-title" id="page-title" style="margin-bottom: 0;">Select a Team</h2>
+            <button id="back-btn" class="btn" style="display: none;" onclick="goBack()">&#8592; Back</button>
+        </div>
+
+        <div id="dynamic-container" class="news-grid">
+            </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CricPulse. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Real-world T20I Player Data Database
+        const statsDatabase = {
+            "IND": {
+                name: "India",
+                flag: "https://flagcdn.com/w320/in.png",
+                players: [
+                    { id: "ind1", name: "Suryakumar Yadav", role: "Batter", image: "https://images.unsplash.com/photo-1593341646782-e0b495cff86d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80", stats: { matches: 60, runs: 2141, avg: 45.55, sr: 171.55, hs: "117" } },
+                    { id: "ind2", name: "Jasprit Bumrah", role: "Bowler", image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80", stats: { matches: 62, wickets: 74, eco: 6.55, best: "3/11", sr: 18.2 } }
+                ]
+            },
+            "AUS": {
+                name: "Australia",
+                flag: "https://flagcdn.com/w320/au.png",
+                players: [
+                    { id: "aus1", name: "Travis Head", role: "Batter", image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80", stats: { matches: 26, runs: 656, avg: 29.81, sr: 147.08, hs: "91" } },
+                    { id: "aus2", name: "Pat Cummins", role: "Bowler", image: "https://images.unsplash.com/photo-1587280501635-a19e9eb0eb62?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80", stats: { matches: 52, wickets: 57, eco: 7.42, best: "3/15", sr: 19.8 } }
+                ]
+            },
+            "SA": {
+                name: "South Africa",
+                flag: "https://flagcdn.com/w320/za.png",
+                players: [
+                    { id: "sa1", name: "Heinrich Klaasen", role: "Wicketkeeper Batter", image: "https://images.unsplash.com/photo-1593341646782-e0b495cff86d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80", stats: { matches: 43, runs: 722, avg: 22.56, sr: 142.12, hs: "81" } },
+                    { id: "sa2", name: "Kagiso Rabada", role: "Bowler", image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80", stats: { matches: 60, wickets: 58, eco: 8.52, best: "3/20", sr: 21.4 } }
+                ]
+            }
+        };
+
+        // State Trackers
+        let currentView = 'teams'; // 'teams', 'players', or 'stats'
+        let selectedTeam = null;
+
+        const container = document.getElementById('dynamic-container');
+        const pageTitle = document.getElementById('page-title');
+        const backBtn = document.getElementById('back-btn');
+
+        // 1. Show Teams (Flags)
+        function showTeams() {
+            currentView = 'teams';
+            selectedTeam = null;
+            pageTitle.innerText = "Select a Team";
+            backBtn.style.display = "none";
+            container.innerHTML = '';
+            container.className = 'news-grid'; // Use grid layout
+
+            for (const teamKey in statsDatabase) {
+                const team = statsDatabase[teamKey];
+                container.innerHTML += `
+                    <div class="team-card card" style="text-align: center; cursor: pointer;" onclick="showPlayers('${teamKey}')">
+                        <img src="${team.flag}" alt="${team.name} Flag" style="width: 150px; border-radius: 8px; margin-bottom: 15px; border: 2px solid var(--accent-blue);">
+                        <h3 style="color: var(--text-bright);">${team.name}</h3>
+                    </div>
+                `;
+            }
+        }
+
+        // 2. Show Players for a Specific Team
+        function showPlayers(teamKey) {
+            currentView = 'players';
+            selectedTeam = teamKey;
+            const team = statsDatabase[teamKey];
+            
+            pageTitle.innerText = `${team.name} Squad`;
+            backBtn.style.display = "inline-block";
+            container.innerHTML = '';
+            container.className = 'news-grid'; 
+
+            team.players.forEach((player, index) => {
+                container.innerHTML += `
+                    <div class="player-card card" style="cursor: pointer; text-align: center;" onclick="showPlayerStats('${teamKey}', ${index})">
+                        <img src="${player.image}" alt="Player" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-neon); margin-bottom: 15px;">
+                        <h3 style="color: var(--text-bright);">${player.name}</h3>
+                        <p style="color: var(--text-dim);">${player.role}</p>
+                    </div>
+                `;
+            });
+        }
+
+        // 3. Show Specific Player Stats
+        function showPlayerStats(teamKey, playerIndex) {
+            currentView = 'stats';
+            const player = statsDatabase[teamKey].players[playerIndex];
+            
+            pageTitle.innerText = `${player.name} - T20I Stats`;
+            container.innerHTML = '';
+            container.className = ''; // Remove grid layout for a single wide view
+
+            // Check if batter or bowler to show correct stats
+            let statsHtml = '';
+            if (player.stats.runs) {
+                // Batter Stats
+                statsHtml = `
+                    <div class="stat-box"><h4>Matches</h4><p>${player.stats.matches}</p></div>
+                    <div class="stat-box"><h4>Runs</h4><p>${player.stats.runs}</p></div>
+                    <div class="stat-box"><h4>Average</h4><p>${player.stats.avg}</p></div>
+                    <div class="stat-box"><h4>Strike Rate</h4><p>${player.stats.sr}</p></div>
+                    <div class="stat-box"><h4>High Score</h4><p>${player.stats.hs}</p></div>
+                `;
+            } else {
+                // Bowler Stats
+                statsHtml = `
+                    <div class="stat-box"><h4>Matches</h4><p>${player.stats.matches}</p></div>
+                    <div class="stat-box"><h4>Wickets</h4><p>${player.stats.wickets}</p></div>
+                    <div class="stat-box"><h4>Economy</h4><p>${player.stats.eco}</p></div>
+                    <div class="stat-box"><h4>Strike Rate</h4><p>${player.stats.sr}</p></div>
+                    <div class="stat-box"><h4>Best Bowing</h4><p>${player.stats.best}</p></div>
+                `;
+            }
+
+            container.innerHTML = `
+                <div class="card" style="display: flex; flex-direction: column; align-items: center; padding: 40px;">
+                    <img src="${player.image}" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-blue); margin-bottom: 20px;">
+                    <h2 style="color: var(--accent-neon); margin-bottom: 5px;">${player.name}</h2>
+                    <p style="color: var(--text-dim); margin-bottom: 30px; font-size: 1.2rem;">${player.role}</p>
+                    
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; width: 100%;">
+                        ${statsHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Handle the Back Button Logic
+        function goBack() {
+            if (currentView === 'stats') {
+                showPlayers(selectedTeam); // Go back to players list
+            } else if (currentView === 'players') {
+                showTeams(); // Go back to teams list
+            }
+        }
+
+        // Initialize by showing teams when the page loads
+        document.addEventListener('DOMContentLoaded', showTeams);
+    </script>
+</body>
+</html>
