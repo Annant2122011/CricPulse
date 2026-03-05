@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CricPulse | The Heartbeat of Cricket</title>
+    <style>
+        /* CSS Styles */
+        :root {
+            --primary-color: #1e3a8a; /* Deep Blue */
+            --secondary-color: #10b981; /* Cricket Grass Green */
+            --text-dark: #333;
+            --text-light: #f3f4f6;
+            --bg-light: #f9fafb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Live Score Ticker */
+        .score-ticker {
+            background-color: #111;
+            color: #fff;
+            padding: 10px 5%;
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .score-ticker::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        .match-card {
+            background: #222;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border-left: 4px solid var(--secondary-color);
+            min-width: 250px;
+        }
+
+        .match-status {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        .btn {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0d9668;
+        }
+
+        /* Main Content - News Grid */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .news-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-img {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 15px;
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #ccc;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Cric<span>Pulse</span></a>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Live Scores</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Teams</a></li>
+                <li><a href="#">Stats</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="score-ticker">
+        <div class="match-card">
+            <div class="match-status">LIVE • T20 World Cup</div>
+            <div><strong>IND</strong> 185/4 (20.0)</div>
+            <div><strong>AUS</strong> 112/3 (12.4)</div>
+            <div style="font-size: 0.8rem; margin-top: 5px;">AUS need 74 runs in 44 balls</div>
+        </div>
+        <div class="match-card">
+            <div class="match-status">RESULT • Test Match</div>
+            <div><strong>ENG</strong> 345 & 210</div>
+            <div><strong>SA</strong> 290 & 266/8</div>
+            <div style="font-size: 0.8rem; margin-top: 5px;">SA won by 2 wickets</div>
+        </div>
+        <div class="match-card">
+            <div class="match-status">UPCOMING • ODI Series</div>
+            <div><strong>NZ</strong> vs <strong>PAK</strong></div>
+            <div style="font-size: 0.8rem; margin-top: 5px;">Starts in 2 hours</div>
+        </div>
+    </div>
+
+    <section class="hero">
+        <h1>Welcome to CricPulse</h1>
+        <p>Your ultimate destination for live cricket scores, breaking news, in-depth analysis, and exclusive stats.</p>
+        <a href="#" class="btn">View Live Matches</a>
+    </section>
+
+    <main class="container">
+        <h2 class="section-title">Top Stories</h2>
+        <div class="news-grid">
+            <article class="news-card">
+                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Cricket Stadium" class="news-img">
+                <div class="news-content">
+                    <h3 class="news-title">Historic Chase: Century Seals the Series</h3>
+                    <p>An unbelievable innings under pressure as the captain leads from the front to secure a thrilling victory in the final over.</p>
+                </div>
+            </article>
+            <article class="news-card">
+                <img src="https://images.unsplash.com/photo-1593341646782-e0b495cff86d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Cricket Batting" class="news-img">
+                <div class="news-content">
+                    <h3 class="news-title">Pace Battery: The New Era of Fast Bowling</h3>
+                    <p>Analyzing the upcoming young pacers who are consistently clocking 150+ kmph and rattling batting orders worldwide.</p>
+                </div>
+            </article>
+            <article class="news-card">
+                <img src="https://images.unsplash.com/photo-1587280501635-a19e9eb0eb62?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Cricket Ball" class="news-img">
+                <div class="news-content">
+                    <h3 class="news-title">Upcoming Tournament: Squads Announced</h3>
+                    <p>All teams have finalized their 15-man squads for the upcoming championship. Here are the surprise inclusions and omissions.</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CricPulse. All rights reserved. The Heartbeat of Cricket.</p>
+    </footer>
+
+</body>
+</html>
