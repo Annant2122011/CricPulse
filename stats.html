@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Stats | CricPulse</title>
+    <title>T20 Player Stats | CricPulse</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
 
     <main class="container">
         <div id="stats-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-            <h2 class="section-title" id="page-title" style="margin-bottom: 0;">Select a Team</h2>
+            <h2 class="section-title" id="page-title" style="margin-bottom: 0;">Select a T20 Team</h2>
             <button id="back-btn" class="btn" style="display: none;" onclick="goBack()">&#8592; Back</button>
         </div>
 
@@ -35,36 +35,63 @@
     </footer>
 
     <script>
-        // Real-world T20I Player Data Database
+        // Real-World T20I Player Data Database (Playing 11s)
         const statsDatabase = {
             "IND": {
                 name: "India",
                 flag: "https://flagcdn.com/w320/in.png",
                 players: [
-                    { id: "ind1", name: "Suryakumar Yadav", role: "Batter", image: "https://images.unsplash.com/photo-1593341646782-e0b495cff86d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80", stats: { matches: 60, runs: 2141, avg: 45.55, sr: 171.55, hs: "117" } },
-                    { id: "ind2", name: "Jasprit Bumrah", role: "Bowler", image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80", stats: { matches: 62, wickets: 74, eco: 6.55, best: "3/11", sr: 18.2 } }
+                    { id: "ind1", name: "Rohit Sharma", role: "Batter", image: "#", stats: { matches: 159, runs: 4231, avg: 32.05, sr: 140.89, hs: "121*" } },
+                    { id: "ind2", name: "Virat Kohli", role: "Batter", image: "#", stats: { matches: 125, runs: 4188, avg: 48.69, sr: 137.04, hs: "122*" } },
+                    { id: "ind3", name: "Suryakumar Yadav", role: "Batter", image: "#", stats: { matches: 71, runs: 2432, avg: 42.66, sr: 167.72, hs: "117" } },
+                    { id: "ind4", name: "Rishabh Pant", role: "Wicketkeeper Batter", image: "#", stats: { matches: 76, runs: 1209, avg: 23.25, sr: 127.26, hs: "65*" } },
+                    { id: "ind5", name: "Hardik Pandya", role: "All-Rounder", image: "#", stats: { matches: 100, runs: 1492, avg: 26.60, sr: 140.50, hs: "71*" } },
+                    { id: "ind6", name: "Shivam Dube", role: "Batter", image: "#", stats: { matches: 33, runs: 448, avg: 32.00, sr: 135.50, hs: "63*" } },
+                    { id: "ind7", name: "Ravindra Jadeja", role: "All-Rounder", image: "#", stats: { matches: 74, wickets: 53, eco: 7.13, best: "3/15", sr: 23.5 } },
+                    { id: "ind8", name: "Axar Patel", role: "Bowler", image: "#", stats: { matches: 60, wickets: 49, eco: 7.36, best: "3/9", sr: 13.8 } },
+                    { id: "ind9", name: "Kuldeep Yadav", role: "Bowler", image: "#", stats: { matches: 40, wickets: 69, eco: 6.77, best: "5/17", sr: 12.5 } },
+                    { id: "ind10", name: "Jasprit Bumrah", role: "Bowler", image: "#", stats: { matches: 70, wickets: 89, eco: 6.27, best: "3/7", sr: 17.4 } },
+                    { id: "ind11", name: "Arshdeep Singh", role: "Bowler", image: "#", stats: { matches: 56, wickets: 87, eco: 8.28, best: "4/9", sr: 13.3 } }
                 ]
             },
             "AUS": {
                 name: "Australia",
                 flag: "https://flagcdn.com/w320/au.png",
                 players: [
-                    { id: "aus1", name: "Travis Head", role: "Batter", image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80", stats: { matches: 26, runs: 656, avg: 29.81, sr: 147.08, hs: "91" } },
-                    { id: "aus2", name: "Pat Cummins", role: "Bowler", image: "https://images.unsplash.com/photo-1587280501635-a19e9eb0eb62?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80", stats: { matches: 52, wickets: 57, eco: 7.42, best: "3/15", sr: 19.8 } }
+                    { id: "aus1", name: "Travis Head", role: "Batter", image: "#", stats: { matches: 38, runs: 911, avg: 32.53, sr: 156.26, hs: "91" } },
+                    { id: "aus2", name: "David Warner", role: "Batter", image: "#", stats: { matches: 110, runs: 3277, avg: 33.43, sr: 142.47, hs: "100*" } },
+                    { id: "aus3", name: "Mitchell Marsh", role: "Batter", image: "#", stats: { matches: 63, runs: 1559, avg: 33.17, sr: 135.21, hs: "92*" } },
+                    { id: "aus4", name: "Glenn Maxwell", role: "All-Rounder", image: "#", stats: { matches: 113, runs: 2600, avg: 29.88, sr: 155.50, hs: "145*" } },
+                    { id: "aus5", name: "Marcus Stoinis", role: "All-Rounder", image: "#", stats: { matches: 69, runs: 1116, avg: 30.16, sr: 147.61, hs: "59*" } },
+                    { id: "aus6", name: "Tim David", role: "Batter", image: "#", stats: { matches: 46, runs: 1136, avg: 35.50, sr: 163.50, hs: "64" } },
+                    { id: "aus7", name: "Matthew Wade", role: "Wicketkeeper Batter", image: "#", stats: { matches: 92, runs: 1202, avg: 26.13, sr: 134.15, hs: "80" } },
+                    { id: "aus8", name: "Pat Cummins", role: "Bowler", image: "#", stats: { matches: 57, wickets: 66, eco: 7.47, best: "3/15", sr: 19.1 } },
+                    { id: "aus9", name: "Mitchell Starc", role: "Bowler", image: "#", stats: { matches: 65, wickets: 79, eco: 7.72, best: "4/20", sr: 18.6 } },
+                    { id: "aus10", name: "Adam Zampa", role: "Bowler", image: "#", stats: { matches: 88, wickets: 105, eco: 7.20, best: "5/19", sr: 18.4 } },
+                    { id: "aus11", name: "Josh Hazlewood", role: "Bowler", image: "#", stats: { matches: 51, wickets: 65, eco: 7.68, best: "4/12", sr: 17.5 } }
                 ]
             },
             "SA": {
                 name: "South Africa",
                 flag: "https://flagcdn.com/w320/za.png",
                 players: [
-                    { id: "sa1", name: "Heinrich Klaasen", role: "Wicketkeeper Batter", image: "https://images.unsplash.com/photo-1593341646782-e0b495cff86d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80", stats: { matches: 43, runs: 722, avg: 22.56, sr: 142.12, hs: "81" } },
-                    { id: "sa2", name: "Kagiso Rabada", role: "Bowler", image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80", stats: { matches: 60, wickets: 58, eco: 8.52, best: "3/20", sr: 21.4 } }
+                    { id: "sa1", name: "Quinton de Kock", role: "Wicketkeeper Batter", image: "#", stats: { matches: 92, runs: 2584, avg: 31.51, sr: 138.32, hs: "100" } },
+                    { id: "sa2", name: "Reeza Hendricks", role: "Batter", image: "#", stats: { matches: 71, runs: 2050, avg: 30.59, sr: 129.58, hs: "87" } },
+                    { id: "sa3", name: "Aiden Markram", role: "Batter", image: "#", stats: { matches: 50, runs: 1202, avg: 33.38, sr: 144.12, hs: "70" } },
+                    { id: "sa4", name: "Heinrich Klaasen", role: "Wicketkeeper Batter", image: "#", stats: { matches: 52, runs: 860, avg: 22.63, sr: 142.38, hs: "81" } },
+                    { id: "sa5", name: "David Miller", role: "Batter", image: "#", stats: { matches: 125, runs: 2437, avg: 35.83, sr: 144.54, hs: "106*" } },
+                    { id: "sa6", name: "Tristan Stubbs", role: "Batter", image: "#", stats: { matches: 27, runs: 404, avg: 22.44, sr: 145.32, hs: "76" } },
+                    { id: "sa7", name: "Marco Jansen", role: "All-Rounder", image: "#", stats: { matches: 18, wickets: 22, eco: 8.86, best: "3/25", sr: 19.5 } },
+                    { id: "sa8", name: "Keshav Maharaj", role: "Bowler", image: "#", stats: { matches: 33, wickets: 32, eco: 7.20, best: "3/27", sr: 20.1 } },
+                    { id: "sa9", name: "Kagiso Rabada", role: "Bowler", image: "#", stats: { matches: 65, wickets: 71, eco: 8.50, best: "3/20", sr: 19.5 } },
+                    { id: "sa10", name: "Anrich Nortje", role: "Bowler", image: "#", stats: { matches: 38, wickets: 53, eco: 7.14, best: "4/7", sr: 15.6 } },
+                    { id: "sa11", name: "Tabraiz Shamsi", role: "Bowler", image: "#", stats: { matches: 70, wickets: 89, eco: 7.39, best: "5/24", sr: 17.7 } }
                 ]
             }
         };
 
         // State Trackers
-        let currentView = 'teams'; // 'teams', 'players', or 'stats'
+        let currentView = 'teams'; 
         let selectedTeam = null;
 
         const container = document.getElementById('dynamic-container');
@@ -75,10 +102,10 @@
         function showTeams() {
             currentView = 'teams';
             selectedTeam = null;
-            pageTitle.innerText = "Select a Team";
+            pageTitle.innerText = "Select a T20 Team";
             backBtn.style.display = "none";
             container.innerHTML = '';
-            container.className = 'news-grid'; // Use grid layout
+            container.className = 'news-grid'; 
 
             for (const teamKey in statsDatabase) {
                 const team = statsDatabase[teamKey];
@@ -97,15 +124,20 @@
             selectedTeam = teamKey;
             const team = statsDatabase[teamKey];
             
-            pageTitle.innerText = `${team.name} Squad`;
+            pageTitle.innerText = `${team.name} T20 Squad`;
             backBtn.style.display = "inline-block";
             container.innerHTML = '';
             container.className = 'news-grid'; 
 
             team.players.forEach((player, index) => {
+                const initial = player.name.charAt(0);
+                const imageHtml = player.image === "#" 
+                    ? `<div style="width: 100px; height: 100px; border-radius: 50%; background-color: var(--accent-blue); color: var(--bg-main); font-size: 2.5rem; font-weight: bold; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; border: 3px solid var(--accent-neon);">${initial}</div>`
+                    : `<img src="${player.image}" alt="Player" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-neon); margin-bottom: 15px;">`;
+
                 container.innerHTML += `
                     <div class="player-card card" style="cursor: pointer; text-align: center;" onclick="showPlayerStats('${teamKey}', ${index})">
-                        <img src="${player.image}" alt="Player" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-neon); margin-bottom: 15px;">
+                        ${imageHtml}
                         <h3 style="color: var(--text-bright);">${player.name}</h3>
                         <p style="color: var(--text-dim);">${player.role}</p>
                     </div>
@@ -120,12 +152,10 @@
             
             pageTitle.innerText = `${player.name} - T20I Stats`;
             container.innerHTML = '';
-            container.className = ''; // Remove grid layout for a single wide view
+            container.className = ''; 
 
-            // Check if batter or bowler to show correct stats
             let statsHtml = '';
-            if (player.stats.runs) {
-                // Batter Stats
+            if (player.stats.runs !== undefined) {
                 statsHtml = `
                     <div class="stat-box"><h4>Matches</h4><p>${player.stats.matches}</p></div>
                     <div class="stat-box"><h4>Runs</h4><p>${player.stats.runs}</p></div>
@@ -134,19 +164,23 @@
                     <div class="stat-box"><h4>High Score</h4><p>${player.stats.hs}</p></div>
                 `;
             } else {
-                // Bowler Stats
                 statsHtml = `
                     <div class="stat-box"><h4>Matches</h4><p>${player.stats.matches}</p></div>
                     <div class="stat-box"><h4>Wickets</h4><p>${player.stats.wickets}</p></div>
                     <div class="stat-box"><h4>Economy</h4><p>${player.stats.eco}</p></div>
                     <div class="stat-box"><h4>Strike Rate</h4><p>${player.stats.sr}</p></div>
-                    <div class="stat-box"><h4>Best Bowing</h4><p>${player.stats.best}</p></div>
+                    <div class="stat-box"><h4>Best Bowling</h4><p>${player.stats.best}</p></div>
                 `;
             }
 
+            const initial = player.name.charAt(0);
+            const imageHtml = player.image === "#" 
+                ? `<div style="width: 150px; height: 150px; border-radius: 50%; background-color: var(--accent-blue); color: var(--bg-main); font-size: 4rem; font-weight: bold; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 4px solid var(--accent-neon);">${initial}</div>`
+                : `<img src="${player.image}" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-blue); margin-bottom: 20px;">`;
+
             container.innerHTML = `
                 <div class="card" style="display: flex; flex-direction: column; align-items: center; padding: 40px;">
-                    <img src="${player.image}" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-blue); margin-bottom: 20px;">
+                    ${imageHtml}
                     <h2 style="color: var(--accent-neon); margin-bottom: 5px;">${player.name}</h2>
                     <p style="color: var(--text-dim); margin-bottom: 30px; font-size: 1.2rem;">${player.role}</p>
                     
@@ -160,13 +194,13 @@
         // Handle the Back Button Logic
         function goBack() {
             if (currentView === 'stats') {
-                showPlayers(selectedTeam); // Go back to players list
+                showPlayers(selectedTeam);
             } else if (currentView === 'players') {
-                showTeams(); // Go back to teams list
+                showTeams();
             }
         }
 
-        // Initialize by showing teams when the page loads
+        // Initialize
         document.addEventListener('DOMContentLoaded', showTeams);
     </script>
 </body>
