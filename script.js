@@ -3,14 +3,16 @@
 // 1. Ticker Match Data
 // 1. Ticker Match Data
 let matches = [
+    // 1. Ticker Match Data
+
     // Upcoming match moved to the very first spot!
     { id: 1, status: "UPCOMING • T20 World Cup SF 2", team1: "IND", score1: "Yet to bat", overs1: "", team2: "ENG", score2: "Yet to bat", overs2: "", note: "Starts today at 7:00 PM IST" },
     
     // SF 1 Result
     { id: 2, status: "RESULT • T20 World Cup SF 1", team1: "SA", score1: "169/8", overs1: "(20.0)", team2: "NZ", score2: "173/1", overs2: "(12.5)", note: "NZ won by 9 wickets" },
     
-    // Added an actual Super 8 blockbuster to replace the fake LIVE match
-    { id: 3, status: "RESULT • T20 World Cup Super 8", team1: "IND", score1: "205/5", overs1: "(20.0)", team2: "AUS", score2: "181/7", overs2: "(20.0)", note: "IND won by 24 runs" },
+    // SA vs ZIM Super 8 Result (Replacing IND vs AUS)
+    { id: 3, status: "RESULT • T20 World Cup Super 8", team1: "ZIM", score1: "153/7", overs1: "(20.0)", team2: "SA", score2: "154/5", overs2: "(17.5)", note: "SA won by 5 wickets" },
     
     // WI vs IND Super 8 Result
     { id: 4, status: "RESULT • T20 World Cup Super 8", team1: "WI", score1: "195/4", overs1: "(20.0)", team2: "IND", score2: "199/5", overs2: "(19.2)", note: "IND won by 5 wickets" }
