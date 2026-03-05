@@ -439,3 +439,38 @@ footer {
     cursor: pointer;
     font-weight: bold;
 }
+/* Stats Page specific styles */
+.team-card, .player-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover, .player-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 255, 136, 0.2);
+    border-color: var(--accent-neon);
+}
+
+.stat-box {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    min-width: 120px;
+    flex: 1;
+}
+
+.stat-box h4 {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.stat-box p {
+    color: var(--text-bright);
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-blue);
+}
