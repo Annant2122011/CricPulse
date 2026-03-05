@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Match Center | CricPulse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Cric<span>Pulse</span></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="match-center.html" style="color: var(--accent-neon);">Live Center</a></li>
+                <li><a href="#">Rankings</a></li>
+                <li><a href="#">Teams</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="match-dashboard">
+            
+            <div class="dashboard-left">
+                <div class="match-header card">
+                    <span class="live-dot"></span><span style="color: var(--accent-neon); font-weight: bold;">LIVE • T20 World Cup SF 2</span>
+                    <h2>IND 199/5 <span style="font-size: 1.2rem; color: var(--text-dim);">(19.2 Ov)</span></h2>
+                    <p>ENG Yet to bat</p>
+                    <p style="color: var(--accent-blue); margin-top: 10px;">CRR: 10.29</p>
+                </div>
+
+                <div class="tabs card">
+                    <button class="tab-btn active" onclick="showTab('scorecard')">Scorecard</button>
+                    <button class="tab-btn" onclick="showTab('commentary')">Commentary</button>
+                </div>
+
+                <div id="scorecard" class="tab-content active card">
+                    <table class="points-table">
+                        <thead>
+                            <tr>
+                                <th>Batter</th>
+                                <th>R</th>
+                                <th>B</th>
+                                <th>4s</th>
+                                <th>6s</th>
+                                <th>SR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>H. Pandya</strong>*</td>
+                                <td>42</td>
+                                <td>20</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>210.00</td>
+                            </tr>
+                            <tr>
+                                <td><strong>R. Jadeja</strong></td>
+                                <td>12</td>
+                                <td>8</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>150.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="commentary" class="tab-content card" style="display: none;">
+                    <div class="comm-ball">
+                        <strong>19.2</strong> <span class="badge run-6">6</span> 
+                        <p>Jofra Archer to Pandya, <strong>SIX!</strong> Absolute carnage! Length ball and Hardik smashes it over deep mid-wicket into the stands!</p>
+                    </div>
+                    <div class="comm-ball">
+                        <strong>19.1</strong> <span class="badge run-1">1</span> 
+                        <p>Jofra Archer to Jadeja, 1 run. Yorker on the pads, clipped away to square leg.</p>
+                    </div>
+                    <div class="comm-ball">
+                        <strong>18.6</strong> <span class="badge wicket">W</span> 
+                        <p>Sam Curran to Suryakumar, <strong>OUT!</strong> Caught at long-on. Brilliant innings comes to an end.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-right card">
+                <h3 style="border-bottom: 2px solid var(--accent-neon); padding-bottom: 10px; margin-bottom: 15px;">Build Fantasy XI</h3>
+                <div class="budget-tracker">
+                    <span>Budget: <strong id="budget" style="color: var(--accent-neon);">100</strong> Cr</span>
+                    <span>Selected: <strong id="player-count">0</strong>/11</span>
+                </div>
+                
+                <ul class="fantasy-list">
+                    <li class="fantasy-player" onclick="togglePlayer(this, 10.5)">
+                        <div><strong>J. Buttler (WK)</strong> <br><span style="font-size: 0.8rem; color: var(--text-dim);">ENG</span></div>
+                        <div>10.5 Cr <button class="pick-btn">+</button></div>
+                    </li>
+                    <li class="fantasy-player" onclick="togglePlayer(this, 10.0)">
+                        <div><strong>S. Yadav (BAT)</strong> <br><span style="font-size: 0.8rem; color: var(--text-dim);">IND</span></div>
+                        <div>10.0 Cr <button class="pick-btn">+</button></div>
+                    </li>
+                    <li class="fantasy-player" onclick="togglePlayer(this, 9.5)">
+                        <div><strong>H. Pandya (ALL)</strong> <br><span style="font-size: 0.8rem; color: var(--text-dim);">IND</span></div>
+                        <div>9.5 Cr <button class="pick-btn">+</button></div>
+                    </li>
+                    <li class="fantasy-player" onclick="togglePlayer(this, 9.0)">
+                        <div><strong>J. Archer (BOWL)</strong> <br><span style="font-size: 0.8rem; color: var(--text-dim);">ENG</span></div>
+                        <div>9.0 Cr <button class="pick-btn">+</button></div>
+                    </li>
+                </ul>
+                <button class="btn" style="width: 100%; margin-top: 20px;">Save Team</button>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Tab Switching Logic
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).style.display = 'block';
+            event.target.classList.add('active');
+        }
+
+        // Fantasy Builder Logic
+        let budget = 100.0;
+        let selectedCount = 0;
+
+        function togglePlayer(element, cost) {
+            const isSelected = element.classList.contains('selected');
+            const btn = element.querySelector('.pick-btn');
+
+            if (isSelected) {
+                element.classList.remove('selected');
+                budget += cost;
+                selectedCount--;
+                btn.innerText = '+';
+                btn.style.background = 'transparent';
+            } else {
+                if (selectedCount >= 11) return alert("You already have 11 players!");
+                if (budget - cost < 0) return alert("Not enough budget!");
+                
+                element.classList.add('selected');
+                budget -= cost;
+                selectedCount++;
+                btn.innerText = '✓';
+                btn.style.background = 'var(--accent-neon)';
+                btn.style.color = '#000';
+            }
+
+            document.getElementById('budget').innerText = budget.toFixed(1);
+            document.getElementById('player-count').innerText = selectedCount;
+        }
+    </script>
+</body>
+</html>
