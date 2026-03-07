@@ -1159,3 +1159,29 @@ footer {
 .ultra-modal-body-text { padding: 30px 40px 40px 40px; }
 .ultra-modal-body-text p { color: #cbd5e1; font-size: 1.15rem; line-height: 1.8; margin-bottom: 20px; }
 .ultra-modal-body-text p:last-child { margin-bottom: 0; }
+/* Navigation */
+.logo {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-bright);
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: flex;         /* Added to align image and text horizontally */
+    align-items: center;   /* Centers them perfectly */
+    gap: 12px;             /* Adds breathing room between the image and the text */
+}
+
+.logo span {
+    color: var(--accent-neon);
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.4); 
+}
+
+/* THE NEW CIRCULAR LOGO IMAGE */
+.logo-img {
+    width: 45px;                 /* Perfect size for a navbar */
+    height: 45px;                /* Must match width for a perfect circle */
+    border-radius: 50%;          /* This forces the square image into a perfect circle! */
+    object-fit: cover;           /* Prevents the image from stretching or squishing */
+    border: 2px solid var(--accent-neon); /* Adds a slick neon border around the circle */
+    box-shadow: 0 0 12px rgba(0, 255, 136, 0.5); /* Gives the logo a glowing effect */
+}
