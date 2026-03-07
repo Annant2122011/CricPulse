@@ -13,7 +13,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="news.html" style="color: var(--accent-neon); border-bottom: 2px solid var(--accent-neon); padding-bottom: 5px;">News</a></li>
+                <li><a href="news.html" class="active-nav">News</a></li>
                 <li><a href="stats.html">Stats</a></li>
                 <li><a href="match-center.html">Fun-Gun</a></li>
             </ul>
@@ -21,31 +21,27 @@
     </header>
 
     <main class="container">
-        <div style="text-align: center; margin-bottom: 50px; margin-top: 30px; animation: fadeInDown 0.8s ease;">
-            <h1 style="font-size: 3.5rem; color: var(--text-bright); text-shadow: 0 0 20px rgba(0, 210, 255, 0.4); text-transform: uppercase; letter-spacing: 2px;">
-                The <span style="color: var(--accent-blue);">Pulse</span> Desk
-            </h1>
-            <p style="color: var(--text-dim); font-size: 1.2rem; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px;">
-                Elite Insights • Deep Dives • Breaking Stories
-            </p>
+        <div class="ultra-news-header">
+            <h1>The <span>Pulse</span> Desk</h1>
+            <p>Elite Insights • Deep Dives • Breaking Stories</p>
         </div>
 
         <div class="ultra-news-grid" id="news-container">
             </div>
     </main>
 
-    <div id="ultra-modal" class="modal">
-        <div class="modal-content ultra-modal-content">
-            <span class="close-btn" onclick="closeUltraModal()">&times;</span>
+    <div id="ultra-modal" class="ultra-modal-wrapper">
+        <div class="ultra-modal-box">
+            <span class="ultra-close-btn" onclick="closeUltraModal()">&times;</span>
             
             <div class="ultra-modal-header">
-                <span id="ultra-modal-tag" class="news-tag">TAG</span>
+                <span id="ultra-modal-tag" class="ultra-news-tag">TAG</span>
                 <h2 id="ultra-modal-title">Title Here</h2>
             </div>
             
-            <img id="ultra-modal-img" src="" alt="News Image" class="ultra-modal-img">
+            <img id="ultra-modal-img" src="" alt="News Image" class="ultra-modal-hero-img">
             
-            <div id="ultra-modal-body" class="ultra-modal-text">
+            <div id="ultra-modal-body" class="ultra-modal-body-text">
                 </div>
         </div>
     </div>
@@ -55,7 +51,6 @@
     </footer>
 
     <script>
-        // Safe placeholder image
         const safePlaceholder = "https://via.placeholder.com/600x350/121926/00d2ff?text=Image+Coming+Soon";
 
         const newsDatabase = [
@@ -141,17 +136,16 @@
             let htmlContent = '';
 
             newsDatabase.forEach(news => {
-                // Added a sleek "Read Article ➔" button to the bottom of the card content!
                 htmlContent += `
-                    <article class="news-card" onclick="openUltraModal(${news.id})">
-                        <div class="news-img-placeholder">
-                            <img src="${news.img}" alt="News Placeholder" class="news-img">
+                    <article class="ultra-news-card" onclick="openUltraModal(${news.id})">
+                        <div class="ultra-news-img-placeholder">
+                            <img src="${news.img}" alt="News Placeholder" class="ultra-news-img">
                         </div>
-                        <div class="news-content">
-                            <span class="news-tag">${news.tag}</span>
-                            <h3 class="news-title">${news.title}</h3>
+                        <div class="ultra-news-content">
+                            <span class="ultra-news-tag">${news.tag}</span>
+                            <h3 class="ultra-news-title">${news.title}</h3>
                             <p>${news.desc}</p>
-                            <span style="color: var(--accent-blue); font-weight: bold; font-size: 0.9rem; margin-top: 15px; display: inline-block;">Read Article ➔</span>
+                            <span class="ultra-read-more">Read Article ➔</span>
                         </div>
                     </article>
                 `;
@@ -168,18 +162,18 @@
                 document.getElementById('ultra-modal-img').src = article.img;
                 document.getElementById('ultra-modal-body').innerHTML = article.body;
                 
-                // Uses the smooth fade-in CSS from your style.css!
                 const modal = document.getElementById('ultra-modal');
                 modal.style.display = 'flex';
-                setTimeout(() => modal.classList.add('show'), 10);
+                // Trigger animation frame
+                setTimeout(() => { modal.classList.add('show-modal'); }, 10);
                 document.body.style.overflow = 'hidden'; 
             }
         }
 
         function closeUltraModal() {
             const modal = document.getElementById('ultra-modal');
-            modal.classList.remove('show');
-            setTimeout(() => { modal.style.display = 'none'; }, 300);
+            modal.classList.remove('show-modal');
+            setTimeout(() => { modal.style.display = 'none'; }, 300); // Wait for fade out
             document.body.style.overflow = 'auto'; 
         }
 
@@ -191,7 +185,6 @@
             }
         }
 
-        // Execute on load
         window.onload = loadNewsCards;
     </script>
 </body>
