@@ -1,35 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>T20 Player Stats | CricPulse</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Smooth transition animations for dynamically loaded cards */
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-card {
+            animation: slideUpFade 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            opacity: 0; /* Starts hidden until animation takes over */
+        }
+
+        /* Enhanced Back Button */
+        .neon-back-btn {
+            background: linear-gradient(45deg, #121926, #0a0e17);
+            color: var(--accent-blue);
+            border: 1px solid var(--accent-blue);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+        }
+
+        .neon-back-btn:hover {
+            background: var(--accent-blue);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+            transform: translateX(-5px); /* Slides left slightly on hover */
+        }
+        
+        /* Auto-Avatar styling */
+        .player-img-fill {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
 
     <header>
-       <a href="index.html" class="logo-wrapper">
-            <img src="https://i.ibb.co/pB2vXvL1/Cric-Pulse-Logo.jpg" alt="CricPulse Logo" class="logo-img">
+       <a href="index.html" class="logo">
+            <div class="logo-wrapper">
+                <img src="https://i.ibb.co/pB2vXvL1/Cric-Pulse-Logo.jpg" alt="CricPulse Logo" class="logo-img">
+            </div>
             Cric<span>Pulse</span>
         </a>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                  <li><a href="news.html">News</a></li>
-                <li><a href="stats.html" style="color: var(--accent-neon);">Stats</a></li>
+                <li><a href="stats.html" style="color: var(--accent-neon); border-bottom: 2px solid var(--accent-neon); padding-bottom: 5px;">Stats</a></li>
                   <li><a href="match-center.html">Fun-Gun</a></li>
-              
             </ul>
         </nav>
     </header>
 
     <main class="container">
-        <div id="stats-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-            <h2 class="section-title" id="page-title" style="margin-bottom: 0;">Select a T20 Team</h2>
-            <button id="back-btn" class="btn" style="display: none;" onclick="goBack()">&#8592; Back</button>
+        <div style="text-align: center; margin-bottom: 40px; margin-top: 20px; animation: slideUpFade 0.8s ease;">
+            <h1 style="font-size: 3rem; color: var(--text-bright); text-shadow: 0 0 20px rgba(0, 210, 255, 0.4); text-transform: uppercase; letter-spacing: 2px;">
+                T20 <span style="color: var(--accent-blue);">Database</span>
+            </h1>
+        </div>
+
+        <div id="stats-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px;">
+            <h2 class="section-title" id="page-title" style="margin-bottom: 0; border: none;">Select a T20 Team</h2>
+            <button id="back-btn" class="neon-back-btn" style="display: none;" onclick="goBack()">&#8592; Return</button>
         </div>
 
         <div id="dynamic-container" class="news-grid">
@@ -37,7 +85,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 CricPulse. All rights reserved.</p>
+        <p>&copy; 2026 CricPulse. All rights reserved. The Heartbeat of Cricket.</p>
     </footer>
 
     <script>
@@ -48,53 +96,68 @@
                 name: "India",
                 flag: "https://flagcdn.com/w320/in.png",
                 players: [
-                   
-            // Playing 11 (vs England, Semi-final 2)
-            { id: "ind1", name: "Abhishek Sharma", role: "Batter", image: "#", stats: { matches: 44, runs: 1377, avg: 33.59, sr: 189.41, hs: "135" }, radarStats: [92, 98, 75, 85, 95] },
-            { id: "ind2", name: "Sanju Samson", role: "WK Batter", image: "#", stats: { matches: 60, runs: 1221, avg: 25.98, sr: 151.87, hs: "111" }, radarStats: [88, 90, 70, 95, 92] },
-            { id: "ind3", name: "Ishan Kishan", role: "WK Batter", image: "#", stats: { matches: 40, runs: 950, avg: 25.5, sr: 135.8, hs: "89" }, radarStats: [80, 85, 75, 88, 85] },
-            { id: "ind4", name: "Suryakumar Yadav", role: "Batter (C)", image: "#", stats: { matches: 111, runs: 3261, avg: 37.06, sr: 162.97, hs: "117" }, radarStats: [98, 92, 85, 90, 95] },
-            { id: "ind5", name: "Tilak Varma", role: "Batter", image: "#", stats: { matches: 47, runs: 1361, avg: 45.37, sr: 144.48, hs: "120*" }, radarStats: [85, 80, 90, 88, 82] },
-            { id: "ind6", name: "Hardik Pandya", role: "All-Rounder", image: "#", stats: { matches: 136, runs: 2243, wickets: 111, avg: 28.39, sr: 145.37 }, radarStats: [90, 88, 80, 92, 90] },
-            { id: "ind7", name: "Shivam Dube", role: "All-Rounder", image: "#", stats: { matches: 37, runs: 922, wickets: 31, avg: 29.74, sr: 151.15, hs: "66" }, radarStats: [88, 92, 75, 90, 85] },
-            { id: "ind8", name: "Axar Patel", role: "All-Rounder (VC)", image: "#", stats: { matches: 92, wickets: 93, eco: 7.34, best: "3/9", sr: 17.72 }, radarStats: [85, 75, 92, 88, 70] },
-            { id: "ind9", name: "Varun Chakaravarthy", role: "Bowler", image: "#", stats: { matches: 24, wickets: 32, eco: 6.88, best: "5/17", sr: 15.2 }, radarStats: [85, 70, 85, 90, 95] },
-            { id: "ind10", name: "Arshdeep Singh", role: "Bowler", image: "#", stats: { matches: 82, wickets: 126, eco: 8.48, best: "5/51", sr: 13.59 }, radarStats: [90, 85, 75, 88, 80] },
-            { id: "ind11", name: "Jasprit Bumrah", role: "Bowler", image: "#", stats: { matches: 93, wickets: 116, eco: 6.53, best: "3/7", sr: 16.9 }, radarStats: [98, 85, 98, 95, 95] },
-           ]
+                    { id: "ind1", name: "Abhishek Sharma", role: "Batter", image: "#", stats: { matches: 44, runs: 1377, avg: 33.59, sr: 189.41, hs: "135" }, radarStats: [92, 98, 75, 85, 95] },
+                    { id: "ind2", name: "Sanju Samson", role: "WK Batter", image: "#", stats: { matches: 60, runs: 1221, avg: 25.98, sr: 151.87, hs: "111" }, radarStats: [88, 90, 70, 95, 92] },
+                    { id: "ind3", name: "Ishan Kishan", role: "WK Batter", image: "#", stats: { matches: 40, runs: 950, avg: 25.5, sr: 135.8, hs: "89" }, radarStats: [80, 85, 75, 88, 85] },
+                    { id: "ind4", name: "Suryakumar Yadav", role: "Batter (C)", image: "#", stats: { matches: 111, runs: 3261, avg: 37.06, sr: 162.97, hs: "117" }, radarStats: [98, 92, 85, 90, 95] },
+                    { id: "ind5", name: "Tilak Varma", role: "Batter", image: "#", stats: { matches: 47, runs: 1361, avg: 45.37, sr: 144.48, hs: "120*" }, radarStats: [85, 80, 90, 88, 82] },
+                    { id: "ind6", name: "Hardik Pandya", role: "All-Rounder", image: "#", stats: { matches: 136, runs: 2243, wickets: 111, avg: 28.39, sr: 145.37 }, radarStats: [90, 88, 80, 92, 90] },
+                    { id: "ind7", name: "Shivam Dube", role: "All-Rounder", image: "#", stats: { matches: 37, runs: 922, wickets: 31, avg: 29.74, sr: 151.15, hs: "66" }, radarStats: [88, 92, 75, 90, 85] },
+                    { id: "ind8", name: "Axar Patel", role: "All-Rounder (VC)", image: "#", stats: { matches: 92, wickets: 93, eco: 7.34, best: "3/9", sr: 17.72 }, radarStats: [85, 75, 92, 88, 70] },
+                    { id: "ind9", name: "Varun Chakaravarthy", role: "Bowler", image: "#", stats: { matches: 24, wickets: 32, eco: 6.88, best: "5/17", sr: 15.2 }, radarStats: [85, 70, 85, 90, 95] },
+                    { id: "ind10", name: "Arshdeep Singh", role: "Bowler", image: "#", stats: { matches: 82, wickets: 126, eco: 8.48, best: "5/51", sr: 13.59 }, radarStats: [90, 85, 75, 88, 80] },
+                    { id: "ind11", name: "Jasprit Bumrah", role: "Bowler", image: "https://content.api.news/v3/images/bin/82340bdf69ceba068032c8f2d76f52e0", stats: { matches: 93, wickets: 116, eco: 6.53, best: "3/7", sr: 16.9 }, radarStats: [98, 85, 98, 95, 95] },
+                ]
             },
             "SA": {
                 name: "South Africa",
                 flag: "https://flagcdn.com/w320/za.png",
                 players: [
-                   { id: "sa1", name: "Quinton de Kock", role: "WK Batter", image: "#", stats: { matches: 110, runs: 3095, avg: 30.95, sr: 142.23 }, radarStats: [90, 92, 75, 85, 88] },
-            { id: "sa2", name: "Ryan Rickelton", role: "Batter", image: "#", stats: { matches: 18, runs: 442, avg: 27.5, sr: 155.2 }, radarStats: [80, 88, 70, 85, 75] },
-            { id: "sa3", name: "Aiden Markram", role: "Batter (C)", image: "#", stats: { matches: 68, runs: 1642, avg: 32.8, sr: 146.2 }, radarStats: [88, 85, 80, 82, 80] },
-            { id: "sa4", name: "Dewald Brevis", role: "Batter", image: "#", stats: { matches: 12, runs: 284, avg: 25.8, sr: 168.4 }, radarStats: [85, 95, 60, 90, 92] },
-            { id: "sa5", name: "David Miller", role: "Batter", image: "#", stats: { matches: 134, runs: 2618, avg: 35.8, sr: 144.2 }, radarStats: [90, 85, 90, 85, 88] },
-            { id: "sa6", name: "Tristan Stubbs", role: "Batter", image: "#", stats: { matches: 45, runs: 894, avg: 29.5, sr: 158.2 }, radarStats: [88, 92, 75, 85, 90] },
-            { id: "sa7", name: "Marco Jansen", role: "All-Rounder", image: "#", stats: { matches: 25, wickets: 32, eco: 8.35 }, radarStats: [85, 88, 75, 85, 88] },
-            { id: "sa8", name: "Keshav Maharaj", role: "Bowler", image: "#", stats: { matches: 45, wickets: 48, eco: 7.08 }, radarStats: [82, 70, 92, 88, 65] },
-            { id: "sa9", name: "Kagiso Rabada", role: "Bowler", image: "#", stats: { matches: 75, wickets: 88, eco: 8.24 }, radarStats: [88, 90, 80, 85, 85] },
-            { id: "sa10", name: "Anrich Nortje", role: "Bowler", image: "#", stats: { matches: 48, wickets: 68, eco: 7.18 }, radarStats: [92, 95, 75, 88, 82] },
-            { id: "sa11", name: "Lungi Ngidi", role: "Bowler", image: "#", stats: { matches: 42, wickets: 62, eco: 8.55 }, radarStats: [85, 82, 78, 80, 75] }
+                    { id: "sa1", name: "Quinton de Kock", role: "WK Batter", image: "#", stats: { matches: 110, runs: 3095, avg: 30.95, sr: 142.23, hs: "100" }, radarStats: [90, 92, 75, 85, 88] },
+                    { id: "sa2", name: "Ryan Rickelton", role: "Batter", image: "#", stats: { matches: 18, runs: 442, avg: 27.5, sr: 155.2, hs: "76" }, radarStats: [80, 88, 70, 85, 75] },
+                    { id: "sa3", name: "Aiden Markram", role: "Batter (C)", image: "#", stats: { matches: 68, runs: 1642, avg: 32.8, sr: 146.2, hs: "70" }, radarStats: [88, 85, 80, 82, 80] },
+                    { id: "sa4", name: "Dewald Brevis", role: "Batter", image: "#", stats: { matches: 12, runs: 284, avg: 25.8, sr: 168.4, hs: "65" }, radarStats: [85, 95, 60, 90, 92] },
+                    { id: "sa5", name: "David Miller", role: "Batter", image: "#", stats: { matches: 134, runs: 2618, avg: 35.8, sr: 144.2, hs: "106*" }, radarStats: [90, 85, 90, 85, 88] },
+                    { id: "sa6", name: "Tristan Stubbs", role: "Batter", image: "#", stats: { matches: 45, runs: 894, avg: 29.5, sr: 158.2, hs: "72" }, radarStats: [88, 92, 75, 85, 90] },
+                    { id: "sa7", name: "Marco Jansen", role: "All-Rounder", image: "#", stats: { matches: 25, wickets: 32, eco: 8.35, best: "3/20", sr: 18.2 }, radarStats: [85, 88, 75, 85, 88] },
+                    { id: "sa8", name: "Keshav Maharaj", role: "Bowler", image: "#", stats: { matches: 45, wickets: 48, eco: 7.08, best: "3/21", sr: 19.5 }, radarStats: [82, 70, 92, 88, 65] },
+                    { id: "sa9", name: "Kagiso Rabada", role: "Bowler", image: "#", stats: { matches: 75, wickets: 88, eco: 8.24, best: "3/20", sr: 17.5 }, radarStats: [88, 90, 80, 85, 85] },
+                    { id: "sa10", name: "Anrich Nortje", role: "Bowler", image: "#", stats: { matches: 48, wickets: 68, eco: 7.18, best: "4/10", sr: 14.8 }, radarStats: [92, 95, 75, 88, 82] },
+                    { id: "sa11", name: "Lungi Ngidi", role: "Bowler", image: "#", stats: { matches: 42, wickets: 62, eco: 8.55, best: "4/19", sr: 15.2 }, radarStats: [85, 82, 78, 80, 75] }
                 ]
             },
             "AUS": {
                 name: "Australia",
                 flag: "https://flagcdn.com/w320/au.png",
                 players: [
-                    { id: "aus1", name: "Travis Head", role: "Batter", image: "#", stats: { matches: 53, runs: 1335, avg: 28.4, sr: 156.69 }, radarStats: [92, 98, 75, 90, 95] },
-            { id: "aus2", name: "Mitchell Marsh", role: "All-Rounder (C)", image: "#", stats: { matches: 72, runs: 1840, avg: 32.5, sr: 138.2 }, radarStats: [88, 85, 80, 85, 85] },
-            { id: "aus3", name: "Steve Smith", role: "Batter", image: "#", stats: { matches: 67, runs: 1100, avg: 24.5, sr: 125.2 }, radarStats: [85, 70, 95, 80, 75] },
-            { id: "aus4", name: "Josh Inglis", role: "WK Batter", image: "#", stats: { matches: 32, runs: 720, avg: 29.5, sr: 152.4 }, radarStats: [82, 88, 75, 85, 80] },
-            { id: "aus5", name: "Cameron Green", role: "All-Rounder", image: "#", stats: { matches: 25, runs: 614, wickets: 13 }, radarStats: [85, 85, 75, 75, 80] },
-            { id: "aus6", name: "Glenn Maxwell", role: "All-Rounder", image: "#", stats: { matches: 126, runs: 2835, wickets: 49 }, radarStats: [95, 95, 65, 80, 98] },
-            { id: "aus7", name: "Marcus Stoinis", role: "All-Rounder", image: "#", stats: { matches: 83, runs: 1361, wickets: 49 }, radarStats: [82, 85, 75, 82, 85] },
-            { id: "aus8", name: "Tim David", role: "Batter", image: "#", stats: { matches: 54, runs: 1038, avg: 36.0, sr: 175.04 }, radarStats: [88, 95, 75, 80, 90] },
-            { id: "aus9", name: "Nathan Ellis", role: "Bowler", image: "#", stats: { matches: 32, wickets: 50, eco: 7.85 }, radarStats: [82, 80, 85, 85, 80] },
-            { id: "aus10", name: "Xavier Bartlett", role: "Bowler", image: "#", stats: { matches: 18, wickets: 22, eco: 7.8 }, radarStats: [80, 85, 75, 88, 85] },
-            { id: "aus11", name: "Adam Zampa", role: "Bowler", image: "#", stats: { matches: 111, wickets: 139, eco: 7.22 }, radarStats: [92, 80, 90, 95, 90] }
+                    { id: "aus1", name: "Travis Head", role: "Batter", image: "#", stats: { matches: 53, runs: 1335, avg: 28.4, sr: 156.69, hs: "91" }, radarStats: [92, 98, 75, 90, 95] },
+                    { id: "aus2", name: "Mitchell Marsh", role: "All-Rounder (C)", image: "#", stats: { matches: 72, runs: 1840, wickets: 17, avg: 32.5, sr: 138.2, hs: "92*" }, radarStats: [88, 85, 80, 85, 85] },
+                    { id: "aus3", name: "Steve Smith", role: "Batter", image: "#", stats: { matches: 67, runs: 1100, avg: 24.5, sr: 125.2, hs: "90" }, radarStats: [85, 70, 95, 80, 75] },
+                    { id: "aus4", name: "Josh Inglis", role: "WK Batter", image: "#", stats: { matches: 32, runs: 720, avg: 29.5, sr: 152.4, hs: "110" }, radarStats: [82, 88, 75, 85, 80] },
+                    { id: "aus5", name: "Cameron Green", role: "All-Rounder", image: "#", stats: { matches: 25, runs: 614, wickets: 13, avg: 28.5, sr: 145.2, hs: "61" }, radarStats: [85, 85, 75, 75, 80] },
+                    { id: "aus6", name: "Glenn Maxwell", role: "All-Rounder", image: "#", stats: { matches: 126, runs: 2835, wickets: 49, avg: 29.8, sr: 155.5, hs: "145*" }, radarStats: [95, 95, 65, 80, 98] },
+                    { id: "aus7", name: "Marcus Stoinis", role: "All-Rounder", image: "#", stats: { matches: 83, runs: 1361, wickets: 49, avg: 31.2, sr: 147.5, hs: "78" }, radarStats: [82, 85, 75, 82, 85] },
+                    { id: "aus8", name: "Tim David", role: "Batter", image: "#", stats: { matches: 54, runs: 1038, avg: 36.0, sr: 175.04, hs: "64" }, radarStats: [88, 95, 75, 80, 90] },
+                    { id: "aus9", name: "Nathan Ellis", role: "Bowler", image: "#", stats: { matches: 32, wickets: 50, eco: 7.85, best: "4/28", sr: 14.5 }, radarStats: [82, 80, 85, 85, 80] },
+                    { id: "aus10", name: "Xavier Bartlett", role: "Bowler", image: "#", stats: { matches: 18, wickets: 22, eco: 7.8, best: "3/15", sr: 16.2 }, radarStats: [80, 85, 75, 88, 85] },
+                    { id: "aus11", name: "Adam Zampa", role: "Bowler", image: "#", stats: { matches: 111, wickets: 139, eco: 7.22, best: "5/19", sr: 17.8 }, radarStats: [92, 80, 90, 95, 90] }
+                ]
+            },
+            "ENG": {
+                name: "England",
+                flag: "https://flagcdn.com/w320/gb-eng.png",
+                players: [
+                    { id: "eng1", name: "Jos Buttler", role: "WK Batter (C)", image: "#", stats: { matches: 124, runs: 3264, avg: 35.5, sr: 146.2, hs: "101*" }, radarStats: [96, 90, 88, 85, 95] },
+                    { id: "eng2", name: "Phil Salt", role: "Batter", image: "#", stats: { matches: 31, runs: 855, avg: 34.2, sr: 165.4, hs: "119" }, radarStats: [90, 95, 75, 90, 85] },
+                    { id: "eng3", name: "Will Jacks", role: "All-Rounder", image: "#", stats: { matches: 15, runs: 320, wickets: 5, avg: 26.5, sr: 158.0, hs: "40" }, radarStats: [85, 90, 70, 85, 80] },
+                    { id: "eng4", name: "Jonny Bairstow", role: "Batter", image: "#", stats: { matches: 80, runs: 1671, avg: 29.8, sr: 137.5, hs: "90" }, radarStats: [88, 85, 75, 80, 85] },
+                    { id: "eng5", name: "Liam Livingstone", role: "All-Rounder", image: "#", stats: { matches: 45, runs: 725, wickets: 25, avg: 24.1, sr: 148.5, hs: "103" }, radarStats: [90, 92, 65, 80, 95] },
+                    { id: "eng6", name: "Moeen Ali", role: "All-Rounder", image: "#", stats: { matches: 92, runs: 1220, wickets: 51, avg: 21.5, sr: 140.2, hs: "72" }, radarStats: [82, 85, 75, 80, 80] },
+                    { id: "eng7", name: "Sam Curran", role: "All-Rounder", image: "#", stats: { matches: 58, runs: 320, wickets: 55, eco: 8.2, best: "5/10", sr: 16.5 }, radarStats: [88, 85, 80, 85, 90] },
+                    { id: "eng8", name: "Chris Jordan", role: "Bowler", image: "#", stats: { matches: 95, wickets: 104, eco: 8.75, best: "4/6", sr: 18.2 }, radarStats: [80, 75, 70, 75, 85] },
+                    { id: "eng9", name: "Jofra Archer", role: "Bowler", image: "https://media.wired.com/photos/65e8837890df942d70c0b517/master/w_1600%2Cc_limit/gettyimages-1169337851.jpg", stats: { matches: 15, wickets: 21, eco: 7.6, best: "4/33", sr: 16.0 }, radarStats: [95, 90, 80, 85, 98] },
+                    { id: "eng10", name: "Adil Rashid", role: "Bowler", image: "#", stats: { matches: 114, wickets: 119, eco: 7.4, best: "4/2", sr: 20.5 }, radarStats: [90, 75, 92, 90, 88] },
+                    { id: "eng11", name: "Mark Wood", role: "Bowler", image: "#", stats: { matches: 34, wickets: 50, eco: 8.4, best: "3/9", sr: 14.2 }, radarStats: [92, 95, 75, 80, 90] }
                 ]
             }
         };
@@ -110,19 +173,21 @@
         function showTeams() {
             currentView = 'teams';
             selectedTeam = null;
-            pageTitle.innerText = "Select a T20 Team (2026 Squads)";
+            pageTitle.innerText = "Select a T20 Team";
             backBtn.style.display = "none";
             container.innerHTML = '';
             container.className = 'news-grid'; 
 
+            let delay = 0;
             for (const teamKey in statsDatabase) {
                 const team = statsDatabase[teamKey];
                 container.innerHTML += `
-                    <div class="team-card card" style="text-align: center; cursor: pointer;" onclick="showPlayers('${teamKey}')">
+                    <div class="team-card card animate-card" style="text-align: center; cursor: pointer; animation-delay: ${delay}s;" onclick="showPlayers('${teamKey}')">
                         <img src="${team.flag}" alt="${team.name} Flag" style="width: 150px; border-radius: 8px; margin-bottom: 15px; border: 2px solid var(--accent-blue); box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);">
                         <h3 style="color: var(--text-bright); text-transform: uppercase; letter-spacing: 2px;">${team.name}</h3>
                     </div>
                 `;
+                delay += 0.1; // Staggered animation
             }
         }
 
@@ -137,21 +202,25 @@
             container.className = 'news-grid'; 
 
             team.players.forEach((player, index) => {
-                const initial = player.name.charAt(0);
-                const imageHtml = player.image === "#" 
-                    ? `<div class="player-avatar-placeholder">${initial}</div>`
-                    : `<img src="${player.image}" alt="Player" class="player-avatar">`;
+                // MAGIC UPGRADE: Auto-generates a neon avatar based on the player's name if they don't have a photo!
+                const avatarUrl = player.image === "#" 
+                    ? `https://ui-avatars.com/api/?name=${encodeURIComponent(player.name)}&background=0a0e17&color=00d2ff&size=150&bold=true`
+                    : player.image;
 
                 let badgeColor = "var(--accent-blue)";
                 if(player.role.includes("Batter")) badgeColor = "var(--accent-neon)";
                 if(player.role.includes("All-Rounder")) badgeColor = "#ff9900";
 
+                const animDelay = (index * 0.05).toFixed(2);
+
                 container.innerHTML += `
-                    <div class="player-card card" onclick="showPlayerStats('${teamKey}', ${index})">
-                        <div class="role-badge" style="background: ${badgeColor};">${player.role}</div>
-                        ${imageHtml}
+                    <div class="player-card card animate-card" style="animation-delay: ${animDelay}s;" onclick="showPlayerStats('${teamKey}', ${index})">
+                        <div class="role-badge" style="background: ${badgeColor}; color: #000; padding: 5px 25px; box-shadow: 0 0 10px ${badgeColor};">${player.role}</div>
+                        <div class="player-avatar-placeholder" style="border: none; background: transparent;">
+                            <img src="${avatarUrl}" alt="${player.name}" class="player-img-fill" style="border: 3px solid ${badgeColor}; box-shadow: 0 0 15px ${badgeColor};">
+                        </div>
                         <h3 style="color: var(--text-bright); font-size: 1.4rem;">${player.name}</h3>
-                        <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 5px;">Click for detailed stats</p>
+                        <p style="color: var(--accent-blue); font-size: 0.85rem; margin-top: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">View Profile ➔</p>
                     </div>
                 `;
             });
@@ -161,7 +230,7 @@
             currentView = 'stats';
             const player = statsDatabase[teamKey].players[playerIndex];
             
-            pageTitle.innerText = `${player.name} - T20 Profile`;
+            pageTitle.innerText = `${player.name} - Profile`;
             container.innerHTML = '';
             container.className = ''; 
 
@@ -180,29 +249,27 @@
                     <div class="stat-box"><h4>Wickets</h4><p>${player.stats.wickets}</p></div>
                     <div class="stat-box"><h4>Economy</h4><p>${player.stats.eco}</p></div>
                     <div class="stat-box"><h4>Strike Rate</h4><p>${player.stats.sr}</p></div>
-                    <div class="stat-box"><h4>Best Bowling</h4><p>${player.stats.best}</p></div>
+                    <div class="stat-box"><h4>Best Bowing</h4><p>${player.stats.best}</p></div>
                 `;
             }
 
-            const initial = player.name.charAt(0);
-            const imageHtml = player.image === "#" 
-                ? `<div class="player-avatar-placeholder large">${initial}</div>`
-                : `<img src="${player.image}" class="player-avatar large" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-blue); margin-bottom: 20px;">`;
+            const avatarUrl = player.image === "#" 
+                ? `https://ui-avatars.com/api/?name=${encodeURIComponent(player.name)}&background=0a0e17&color=00d2ff&size=200&bold=true`
+                : player.image;
 
-            // FIXED THE CHART CONTAINER HERE
             container.innerHTML = `
-                <div class="stats-layout">
-                    <div class="card profile-info">
-                        ${imageHtml}
+                <div class="stats-layout animate-card">
+                    <div class="card profile-info" style="border: 1px solid var(--accent-blue); box-shadow: inset 0 0 30px rgba(0, 210, 255, 0.05);">
+                        <img src="${avatarUrl}" class="player-avatar large" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-neon); margin-bottom: 20px; box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);">
                         <h2 style="color: var(--text-bright); font-size: 2.2rem; margin-bottom: 5px;">${player.name}</h2>
-                        <h4 style="color: var(--accent-neon); margin-bottom: 30px; letter-spacing: 2px; text-transform: uppercase;">${player.role}</h4>
+                        <h4 style="color: var(--text-dim); margin-bottom: 30px; letter-spacing: 2px; text-transform: uppercase;">${player.role}</h4>
                         <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; width: 100%;">
                             ${statsHtml}
                         </div>
                     </div>
                     
-                    <div class="card chart-container">
-                        <h3 style="text-align: center; color: var(--accent-blue); margin-bottom: 15px;">Player Impact Radar</h3>
+                    <div class="card chart-container" style="border: 1px solid var(--accent-neon); box-shadow: inset 0 0 30px rgba(0, 255, 136, 0.05);">
+                        <h3 style="text-align: center; color: var(--text-bright); margin-bottom: 15px; letter-spacing: 1px;">Player Impact Radar</h3>
                         <div class="canvas-wrapper" style="position: relative; height: 350px; width: 100%;">
                             <canvas id="radarChart"></canvas>
                         </div>
@@ -223,29 +290,31 @@
             radarChartInstance = new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: ['Impact Rating', 'Aggression/Control', 'Consistency', 'Current Form', 'X-Factor'],
+                    labels: ['Impact', 'Aggression/Control', 'Consistency', 'Current Form', 'X-Factor'],
                     datasets: [{
                         label: playerName,
                         data: radarData,
-                        backgroundColor: 'rgba(0, 210, 255, 0.2)', 
-                        borderColor: '#00d2ff', 
-                        pointBackgroundColor: '#00ff88', 
+                        backgroundColor: 'rgba(0, 255, 136, 0.2)', 
+                        borderColor: '#00ff88', 
+                        pointBackgroundColor: '#00d2ff', 
                         pointBorderColor: '#fff',
                         pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: '#00ff88',
-                        borderWidth: 2
+                        pointHoverBorderColor: '#00d2ff',
+                        borderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
                     }]
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: false, // Now safe to use because of the parent wrapper height
+                    maintainAspectRatio: false,
                     scales: {
                         r: {
                             angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
                             grid: { color: 'rgba(255, 255, 255, 0.1)' },
                             pointLabels: {
                                 color: '#94a3b8',
-                                font: { size: 12, family: "'Segoe UI', sans-serif", weight: 'bold' }
+                                font: { size: 13, family: "'Segoe UI', sans-serif", weight: 'bold' }
                             },
                             ticks: {
                                 display: false,
@@ -256,7 +325,7 @@
                     },
                     plugins: {
                         legend: {
-                            labels: { color: '#ffffff', font: { size: 14 } }
+                            labels: { color: '#ffffff', font: { size: 14, weight: 'bold' } }
                         }
                     }
                 }
