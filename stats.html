@@ -90,74 +90,75 @@
 
     <script>
         // Real-World 2026 T20I Player Data Database (Updated XIs)
+       // Updated Real-World 2026 T20I Player Data Database 
         // radarStats: [Impact, Aggression/Control, Consistency, Current Form, X-Factor]
         const statsDatabase = {
             "IND": {
                 name: "India",
                 flag: "https://flagcdn.com/w320/in.png",
                 players: [
-                    { id: "ind1", name: "Abhishek Sharma", role: "Batter", image: "#", stats: { matches: 44, runs: 1377, avg: 33.59, sr: 189.41, hs: "135" }, radarStats: [92, 98, 75, 85, 95] },
-                    { id: "ind2", name: "Sanju Samson", role: "WK Batter", image: "#", stats: { matches: 60, runs: 1221, avg: 25.98, sr: 151.87, hs: "111" }, radarStats: [88, 90, 70, 95, 92] },
-                    { id: "ind3", name: "Ishan Kishan", role: "WK Batter", image: "#", stats: { matches: 40, runs: 950, avg: 25.5, sr: 135.8, hs: "89" }, radarStats: [80, 85, 75, 88, 85] },
-                    { id: "ind4", name: "Suryakumar Yadav", role: "Batter (C)", image: "#", stats: { matches: 111, runs: 3261, avg: 37.06, sr: 162.97, hs: "117" }, radarStats: [98, 92, 85, 90, 95] },
-                    { id: "ind5", name: "Tilak Varma", role: "Batter", image: "#", stats: { matches: 47, runs: 1361, avg: 45.37, sr: 144.48, hs: "120*" }, radarStats: [85, 80, 90, 88, 82] },
-                    { id: "ind6", name: "Hardik Pandya", role: "All-Rounder", image: "#", stats: { matches: 136, runs: 2243, wickets: 111, avg: 28.39, sr: 145.37 }, radarStats: [90, 88, 80, 92, 90] },
-                    { id: "ind7", name: "Shivam Dube", role: "All-Rounder", image: "#", stats: { matches: 37, runs: 922, wickets: 31, avg: 29.74, sr: 151.15, hs: "66" }, radarStats: [88, 92, 75, 90, 85] },
-                    { id: "ind8", name: "Axar Patel", role: "All-Rounder (VC)", image: "#", stats: { matches: 92, wickets: 93, eco: 7.34, best: "3/9", sr: 17.72 }, radarStats: [85, 75, 92, 88, 70] },
-                    { id: "ind9", name: "Varun Chakaravarthy", role: "Bowler", image: "#", stats: { matches: 24, wickets: 32, eco: 6.88, best: "5/17", sr: 15.2 }, radarStats: [85, 70, 85, 90, 95] },
-                    { id: "ind10", name: "Arshdeep Singh", role: "Bowler", image: "#", stats: { matches: 82, wickets: 126, eco: 8.48, best: "5/51", sr: 13.59 }, radarStats: [90, 85, 75, 88, 80] },
-                    { id: "ind11", name: "Jasprit Bumrah", role: "Bowler", image: "https://content.api.news/v3/images/bin/82340bdf69ceba068032c8f2d76f52e0", stats: { matches: 93, wickets: 116, eco: 6.53, best: "3/7", sr: 16.9 }, radarStats: [98, 85, 98, 95, 95] },
+                    { id: "ind1", name: "Abhishek Sharma", role: "Batter", image: "#", stats: { matches: 52, runs: 1386, avg: 28.2, sr: 188.8, hs: "100" }, radarStats: [92, 98, 75, 85, 95] },
+                    { id: "ind2", name: "Sanju Samson", role: "WK Batter", image: "#", stats: { matches: 54, runs: 1412, avg: 32.1, sr: 151.4, hs: "97*" }, radarStats: [88, 90, 70, 95, 92] },
+                    { id: "ind3", name: "Ishan Kishan", role: "WK Batter", image: "#", stats: { matches: 44, runs: 1274, avg: 30.3, sr: 134.2, hs: "103" }, radarStats: [80, 85, 75, 88, 85] },
+                    { id: "ind4", name: "Suryakumar Yadav", role: "Batter (C)", image: "#", stats: { matches: 88, runs: 3261, avg: 46.5, sr: 172.9, hs: "117" }, radarStats: [98, 92, 85, 90, 95] },
+                    { id: "ind5", name: "Tilak Varma", role: "Batter", image: "#", stats: { matches: 38, runs: 895, avg: 34.4, sr: 145.2, hs: "67*" }, radarStats: [85, 80, 90, 88, 82] },
+                    { id: "ind6", name: "Hardik Pandya", role: "All-Rounder", image: "#", stats: { matches: 114, runs: 2270, avg: 27.6, sr: 142.1, hs: "71*", wickets: 113, eco: 8.05, best: "4/33" }, radarStats: [90, 88, 80, 92, 90] },
+                    { id: "ind7", name: "Shivam Dube", role: "All-Rounder", image: "#", stats: { matches: 46, runs: 682, avg: 29.6, sr: 148.8, hs: "63*", wickets: 12, eco: 8.85, best: "3/15" }, radarStats: [88, 92, 75, 90, 85] },
+                    { id: "ind8", name: "Axar Patel", role: "All-Rounder (VC)", image: "#", stats: { matches: 72, runs: 512, avg: 18.2, sr: 144.5, hs: "65", wickets: 79, eco: 7.28, best: "3/9" }, radarStats: [85, 75, 92, 88, 70] },
+                    { id: "ind9", name: "Varun Chakaravarthy", role: "Bowler", image: "#", stats: { matches: 24, wickets: 28, eco: 7.82, best: "3/23", sr: 18.5 }, radarStats: [85, 70, 85, 90, 95] },
+                    { id: "ind10", name: "Arshdeep Singh", role: "Bowler", image: "#", stats: { matches: 76, wickets: 126, eco: 8.24, best: "4/37", sr: 13.59 }, radarStats: [90, 85, 75, 88, 80] },
+                    { id: "ind11", name: "Jasprit Bumrah", role: "Bowler", image: "https://content.api.news/v3/images/bin/82340bdf69ceba068032c8f2d76f52e0", stats: { matches: 82, wickets: 117, eco: 6.45, best: "3/11", sr: 16.9 }, radarStats: [98, 85, 98, 95, 95] },
                 ]
             },
             "SA": {
                 name: "South Africa",
                 flag: "https://flagcdn.com/w320/za.png",
                 players: [
-                    { id: "sa1", name: "Quinton de Kock", role: "WK Batter", image: "#", stats: { matches: 110, runs: 3095, avg: 30.95, sr: 142.23, hs: "100" }, radarStats: [90, 92, 75, 85, 88] },
-                    { id: "sa2", name: "Ryan Rickelton", role: "Batter", image: "#", stats: { matches: 18, runs: 442, avg: 27.5, sr: 155.2, hs: "76" }, radarStats: [80, 88, 70, 85, 75] },
-                    { id: "sa3", name: "Aiden Markram", role: "Batter (C)", image: "#", stats: { matches: 68, runs: 1642, avg: 32.8, sr: 146.2, hs: "70" }, radarStats: [88, 85, 80, 82, 80] },
-                    { id: "sa4", name: "Dewald Brevis", role: "Batter", image: "#", stats: { matches: 12, runs: 284, avg: 25.8, sr: 168.4, hs: "65" }, radarStats: [85, 95, 60, 90, 92] },
-                    { id: "sa5", name: "David Miller", role: "Batter", image: "#", stats: { matches: 134, runs: 2618, avg: 35.8, sr: 144.2, hs: "106*" }, radarStats: [90, 85, 90, 85, 88] },
-                    { id: "sa6", name: "Tristan Stubbs", role: "Batter", image: "#", stats: { matches: 45, runs: 894, avg: 29.5, sr: 158.2, hs: "72" }, radarStats: [88, 92, 75, 85, 90] },
-                    { id: "sa7", name: "Marco Jansen", role: "All-Rounder", image: "#", stats: { matches: 25, wickets: 32, eco: 8.35, best: "3/20", sr: 18.2 }, radarStats: [85, 88, 75, 85, 88] },
-                    { id: "sa8", name: "Keshav Maharaj", role: "Bowler", image: "#", stats: { matches: 45, wickets: 48, eco: 7.08, best: "3/21", sr: 19.5 }, radarStats: [82, 70, 92, 88, 65] },
-                    { id: "sa9", name: "Kagiso Rabada", role: "Bowler", image: "#", stats: { matches: 75, wickets: 88, eco: 8.24, best: "3/20", sr: 17.5 }, radarStats: [88, 90, 80, 85, 85] },
-                    { id: "sa10", name: "Anrich Nortje", role: "Bowler", image: "#", stats: { matches: 48, wickets: 68, eco: 7.18, best: "4/10", sr: 14.8 }, radarStats: [92, 95, 75, 88, 82] },
-                    { id: "sa11", name: "Lungi Ngidi", role: "Bowler", image: "#", stats: { matches: 42, wickets: 62, eco: 8.55, best: "4/19", sr: 15.2 }, radarStats: [85, 82, 78, 80, 75] }
+                    { id: "sa1", name: "Quinton de Kock", role: "WK Batter", image: "#", stats: { matches: 110, runs: 3095, avg: 31.5, sr: 139.2, hs: "100" }, radarStats: [90, 92, 75, 85, 88] },
+                    { id: "sa2", name: "Ryan Rickelton", role: "Batter", image: "#", stats: { matches: 18, runs: 492, avg: 28.9, sr: 135.5, hs: "68" }, radarStats: [80, 88, 70, 85, 75] },
+                    { id: "sa3", name: "Aiden Markram", role: "Batter (C)", image: "#", stats: { matches: 62, runs: 1948, avg: 36.7, sr: 151.2, hs: "82*" }, radarStats: [88, 85, 80, 82, 80] },
+                    { id: "sa4", name: "Dewald Brevis", role: "Batter", image: "#", stats: { matches: 14, runs: 312, avg: 24.0, sr: 158.4, hs: "57" }, radarStats: [85, 95, 60, 90, 92] },
+                    { id: "sa5", name: "David Miller", role: "Batter", image: "#", stats: { matches: 132, runs: 2612, avg: 33.4, sr: 141.5, hs: "106*" }, radarStats: [90, 85, 90, 85, 88] },
+                    { id: "sa6", name: "Tristan Stubbs", role: "Batter", image: "#", stats: { matches: 42, runs: 815, avg: 31.3, sr: 162.8, hs: "76*" }, radarStats: [88, 92, 75, 85, 90] },
+                    { id: "sa7", name: "Marco Jansen", role: "All-Rounder", image: "#", stats: { matches: 22, runs: 218, avg: 19.8, sr: 148.5, hs: "38*", wickets: 32, eco: 8.42, best: "3/38" }, radarStats: [85, 88, 75, 85, 88] },
+                    { id: "sa8", name: "Keshav Maharaj", role: "Bowler", image: "#", stats: { matches: 48, wickets: 52, eco: 7.18, best: "3/27", sr: 19.5 }, radarStats: [82, 70, 92, 88, 65] },
+                    { id: "sa9", name: "Kagiso Rabada", role: "Bowler", image: "#", stats: { matches: 74, wickets: 84, eco: 8.35, best: "3/18", sr: 17.5 }, radarStats: [88, 90, 80, 85, 85] },
+                    { id: "sa10", name: "Anrich Nortje", role: "Bowler", image: "#", stats: { matches: 52, wickets: 58, eco: 7.65, best: "4/10", sr: 14.8 }, radarStats: [92, 95, 75, 88, 82] },
+                    { id: "sa11", name: "Lungi Ngidi", role: "Bowler", image: "#", stats: { matches: 46, wickets: 62, eco: 8.95, best: "5/39", sr: 15.2 }, radarStats: [85, 82, 78, 80, 75] }
                 ]
             },
             "AUS": {
                 name: "Australia",
                 flag: "https://flagcdn.com/w320/au.png",
                 players: [
-                    { id: "aus1", name: "Travis Head", role: "Batter", image: "#", stats: { matches: 53, runs: 1335, avg: 28.4, sr: 156.69, hs: "91" }, radarStats: [92, 98, 75, 90, 95] },
-                    { id: "aus2", name: "Mitchell Marsh", role: "All-Rounder (C)", image: "#", stats: { matches: 72, runs: 1840, wickets: 17, avg: 32.5, sr: 138.2, hs: "92*" }, radarStats: [88, 85, 80, 85, 85] },
-                    { id: "aus3", name: "Steve Smith", role: "Batter", image: "#", stats: { matches: 67, runs: 1100, avg: 24.5, sr: 125.2, hs: "90" }, radarStats: [85, 70, 95, 80, 75] },
-                    { id: "aus4", name: "Josh Inglis", role: "WK Batter", image: "#", stats: { matches: 32, runs: 720, avg: 29.5, sr: 152.4, hs: "110" }, radarStats: [82, 88, 75, 85, 80] },
-                    { id: "aus5", name: "Cameron Green", role: "All-Rounder", image: "#", stats: { matches: 25, runs: 614, wickets: 13, avg: 28.5, sr: 145.2, hs: "61" }, radarStats: [85, 85, 75, 75, 80] },
-                    { id: "aus6", name: "Glenn Maxwell", role: "All-Rounder", image: "#", stats: { matches: 126, runs: 2835, wickets: 49, avg: 29.8, sr: 155.5, hs: "145*" }, radarStats: [95, 95, 65, 80, 98] },
-                    { id: "aus7", name: "Marcus Stoinis", role: "All-Rounder", image: "#", stats: { matches: 83, runs: 1361, wickets: 49, avg: 31.2, sr: 147.5, hs: "78" }, radarStats: [82, 85, 75, 82, 85] },
-                    { id: "aus8", name: "Tim David", role: "Batter", image: "#", stats: { matches: 54, runs: 1038, avg: 36.0, sr: 175.04, hs: "64" }, radarStats: [88, 95, 75, 80, 90] },
-                    { id: "aus9", name: "Nathan Ellis", role: "Bowler", image: "#", stats: { matches: 32, wickets: 50, eco: 7.85, best: "4/28", sr: 14.5 }, radarStats: [82, 80, 85, 85, 80] },
-                    { id: "aus10", name: "Xavier Bartlett", role: "Bowler", image: "#", stats: { matches: 18, wickets: 22, eco: 7.8, best: "3/15", sr: 16.2 }, radarStats: [80, 85, 75, 88, 85] },
-                    { id: "aus11", name: "Adam Zampa", role: "Bowler", image: "#", stats: { matches: 111, wickets: 139, eco: 7.22, best: "5/19", sr: 17.8 }, radarStats: [92, 80, 90, 95, 90] }
+                    { id: "aus1", name: "Travis Head", role: "Batter", image: "#", stats: { matches: 53, runs: 1335, avg: 28.4, sr: 152.1, hs: "91" }, radarStats: [92, 98, 75, 90, 95] },
+                    { id: "aus2", name: "Mitchell Marsh", role: "All-Rounder (C)", image: "#", stats: { matches: 85, runs: 2219, avg: 34.1, sr: 136.5, hs: "92*", wickets: 17, eco: 7.74, best: "3/24" }, radarStats: [88, 85, 80, 85, 85] },
+                    { id: "aus3", name: "Steve Smith", role: "Batter", image: "#", stats: { matches: 67, runs: 1094, avg: 24.8, sr: 125.2, hs: "90" }, radarStats: [85, 70, 95, 80, 75] },
+                    { id: "aus4", name: "Josh Inglis", role: "WK Batter", image: "#", stats: { matches: 31, runs: 785, avg: 32.7, sr: 155.6, hs: "110" }, radarStats: [82, 88, 75, 85, 80] },
+                    { id: "aus5", name: "Cameron Green", role: "All-Rounder", image: "#", stats: { matches: 22, runs: 412, avg: 25.7, sr: 168.4, hs: "62*", wickets: 18, eco: 8.45, best: "3/35" }, radarStats: [85, 85, 75, 75, 80] },
+                    { id: "aus6", name: "Glenn Maxwell", role: "All-Rounder", image: "#", stats: { matches: 130, runs: 2897, avg: 29.5, sr: 154.2, hs: "145*", wickets: 51, eco: 7.62, best: "3/10" }, radarStats: [95, 95, 65, 80, 98] },
+                    { id: "aus7", name: "Marcus Stoinis", role: "All-Rounder", image: "#", stats: { matches: 72, runs: 1185, avg: 27.5, sr: 148.9, hs: "72", wickets: 43, eco: 8.52, best: "3/18" }, radarStats: [82, 85, 75, 82, 85] },
+                    { id: "aus8", name: "Tim David", role: "Batter", image: "#", stats: { matches: 71, runs: 1602, avg: 33.3, sr: 161.5, hs: "92*" }, radarStats: [88, 95, 75, 80, 90] },
+                    { id: "aus9", name: "Nathan Ellis", role: "Bowler", image: "#", stats: { matches: 36, wickets: 55, eco: 7.82, best: "4/28", sr: 14.5 }, radarStats: [82, 80, 85, 85, 80] },
+                    { id: "aus10", name: "Xavier Bartlett", role: "Bowler", image: "#", stats: { matches: 8, wickets: 14, eco: 7.95, best: "4/23", sr: 16.2 }, radarStats: [80, 85, 75, 88, 85] },
+                    { id: "aus11", name: "Adam Zampa", role: "Bowler", image: "#", stats: { matches: 115, wickets: 147, eco: 7.21, best: "5/19", sr: 17.8 }, radarStats: [92, 80, 90, 95, 90] }
                 ]
             },
             "ENG": {
                 name: "England",
                 flag: "https://flagcdn.com/w320/gb-eng.png",
                 players: [
-                    { id: "eng1", name: "Jos Buttler", role: "WK Batter (C)", image: "#", stats: { matches: 124, runs: 3264, avg: 35.5, sr: 146.2, hs: "101*" }, radarStats: [96, 90, 88, 85, 95] },
-                    { id: "eng2", name: "Phil Salt", role: "Batter", image: "#", stats: { matches: 31, runs: 855, avg: 34.2, sr: 165.4, hs: "119" }, radarStats: [90, 95, 75, 90, 85] },
-                    { id: "eng3", name: "Will Jacks", role: "All-Rounder", image: "#", stats: { matches: 15, runs: 320, wickets: 5, avg: 26.5, sr: 158.0, hs: "40" }, radarStats: [85, 90, 70, 85, 80] },
-                    { id: "eng4", name: "Jonny Bairstow", role: "Batter", image: "#", stats: { matches: 80, runs: 1671, avg: 29.8, sr: 137.5, hs: "90" }, radarStats: [88, 85, 75, 80, 85] },
-                    { id: "eng5", name: "Liam Livingstone", role: "All-Rounder", image: "#", stats: { matches: 45, runs: 725, wickets: 25, avg: 24.1, sr: 148.5, hs: "103" }, radarStats: [90, 92, 65, 80, 95] },
-                    { id: "eng6", name: "Moeen Ali", role: "All-Rounder", image: "#", stats: { matches: 92, runs: 1220, wickets: 51, avg: 21.5, sr: 140.2, hs: "72" }, radarStats: [82, 85, 75, 80, 80] },
-                    { id: "eng7", name: "Sam Curran", role: "All-Rounder", image: "#", stats: { matches: 58, runs: 320, wickets: 55, eco: 8.2, best: "5/10", sr: 16.5 }, radarStats: [88, 85, 80, 85, 90] },
-                    { id: "eng8", name: "Chris Jordan", role: "Bowler", image: "#", stats: { matches: 95, wickets: 104, eco: 8.75, best: "4/6", sr: 18.2 }, radarStats: [80, 75, 70, 75, 85] },
-                    { id: "eng9", name: "Jofra Archer", role: "Bowler", image: "https://media.wired.com/photos/65e8837890df942d70c0b517/master/w_1600%2Cc_limit/gettyimages-1169337851.jpg", stats: { matches: 15, wickets: 21, eco: 7.6, best: "4/33", sr: 16.0 }, radarStats: [95, 90, 80, 85, 98] },
-                    { id: "eng10", name: "Adil Rashid", role: "Bowler", image: "#", stats: { matches: 114, wickets: 119, eco: 7.4, best: "4/2", sr: 20.5 }, radarStats: [90, 75, 92, 90, 88] },
-                    { id: "eng11", name: "Mark Wood", role: "Bowler", image: "#", stats: { matches: 34, wickets: 50, eco: 8.4, best: "3/9", sr: 14.2 }, radarStats: [92, 95, 75, 80, 90] }
+                    { id: "eng1", name: "Jos Buttler", role: "WK Batter (C)", image: "#", stats: { matches: 154, runs: 4012, avg: 35.8, sr: 145.4, hs: "101*" }, radarStats: [96, 90, 88, 85, 95] },
+                    { id: "eng2", name: "Phil Salt", role: "Batter", image: "#", stats: { matches: 58, runs: 1712, avg: 34.9, sr: 164.2, hs: "119" }, radarStats: [90, 95, 75, 90, 85] },
+                    { id: "eng3", name: "Will Jacks", role: "All-Rounder", image: "#", stats: { matches: 24, runs: 582, avg: 26.4, sr: 158.8, hs: "73", wickets: 8, eco: 8.12, best: "2/40" }, radarStats: [85, 90, 70, 85, 80] },
+                    { id: "eng4", name: "Jonny Bairstow", role: "Batter", image: "#", stats: { matches: 82, runs: 1812, avg: 29.2, sr: 137.5, hs: "90" }, radarStats: [88, 85, 75, 80, 85] },
+                    { id: "eng5", name: "Liam Livingstone", role: "All-Rounder", image: "#", stats: { matches: 64, runs: 924, avg: 24.3, sr: 148.2, hs: "103", wickets: 32, eco: 7.65, best: "3/17" }, radarStats: [90, 92, 65, 80, 95] },
+                    { id: "eng6", name: "Moeen Ali", role: "All-Rounder", image: "#", stats: { matches: 102, runs: 1385, avg: 21.6, sr: 142.5, hs: "72*", wickets: 51, eco: 8.35, best: "3/24" }, radarStats: [82, 85, 75, 80, 80] },
+                    { id: "eng7", name: "Sam Curran", role: "All-Rounder", image: "#", stats: { matches: 75, runs: 696, avg: 17.8, sr: 131.2, hs: "50", wickets: 66, eco: 8.24, best: "5/10" }, radarStats: [88, 85, 80, 85, 90] },
+                    { id: "eng8", name: "Chris Jordan", role: "Bowler", image: "#", stats: { matches: 112, wickets: 124, eco: 8.72, best: "4/6", sr: 18.2 }, radarStats: [80, 75, 70, 75, 85] },
+                    { id: "eng9", name: "Jofra Archer", role: "Bowler", image: "https://media.wired.com/photos/65e8837890df942d70c0b517/master/w_1600%2Cc_limit/gettyimages-1169337851.jpg", stats: { matches: 45, wickets: 57, eco: 7.55, best: "3/12", sr: 16.0 }, radarStats: [95, 90, 80, 85, 98] },
+                    { id: "eng10", name: "Adil Rashid", role: "Bowler", image: "#", stats: { matches: 132, wickets: 161, eco: 7.34, best: "4/11", sr: 20.5 }, radarStats: [90, 75, 92, 90, 88] },
+                    { id: "eng11", name: "Mark Wood", role: "Bowler", image: "#", stats: { matches: 42, wickets: 52, eco: 8.42, best: "3/12", sr: 14.2 }, radarStats: [92, 95, 75, 80, 90] }
                 ]
             }
         };
@@ -187,7 +188,7 @@
                         <h3 style="color: var(--text-bright); text-transform: uppercase; letter-spacing: 2px;">${team.name}</h3>
                     </div>
                 `;
-                delay += 0.1; // Staggered animation
+                delay += 0.1;
             }
         }
 
@@ -202,7 +203,6 @@
             container.className = 'news-grid'; 
 
             team.players.forEach((player, index) => {
-                // MAGIC UPGRADE: Auto-generates a neon avatar based on the player's name if they don't have a photo!
                 const avatarUrl = player.image === "#" 
                     ? `https://ui-avatars.com/api/?name=${encodeURIComponent(player.name)}&background=0a0e17&color=00d2ff&size=150&bold=true`
                     : player.image;
@@ -235,7 +235,19 @@
             container.className = ''; 
 
             let statsHtml = '';
-            if (player.stats.runs !== undefined) {
+            
+            // MAGIC UPGRADE: If they are an All-Rounder (having both runs and wickets), show a hybrid view!
+            if (player.stats.runs !== undefined && player.stats.wickets !== undefined) {
+                statsHtml = `
+                    <div class="stat-box"><h4>Matches</h4><p>${player.stats.matches}</p></div>
+                    <div class="stat-box"><h4>Runs</h4><p>${player.stats.runs}</p></div>
+                    <div class="stat-box"><h4>Strike Rate</h4><p>${player.stats.sr}</p></div>
+                    <div class="stat-box"><h4>Wickets</h4><p>${player.stats.wickets}</p></div>
+                    <div class="stat-box"><h4>Economy</h4><p>${player.stats.eco}</p></div>
+                `;
+            } 
+            // Standard Batter View
+            else if (player.stats.runs !== undefined) {
                 statsHtml = `
                     <div class="stat-box"><h4>Matches</h4><p>${player.stats.matches}</p></div>
                     <div class="stat-box"><h4>Runs</h4><p>${player.stats.runs}</p></div>
@@ -243,13 +255,15 @@
                     <div class="stat-box"><h4>Strike Rate</h4><p>${player.stats.sr}</p></div>
                     <div class="stat-box"><h4>High Score</h4><p>${player.stats.hs}</p></div>
                 `;
-            } else {
+            } 
+            // Standard Bowler View
+            else {
                 statsHtml = `
                     <div class="stat-box"><h4>Matches</h4><p>${player.stats.matches}</p></div>
                     <div class="stat-box"><h4>Wickets</h4><p>${player.stats.wickets}</p></div>
                     <div class="stat-box"><h4>Economy</h4><p>${player.stats.eco}</p></div>
-                    <div class="stat-box"><h4>Strike Rate</h4><p>${player.stats.sr}</p></div>
-                    <div class="stat-box"><h4>Best Bowing</h4><p>${player.stats.best}</p></div>
+                    <div class="stat-box"><h4>Best Bowling</h4><p>${player.stats.best}</p></div>
+                    <div class="stat-box" style="display:none;"><p></p></div>
                 `;
             }
 
@@ -316,17 +330,11 @@
                                 color: '#94a3b8',
                                 font: { size: 13, family: "'Segoe UI', sans-serif", weight: 'bold' }
                             },
-                            ticks: {
-                                display: false,
-                                min: 0,
-                                max: 100
-                            }
+                            ticks: { display: false, min: 0, max: 100 }
                         }
                     },
                     plugins: {
-                        legend: {
-                            labels: { color: '#ffffff', font: { size: 14, weight: 'bold' } }
-                        }
+                        legend: { labels: { color: '#ffffff', font: { size: 14, weight: 'bold' } } }
                     }
                 }
             });
