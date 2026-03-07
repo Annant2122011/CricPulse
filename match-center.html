@@ -6,7 +6,7 @@
     <title>Fun-Gun Arena | CricPulse</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background: var(--bg-main);">
 
     <header>
         <a href="index.html" class="logo" style="text-shadow: 0 0 15px rgba(0, 255, 136, 0.6);">Cric<span>Pulse</span></a>
@@ -20,182 +20,168 @@
     </header>
 
     <main class="container">
-        <div id="game-header" style="text-align: center; margin-bottom: 30px; margin-top: 20px;">
-            <h2 class="section-title" style="font-size: 3rem; text-shadow: 0 0 15px var(--accent-neon); border: none;">🔥 SUPER OVER CHASE 🔥</h2>
-            <p style="color: var(--text-dim); font-size: 1.3rem;">Can you chase down 18 runs in 6 balls without losing both your wickets?</p>
+        
+        <div id="game-header-2" style="text-align: center; margin-bottom: 40px; margin-top: 20px;">
+            <h2 class="section-title" style="font-size: 3rem; text-shadow: 0 0 15px var(--accent-neon); border: none;">💥 HAND CRICKET CLASH 💥</h2>
+            <p style="color: var(--text-dim); font-size: 1.3rem;">Can you beat the computer in this high-energy Hand Cricket game?</p>
         </div>
 
-        <div class="game-board card" style="max-width: 800px; margin: 0 auto; box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 2px solid var(--accent-blue);">
+        <div id="hand-cricket-game" class="game-board card" style="max-width: 800px; margin: 0 auto; box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 2px solid var(--accent-blue); padding: 30px;">
             
-            <div class="scoreboard" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-bottom: 40px;">
-                <div class="score-box" style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 12px; min-width: 140px; border: 1px solid rgba(255,255,255,0.1);">
-                    <h4 style="color: var(--text-dim); font-size: 1rem; text-transform: uppercase; margin-bottom: 5px;">Target</h4>
-                    <p id="target-score" style="font-size: 3.5rem; font-weight: 900; color: var(--text-bright); line-height: 1;">18</p>
+            <div id="hand-display" style="display: flex; justify-content: space-around; font-size: 8rem; margin-bottom: 30px;">
+                <div id="player-hand" style="text-shadow: 0 0 20px var(--accent-blue); color: var(--accent-blue);">👤</div>
+                <div style="font-size: 4rem; display: flex; align-items: center; color: var(--text-dim);">VS</div>
+                <div id="computer-hand" style="text-shadow: 0 0 20px var(--accent-neon); color: var(--accent-neon);">🤖</div>
+            </div>
+
+            <div id="hand-scoreboard" style="display: flex; justify-content: center; gap: 20px; font-size: 2rem; margin-bottom: 30px;">
+                <div style="text-align: center; border: 1px solid rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 8px; background: rgba(0,0,0,0.5);">
+                    <div style="color: var(--text-dim); font-size: 1rem;">YOUR SCORE</div>
+                    <div id="player-hand-score" style="font-weight: bold; color: var(--accent-blue);">0</div>
                 </div>
-                <div class="score-box highlight" style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 12px; min-width: 140px; border: 1px solid var(--accent-blue); box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);">
-                    <h4 style="color: var(--text-dim); font-size: 1rem; text-transform: uppercase; margin-bottom: 5px;">Runs Needed</h4>
-                    <p id="runs-needed" style="font-size: 3.5rem; font-weight: 900; color: var(--accent-neon); line-height: 1;">18</p>
-                </div>
-                <div class="score-box highlight" style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 12px; min-width: 140px; border: 1px solid var(--accent-blue); box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);">
-                    <h4 style="color: var(--text-dim); font-size: 1rem; text-transform: uppercase; margin-bottom: 5px;">Balls Left</h4>
-                    <p id="balls-left" style="font-size: 3.5rem; font-weight: 900; color: var(--accent-neon); line-height: 1;">6</p>
-                </div>
-                <div class="score-box" style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 12px; min-width: 140px; border: 1px solid rgba(255,255,255,0.1);">
-                    <h4 style="color: var(--text-dim); font-size: 1rem; text-transform: uppercase; margin-bottom: 5px;">Wickets Left</h4>
-                    <p id="wickets-left" style="font-size: 3.5rem; font-weight: 900; color: #ff2a2a; line-height: 1;">2</p>
+                <div style="text-align: center; border: 1px solid rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 8px; background: rgba(0,0,0,0.5);">
+                    <div style="color: var(--text-dim); font-size: 1rem;">COMPUTER'S SCORE</div>
+                    <div id="computer-hand-score" style="font-weight: bold; color: var(--accent-neon);">0</div>
                 </div>
             </div>
 
-            <div class="over-timeline" id="over-timeline" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 40px;">
-                <div class="ball-spot" style="width: 60px; height: 60px; border-radius: 50%; border: 3px dashed rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.5rem; color: #000;"></div>
-                <div class="ball-spot" style="width: 60px; height: 60px; border-radius: 50%; border: 3px dashed rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.5rem; color: #000;"></div>
-                <div class="ball-spot" style="width: 60px; height: 60px; border-radius: 50%; border: 3px dashed rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.5rem; color: #000;"></div>
-                <div class="ball-spot" style="width: 60px; height: 60px; border-radius: 50%; border: 3px dashed rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.5rem; color: #000;"></div>
-                <div class="ball-spot" style="width: 60px; height: 60px; border-radius: 50%; border: 3px dashed rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.5rem; color: #000;"></div>
-                <div class="ball-spot" style="width: 60px; height: 60px; border-radius: 50%; border: 3px dashed rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.5rem; color: #000;"></div>
+            <div id="hand-action-area" style="text-align: center;">
+                <p style="color: var(--text-bright); margin-bottom: 20px; font-size: 1.3rem;">Choose your number to bat/bowl:</p>
+                <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 30px;">
+                    <button class="hand-btn" onclick="playHand(1)" style="font-size: 2rem; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent-blue); background: transparent; color: var(--accent-blue); cursor: pointer; transition: all 0.2s;">1</button>
+                    <button class="hand-btn" onclick="playHand(2)" style="font-size: 2rem; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent-blue); background: transparent; color: var(--accent-blue); cursor: pointer; transition: all 0.2s;">2</button>
+                    <button class="hand-btn" onclick="playHand(3)" style="font-size: 2rem; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent-blue); background: transparent; color: var(--accent-blue); cursor: pointer; transition: all 0.2s;">3</button>
+                    <button class="hand-btn" onclick="playHand(4)" style="font-size: 2rem; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent-blue); background: transparent; color: var(--accent-blue); cursor: pointer; transition: all 0.2s;">4</button>
+                    <button class="hand-btn" onclick="playHand(5)" style="font-size: 2rem; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent-blue); background: transparent; color: var(--accent-blue); cursor: pointer; transition: all 0.2s;">5</button>
+                    <button class="hand-btn" onclick="playHand(6)" style="font-size: 2rem; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent-blue); background: transparent; color: var(--accent-blue); cursor: pointer; transition: all 0.2s;">6</button>
+                </div>
+                <button id="hand-restart-btn" class="btn" style="display: none; margin: 0 auto; font-size: 1.5rem; padding: 15px 40px;" onclick="resetHandGame()">Play Again</button>
+                
+                <div id="hand-commentary" style="margin-top: 30px; font-size: 1.2rem; color: var(--text-dim); background: rgba(0, 0, 0, 0.6); padding: 15px; border-radius: 8px;">Welcome to Hand Cricket Clash! Choose a number to start.</div>
             </div>
 
-            <div class="game-commentary" id="game-commentary" style="background: rgba(0, 0, 0, 0.8); padding: 25px; border-radius: 8px; font-size: 1.4rem; min-height: 100px; display: flex; align-items: center; justify-content: center; margin-bottom: 40px; border-left: 5px solid var(--accent-neon);">
-                Step up to the crease. The bowler is running in...
-            </div>
-
-            <div class="action-area" style="text-align: center;">
-                <button id="swing-btn" class="swing-btn" onclick="swingBat()">🏏 SWING BAT 🏏</button>
-                <button id="restart-btn" class="btn" style="display: none; margin: 0 auto; font-size: 1.5rem; padding: 15px 40px;" onclick="resetGame()">Play Again</button>
-            </div>
         </div>
+
     </main>
 
     <footer style="margin-top: 60px;">
-        <p>&copy; 2026 CricPulse. All rights reserved.</p>
+        <p>&copy; 2026 CricPulse. All rights reserved. The Heartbeat of Cricket.</p>
     </footer>
 
     <script>
-        let runsNeeded = 18;
-        let ballsLeft = 6;
-        let wicketsLeft = 2;
-        let currentBall = 0;
-        let gameOver = false;
+        let playerScore = 0;
+        let computerScore = 0;
+        let isPlayerBatting = true;
+        let targetScore = 0;
+        let handGameOver = false;
 
-        const outcomes = [
-            { runs: 0, text: "Swung hard, but completely missed it! Dot ball.", type: "dot" },
-            { runs: 1, text: "Tapped to mid-wicket for a quick single.", type: "run" },
-            { runs: 2, text: "Placed beautifully in the gap. They push hard and get two!", type: "run" },
-            { runs: 4, text: "SMASHED! One bounce over the ropes for FOUR!", type: "boundary" },
-            { runs: 6, text: "OUT OF THE PARK! Massive SIX into the top tier!", type: "six" },
-            { runs: 'W', text: "Oh no! Edged and taken! WICKET down!", type: "wicket" },
-            { runs: 1, text: "Yorker dug out to point. Just a single.", type: "run" },
-            { runs: 4, text: "Thick edge, but it flies past the keeper for FOUR!", type: "boundary" },
-            { runs: 6, text: "In the slot, and dispatched over long-on for SIX!", type: "six" }
-        ];
+        function playHand(playerChoice) {
+            if (handGameOver) return;
 
-        function swingBat() {
-            if (gameOver) return;
+            const computerChoice = Math.floor(Math.random() * 6) + 1;
+            updateHandUI(playerChoice, computerChoice);
 
-            const randomOutcome = outcomes[Math.floor(Math.random() * outcomes.length)];
-            const commentaryBox = document.getElementById('game-commentary');
-            const timelineSpots = document.querySelectorAll('.ball-spot');
+            const resultMessage = document.getElementById('hand-commentary');
 
-            ballsLeft--;
-
-            if (randomOutcome.runs === 'W') {
-                wicketsLeft--;
-                updateTimeline(timelineSpots[currentBall], 'W', '#ff2a2a');
-                commentaryBox.innerHTML = `<span style="color: #ff2a2a; font-weight: bold;">WICKET!</span> ${randomOutcome.text}`;
+            if (playerChoice === computerChoice) {
+                isPlayerBatting = !isPlayerBatting;
+                if (isPlayerBatting) {
+                    targetScore = playerScore + 1;
+                    resultMessage.innerText = `OUT! You are bowled! Computer score is ${computerScore}. You need ${targetScore} runs to win.`;
+                    speakCommentary(`Out! You are bowled! Computer score is ${computerScore}. You need ${targetScore} runs to win.`);
+                } else {
+                    resultMessage.innerText = `OUT! Computer is out! Now, it's your turn to bat. Your target is ${computerScore + 1} runs.`;
+                    speakCommentary(`Out! Computer is out! Now, it's your turn to bat. Your target is ${computerScore + 1} runs.`);
+                }
             } else {
-                runsNeeded -= randomOutcome.runs;
-                
-                let bgColor = '#e2e8f0'; 
-                if (randomOutcome.runs === 4) bgColor = 'var(--accent-blue)';
-                if (randomOutcome.runs === 6) bgColor = 'var(--accent-neon)';
-                if (randomOutcome.runs === 0) bgColor = '#94a3b8';
-
-                updateTimeline(timelineSpots[currentBall], randomOutcome.runs, bgColor);
-                
-                let runColor = randomOutcome.runs >= 4 ? 'var(--accent-neon)' : 'var(--text-bright)';
-                commentaryBox.innerHTML = `<span style="color: ${runColor}; font-weight: bold;">${randomOutcome.runs} RUNS!</span> ${randomOutcome.text}`;
+                if (isPlayerBatting) {
+                    playerScore += playerChoice;
+                    document.getElementById('player-hand-score').innerText = playerScore;
+                    resultMessage.innerText = `You scored ${playerChoice} runs! Keep it up.`;
+                } else {
+                    computerScore += computerChoice;
+                    document.getElementById('computer-hand-score').innerText = computerScore;
+                    resultMessage.innerText = `Computer scored ${computerChoice} runs! Watch out.`;
+                }
             }
 
-            currentBall++;
-            updateUI();
-            checkGameState();
+            checkHandGameState();
         }
 
-        function updateTimeline(spot, text, bgColor) {
-            spot.innerText = text;
-            spot.style.background = bgColor;
-            spot.style.border = 'none';
-            if (text === 'W') {
-                spot.style.color = '#fff';
-                spot.style.boxShadow = '0 0 15px #ff2a2a';
-            } else if (text === 4) {
-                spot.style.boxShadow = '0 0 15px var(--accent-blue)';
-            } else if (text === 6) {
-                spot.style.boxShadow = '0 0 15px var(--accent-neon)';
-            }
+        function updateHandUI(playerChoice, computerChoice) {
+            document.getElementById('player-hand').innerText = playerChoice;
+            document.getElementById('computer-hand').innerText = computerChoice;
         }
 
-        function updateUI() {
-            document.getElementById('runs-needed').innerText = Math.max(0, runsNeeded);
-            document.getElementById('balls-left').innerText = ballsLeft;
-            document.getElementById('wickets-left').innerText = wicketsLeft;
-        }
+        function checkHandGameState() {
+            const resultMessage = document.getElementById('hand-commentary');
+            const restartBtn = document.getElementById('hand-restart-btn');
 
-        function checkGameState() {
-            const commentaryBox = document.getElementById('game-commentary');
-            const swingBtn = document.getElementById('swing-btn');
-            const restartBtn = document.getElementById('restart-btn');
-
-            if (runsNeeded <= 0) {
-                gameOver = true;
-                commentaryBox.innerHTML = `<span style="color: var(--accent-neon); font-size: 1.8rem; font-weight: 900;">🏆 YOU WIN! 🏆</span><br>What an unbelievable chase under pressure!`;
-                endGameUI(swingBtn, restartBtn);
-            } else if (wicketsLeft <= 0) {
-                gameOver = true;
-                commentaryBox.innerHTML = `<span style="color: #ff2a2a; font-size: 1.8rem; font-weight: 900;">❌ ALL OUT! ❌</span><br>You lost all your wickets. The bowling side wins!`;
-                endGameUI(swingBtn, restartBtn);
-            } else if (ballsLeft <= 0) {
-                gameOver = true;
-                commentaryBox.innerHTML = `<span style="color: #ff2a2a; font-size: 1.8rem; font-weight: 900;">❌ YOU LOSE! ❌</span><br>Out of deliveries. You fell short by ${runsNeeded} runs.`;
-                endGameUI(swingBtn, restartBtn);
+            if (!isPlayerBatting && targetScore > 0 && playerScore >= targetScore) {
+                handGameOver = true;
+                resultMessage.innerText = `CONGRATULATIONS! You win by chasing ${targetScore} runs!`;
+                speakCommentary("Congratulations! You win!");
+                restartBtn.style.display = 'inline-block';
+                document.getElementById('hand-action-area').children[1].style.display = 'none'; // Hide numbers
+            } else if (isPlayerBatting && targetScore > 0 && computerScore >= targetScore) {
+                handGameOver = true;
+                resultMessage.innerText = `GAME OVER! Computer win by defending ${targetScore - 1} runs!`;
+                speakCommentary("Game over! Computer win!");
+                restartBtn.style.display = 'inline-block';
+                document.getElementById('hand-action-area').children[1].style.display = 'none'; // Hide numbers
+            } else if (!isPlayerBatting && targetScore > 0 && computerScore >= targetScore) {
+                 // Computer wins if it reaches the target score while player is bowling.
+                handGameOver = true;
+                resultMessage.innerText = `GAME OVER! Computer win!`;
+                speakCommentary("Game over! Computer win!");
+                restartBtn.style.display = 'inline-block';
+                document.getElementById('hand-action-area').children[1].style.display = 'none'; // Hide numbers
+            } else if (isPlayerBatting && targetScore > 0 && playerScore >= targetScore) {
+                // Player wins if they reach the target score while batting.
+                handGameOver = true;
+                resultMessage.innerText = `CONGRATULATIONS! You win!`;
+                speakCommentary("Congratulations! You win!");
+                restartBtn.style.display = 'inline-block';
+                document.getElementById('hand-action-area').children[1].style.display = 'none'; // Hide numbers
             }
         }
 
-        function endGameUI(swingBtn, restartBtn) {
-            swingBtn.style.display = 'none';
-            restartBtn.style.display = 'block';
-            document.getElementById('runs-needed').parentElement.style.borderColor = 'rgba(255,255,255,0.1)';
-            document.getElementById('runs-needed').parentElement.style.boxShadow = 'none';
-            document.getElementById('balls-left').parentElement.style.borderColor = 'rgba(255,255,255,0.1)';
-            document.getElementById('balls-left').parentElement.style.boxShadow = 'none';
+        function resetHandGame() {
+            playerScore = 0;
+            computerScore = 0;
+            isPlayerBatting = true;
+            targetScore = 0;
+            handGameOver = false;
+
+            document.getElementById('player-hand-score').innerText = playerScore;
+            document.getElementById('computer-hand-score').innerText = computerScore;
+            document.getElementById('player-hand').innerText = '👤';
+            document.getElementById('computer-hand').innerText = '🤖';
+            document.getElementById('hand-commentary').innerText = "Welcome to Hand Cricket Clash! Choose a number to start.";
+            document.getElementById('hand-restart-btn').style.display = 'none';
+            document.getElementById('hand-action-area').children[1].style.display = 'flex'; // Show numbers
         }
 
-        function resetGame() {
-            runsNeeded = 18;
-            ballsLeft = 6;
-            wicketsLeft = 2;
-            currentBall = 0;
-            gameOver = false;
-
-            document.getElementById('game-commentary').innerText = "Step up to the crease. The bowler is running in...";
-            document.getElementById('swing-btn').style.display = 'inline-block';
-            document.getElementById('restart-btn').style.display = 'none';
-            
-            document.getElementById('runs-needed').parentElement.style.borderColor = 'var(--accent-blue)';
-            document.getElementById('runs-needed').parentElement.style.boxShadow = '0 0 15px rgba(0, 210, 255, 0.2)';
-            document.getElementById('balls-left').parentElement.style.borderColor = 'var(--accent-blue)';
-            document.getElementById('balls-left').parentElement.style.boxShadow = '0 0 15px rgba(0, 210, 255, 0.2)';
-
-            const timelineSpots = document.querySelectorAll('.ball-spot');
-            timelineSpots.forEach(spot => {
-                spot.innerText = '';
-                spot.style.background = 'transparent';
-                spot.style.border = '3px dashed rgba(255,255,255,0.3)';
-                spot.style.boxShadow = 'none';
-            });
-
-            updateUI();
+        function speakCommentary(text) {
+            // Using browser's SpeechSynthesis for commentary
+            const synth = window.speechSynthesis;
+            if (synth.speaking) {
+                console.error('speechSynthesis.speaking');
+                return;
+            }
+            if (text !== '') {
+                const utterThis = new SpeechSynthesisUtterance(text);
+                 utterThis.onend = function (event) {
+                    console.log('SpeechSynthesisUtterance.onend');
+                }
+                utterThis.onerror = function (event) {
+                    console.error('SpeechSynthesisUtterance.onerror');
+                }
+                synth.speak(utterThis);
+            }
         }
+
     </script>
+
 </body>
 </html>
