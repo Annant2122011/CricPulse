@@ -1160,15 +1160,30 @@ footer {
 .ultra-modal-body-text p { color: #cbd5e1; font-size: 1.15rem; line-height: 1.8; margin-bottom: 20px; }
 .ultra-modal-body-text p:last-child { margin-bottom: 0; }
 /* Navigation */
+/* Navigation */
+header {
+    background: rgba(10, 14, 23, 0.85);
+    backdrop-filter: blur(12px); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* --- THE LOGO FIX --- */
 .logo {
     font-size: 2rem;
     font-weight: 800;
     color: var(--text-bright);
     text-decoration: none;
     letter-spacing: 1px;
-    display: flex;         /* Added to align image and text horizontally */
+    display: flex;         /* This keeps the image and text in a neat row */
     align-items: center;   /* Centers them perfectly */
-    gap: 12px;             /* Adds breathing room between the image and the text */
+    gap: 15px;             /* Adds space between the logo and "CricPulse" */
 }
 
 .logo span {
@@ -1176,27 +1191,23 @@ footer {
     text-shadow: 0 0 10px rgba(0, 255, 136, 0.4); 
 }
 
-/* THE NEW CIRCULAR LOGO IMAGE */
-/* Make the image a perfect glowing circle - INCREASED SIZE */
-/* --- THE NEW COOKIE-CUTTER LOGO TRICK --- */
-
-/* 1. The Wrapper acts as the circular frame */
+/* 1. The Wrapper acts as the circular 75px frame */
 .logo-wrapper {
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    overflow: hidden; /* This is the cookie cutter! It hides anything outside the circle */
+    overflow: hidden; /* Hides the dark background outside the circle */
     border: 2px solid var(--accent-neon);
     box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-shrink: 0; /* Prevents the navbar from squishing it */
+    flex-shrink: 0; /* Forces it to stay exactly 75px no matter what */
 }
 
-/* 2. The Image zooms in to hide its own dark background */
+/* 2. The Image zooms in slightly to fill the frame */
 .logo-img {
-    width: 145%;  /* Zooms in by 45% to push the dark background out of view */
-    height: 145%; /* Must match width to prevent stretching */
+    width: 145%;
+    height: 145%;
     object-fit: cover;
 }
