@@ -5,155 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Latest Cricket News | CricPulse</title>
     <link rel="stylesheet" href="style.css">
-    
-    <style>
-        .ultra-news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
-            margin-top: 40px;
-            padding-bottom: 60px;
-        }
-
-        .ultra-news-card {
-            background: linear-gradient(145deg, #121926, #0a0e17);
-            border: 1px solid rgba(0, 210, 255, 0.1);
-            border-radius: 20px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        .ultra-news-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(0, 210, 255, 0.5);
-            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2), 0 0 20px rgba(0, 255, 136, 0.1);
-        }
-
-        .ultra-img-placeholder {
-            width: 100%;
-            height: 220px;
-            background: #121926;
-            overflow: hidden;
-            border-bottom: 2px solid rgba(0, 210, 255, 0.2);
-        }
-
-        .ultra-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-            opacity: 0.8;
-        }
-
-        .ultra-news-card:hover .ultra-img {
-            transform: scale(1.1);
-            opacity: 1;
-        }
-
-        .ultra-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .ultra-tag {
-            display: inline-block;
-            align-self: flex-start;
-            background: rgba(0, 255, 136, 0.1);
-            color: var(--accent-neon);
-            border: 1px solid var(--accent-neon);
-            padding: 5px 12px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 900;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .ultra-title {
-            color: var(--text-bright);
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            line-height: 1.4;
-            transition: color 0.3s ease;
-        }
-
-        .ultra-news-card:hover .ultra-title {
-            color: var(--accent-blue);
-        }
-
-        .ultra-content p {
-            color: var(--text-dim);
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-
-        /* 🚨 NEW MODAL STYLES (Fixed to prevent freezing) 🚨 */
-        .ultra-modal-wrapper {
-            display: none; /* Crucial: Keeps it hidden until clicked */
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .ultra-modal-box {
-            background: #0a0e17;
-            border: 1px solid var(--accent-blue);
-            box-shadow: 0 0 50px rgba(0, 210, 255, 0.3);
-            max-width: 800px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            border-radius: 20px;
-            position: relative;
-        }
-
-        .ultra-close-btn {
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            color: var(--text-bright);
-            font-size: 2.5rem;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .ultra-close-btn:hover { color: #ff2a2a; }
-
-        .ultra-modal-header { padding: 40px 40px 20px 40px; }
-        .ultra-modal-header h2 { font-size: 2.2rem; color: var(--text-bright); line-height: 1.3; margin-top: 15px; }
-        
-        .ultra-modal-hero-img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            border-top: 2px solid rgba(255,255,255,0.05);
-            border-bottom: 2px solid rgba(255,255,255,0.05);
-        }
-
-        .ultra-modal-body-text { padding: 30px 40px 40px 40px; }
-        .ultra-modal-body-text p { color: #cbd5e1; font-size: 1.15rem; line-height: 1.8; margin-bottom: 20px; }
-    </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo" style="text-shadow: 0 0 15px rgba(0, 255, 136, 0.6);">Cric<span>Pulse</span></a>
+        <a href="index.html" class="logo">Cric<span>Pulse</span></a>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -165,33 +21,41 @@
     </header>
 
     <main class="container">
-        <div style="text-align: center; margin-bottom: 50px; margin-top: 30px;">
-            <h1 style="font-size: 3.5rem; color: var(--text-bright); text-shadow: 0 0 20px rgba(0, 210, 255, 0.4);">THE <span style="color: var(--accent-blue);">PULSE</span> DESK</h1>
-            <p style="color: var(--text-dim); font-size: 1.2rem; margin-top: 10px;">The latest insights, deep dives, and breaking stories from the world of Men's Cricket.</p>
+        <div style="text-align: center; margin-bottom: 50px; margin-top: 30px; animation: fadeInDown 0.8s ease;">
+            <h1 style="font-size: 3.5rem; color: var(--text-bright); text-shadow: 0 0 20px rgba(0, 210, 255, 0.4); text-transform: uppercase; letter-spacing: 2px;">
+                The <span style="color: var(--accent-blue);">Pulse</span> Desk
+            </h1>
+            <p style="color: var(--text-dim); font-size: 1.2rem; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px;">
+                Elite Insights • Deep Dives • Breaking Stories
+            </p>
         </div>
 
         <div class="ultra-news-grid" id="news-container">
             </div>
     </main>
 
-    <div id="ultra-modal" class="ultra-modal-wrapper" style="display: none;">
-        <div class="ultra-modal-box">
-            <span class="ultra-close-btn" onclick="closeUltraModal()">&times;</span>
+    <div id="ultra-modal" class="modal">
+        <div class="modal-content ultra-modal-content">
+            <span class="close-btn" onclick="closeUltraModal()">&times;</span>
+            
             <div class="ultra-modal-header">
-                <span id="ultra-modal-tag" class="ultra-tag">TAG</span>
+                <span id="ultra-modal-tag" class="news-tag">TAG</span>
                 <h2 id="ultra-modal-title">Title Here</h2>
             </div>
-            <img id="ultra-modal-img" src="https://via.placeholder.com/600x350/121926/00d2ff?text=Image+Coming+Soon" alt="News Image" class="ultra-modal-hero-img">
-            <div id="ultra-modal-body" class="ultra-modal-body-text">
+            
+            <img id="ultra-modal-img" src="" alt="News Image" class="ultra-modal-img">
+            
+            <div id="ultra-modal-body" class="ultra-modal-text">
                 </div>
         </div>
     </div>
 
-    <footer style="margin-top: 60px;">
+    <footer>
         <p>&copy; 2026 CricPulse. All rights reserved. The Heartbeat of Cricket.</p>
     </footer>
 
     <script>
+        // Safe placeholder image
         const safePlaceholder = "https://via.placeholder.com/600x350/121926/00d2ff?text=Image+Coming+Soon";
 
         const newsDatabase = [
@@ -277,15 +141,17 @@
             let htmlContent = '';
 
             newsDatabase.forEach(news => {
+                // Added a sleek "Read Article ➔" button to the bottom of the card content!
                 htmlContent += `
-                    <article class="ultra-news-card" onclick="openUltraModal(${news.id})">
-                        <div class="ultra-img-placeholder">
-                            <img src="${news.img}" alt="News Placeholder" class="ultra-img">
+                    <article class="news-card" onclick="openUltraModal(${news.id})">
+                        <div class="news-img-placeholder">
+                            <img src="${news.img}" alt="News Placeholder" class="news-img">
                         </div>
-                        <div class="ultra-content">
-                            <span class="ultra-tag">${news.tag}</span>
-                            <h3 class="ultra-title">${news.title}</h3>
+                        <div class="news-content">
+                            <span class="news-tag">${news.tag}</span>
+                            <h3 class="news-title">${news.title}</h3>
                             <p>${news.desc}</p>
+                            <span style="color: var(--accent-blue); font-weight: bold; font-size: 0.9rem; margin-top: 15px; display: inline-block;">Read Article ➔</span>
                         </div>
                     </article>
                 `;
@@ -302,18 +168,22 @@
                 document.getElementById('ultra-modal-img').src = article.img;
                 document.getElementById('ultra-modal-body').innerHTML = article.body;
                 
-                // Show modal safely
-                document.getElementById('ultra-modal').style.display = 'flex';
+                // Uses the smooth fade-in CSS from your style.css!
+                const modal = document.getElementById('ultra-modal');
+                modal.style.display = 'flex';
+                setTimeout(() => modal.classList.add('show'), 10);
                 document.body.style.overflow = 'hidden'; 
             }
         }
 
         function closeUltraModal() {
-            // Hide modal safely
-            document.getElementById('ultra-modal').style.display = 'none';
+            const modal = document.getElementById('ultra-modal');
+            modal.classList.remove('show');
+            setTimeout(() => { modal.style.display = 'none'; }, 300);
             document.body.style.overflow = 'auto'; 
         }
 
+        // Click outside to close
         window.onclick = function(event) {
             const modal = document.getElementById('ultra-modal');
             if (event.target === modal) {
@@ -321,7 +191,7 @@
             }
         }
 
-        // Run as soon as the page loads
+        // Execute on load
         window.onload = loadNewsCards;
     </script>
 </body>
