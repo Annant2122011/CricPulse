@@ -561,3 +561,115 @@ footer {
     justify-content: center;
     min-height: 400px; /* Gives the radar chart enough room to render beautifully */
 }
+/* Fun-Gun Super Over Game Styles */
+.game-board {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(180deg, #121926 0%, #0a0e17 100%);
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.score-box {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 140px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.score-box.highlight {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+}
+
+.score-box h4 {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.score-box p {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--text-bright);
+    line-height: 1;
+}
+
+.score-box.highlight p {
+    color: var(--accent-neon);
+}
+
+.over-timeline {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.ball-spot {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #000;
+}
+
+/* Ball Outcome Colors */
+.dot-ball { background: #94a3b8; }
+.run-ball { background: #e2e8f0; }
+.four-ball { background: var(--accent-blue); box-shadow: 0 0 15px var(--accent-blue); }
+.six-ball { background: var(--accent-neon); box-shadow: 0 0 15px var(--accent-neon); }
+.wicket-ball { background: #ff2a2a; color: white; box-shadow: 0 0 15px #ff2a2a; }
+
+.game-commentary {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    border-left: 4px solid var(--accent-neon);
+}
+
+.swing-btn {
+    background: linear-gradient(45deg, #ff9900, #ff2a2a);
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 900;
+    padding: 20px 50px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 10px 30px rgba(255, 42, 42, 0.4);
+    transition: all 0.2s;
+}
+
+.swing-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 40px rgba(255, 153, 0, 0.6);
+}
+
+.swing-btn:active {
+    transform: scale(0.95);
+}
