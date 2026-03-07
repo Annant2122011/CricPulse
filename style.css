@@ -1181,7 +1181,7 @@ footer {
 .logo-img {
     width: 75px;                 /* Increased from 50px to 75px! */
     height: 75px;                /* Make sure this exactly matches the width */
-    border-radius: 40%;          
+    border-radius: 20%;          
     object-fit: cover;           
     border: 2px solid var(--accent-neon); 
     box-shadow: 0 0 15px rgba(0, 255, 136, 0.4); 
