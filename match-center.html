@@ -3,164 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Match Center | CricPulse</title>
+    <title>Fun-Gun Arena | CricPulse</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo">Cric<span>Pulse</span></a>
+        <a href="index.html" class="logo" style="text-shadow: 0 0 15px rgba(0, 255, 136, 0.6);">Cric<span>Pulse</span></a>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="stats.html">Stats</a></li>
-                <li><a href="match-center.html" style="color: var(--accent-neon);">Fun-Gun</a></li>
+                <li><a href="match-center.html" style="color: var(--accent-neon); border-bottom: 2px solid var(--accent-neon); padding-bottom: 5px;">Fun-Gun</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container">
-        <div class="match-dashboard">
+        <div id="game-header" style="text-align: center; margin-bottom: 30px; margin-top: 20px;">
+            <h2 class="section-title" style="font-size: 3rem; text-shadow: 0 0 15px var(--accent-neon); border: none;">🔥 SUPER OVER CHASE 🔥</h2>
+            <p style="color: var(--text-dim); font-size: 1.3rem;">Can you chase down 18 runs in 6 balls without losing both your wickets?</p>
+        </div>
+
+        <div class="game-board card" style="max-width: 800px; margin: 0 auto; box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 2px solid var(--accent-blue);">
             
-            <div class="dashboard-left">
-                <div class="match-header card">
-                    <span style="color: var(--text-dim); font-weight: bold;">RESULT • T20 World Cup SF 1</span>
-                    <h2>NZ 173/1 <span style="font-size: 1.2rem; color: var(--text-dim);">(12.5 Ov)</span></h2>
-                    <p>SA 169/8 (20.0 Ov)</p>
-                    <p style="color: var(--accent-neon); margin-top: 10px;">New Zealand won by 9 wickets</p>
+            <div class="scoreboard" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-bottom: 40px;">
+                <div class="score-box" style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 12px; min-width: 140px; border: 1px solid rgba(255,255,255,0.1);">
+                    <h4 style="color: var(--text-dim); font-size: 1rem; text-transform: uppercase; margin-bottom: 5px;">Target</h4>
+                    <p id="target-score" style="font-size: 3.5rem; font-weight: 900; color: var(--text-bright); line-height: 1;">18</p>
                 </div>
-
-                <div class="tabs card">
-                    <button class="tab-btn active" onclick="showTab('scorecard')">Scorecard</button>
-                    <button class="tab-btn" onclick="showTab('commentary')">Commentary</button>
+                <div class="score-box highlight" style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 12px; min-width: 140px; border: 1px solid var(--accent-blue); box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);">
+                    <h4 style="color: var(--text-dim); font-size: 1rem; text-transform: uppercase; margin-bottom: 5px;">Runs Needed</h4>
+                    <p id="runs-needed" style="font-size: 3.5rem; font-weight: 900; color: var(--accent-neon); line-height: 1;">18</p>
                 </div>
-
-                <div id="scorecard" class="tab-content active card">
-                    <table class="points-table">
-                        <thead>
-                            <tr>
-                                <th>Batter</th>
-                                <th>R</th>
-                                <th>B</th>
-                                <th>4s</th>
-                                <th>6s</th>
-                                <th>SR</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>F. Allen</strong>*</td>
-                                <td>104</td>
-                                <td>35</td>
-                                <td>6</td>
-                                <td>11</td>
-                                <td>297.14</td>
-                            </tr>
-                            <tr>
-                                <td><strong>D. Conway</strong> (wk)</td>
-                                <td>45</td>
-                                <td>32</td>
-                                <td>4</td>
-                                <td>1</td>
-                                <td>140.62</td>
-                            </tr>
-                            <tr>
-                                <td><strong>K. Williamson</strong> (c)*</td>
-                                <td>18</td>
-                                <td>10</td>
-                                <td>2</td>
-                                <td>0</td>
-                                <td>180.00</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="score-box highlight" style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 12px; min-width: 140px; border: 1px solid var(--accent-blue); box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);">
+                    <h4 style="color: var(--text-dim); font-size: 1rem; text-transform: uppercase; margin-bottom: 5px;">Balls Left</h4>
+                    <p id="balls-left" style="font-size: 3.5rem; font-weight: 900; color: var(--accent-neon); line-height: 1;">6</p>
                 </div>
-
-                <div id="commentary" class="tab-content card" style="display: none;">
-                    <div class="comm-ball">
-                        <strong>12.5</strong> <span class="badge run-6">6</span> 
-                        <p>Kagiso Rabada to Finn Allen, <strong>SIX! AND THAT'S HIS CENTURY!</strong> What a devastating innings. He finishes the match with a massive hit over long-on to send New Zealand to the Final!</p>
-                    </div>
-                    <div class="comm-ball">
-                        <strong>12.4</strong> <span class="badge run-6" style="background-color: var(--accent-blue); color: #000;">4</span> 
-                        <p>Kagiso Rabada to Finn Allen, <strong>FOUR!</strong> Slashed hard past point. Scores are level!</p>
-                    </div>
-                    <div class="comm-ball">
-                        <strong>8.2</strong> <span class="badge wicket">W</span> 
-                        <p>Keshav Maharaj to Devon Conway, <strong>OUT!</strong> Bowled him! Conway tries to sweep but misses the straight one. The opening stand is finally broken.</p>
-                    </div>
+                <div class="score-box" style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 12px; min-width: 140px; border: 1px solid rgba(255,255,255,0.1);">
+                    <h4 style="color: var(--text-dim); font-size: 1rem; text-transform: uppercase; margin-bottom: 5px;">Wickets Left</h4>
+                    <p id="wickets-left" style="font-size: 3.5rem; font-weight: 900; color: #ff2a2a; line-height: 1;">2</p>
                 </div>
             </div>
 
-            <div class="dashboard-right card">
-                <h3 style="border-bottom: 2px solid var(--accent-neon); padding-bottom: 10px; margin-bottom: 15px;">Build Fantasy XI</h3>
-                <div class="budget-tracker">
-                    <span>Budget: <strong id="budget" style="color: var(--accent-neon);">100</strong> Cr</span>
-                    <span>Selected: <strong id="player-count">0</strong>/11</span>
-                </div>
-                
-                <ul class="fantasy-list">
-                    <li class="fantasy-player" onclick="togglePlayer(this, 10.5)">
-                        <div><strong>F. Allen (BAT)</strong> <br><span style="font-size: 0.8rem; color: var(--text-dim);">NZ</span></div>
-                        <div>10.5 Cr <button class="pick-btn">+</button></div>
-                    </li>
-                    <li class="fantasy-player" onclick="togglePlayer(this, 10.0)">
-                        <div><strong>H. Klaasen (WK)</strong> <br><span style="font-size: 0.8rem; color: var(--text-dim);">SA</span></div>
-                        <div>10.0 Cr <button class="pick-btn">+</button></div>
-                    </li>
-                    <li class="fantasy-player" onclick="togglePlayer(this, 9.5)">
-                        <div><strong>M. Santner (ALL)</strong> <br><span style="font-size: 0.8rem; color: var(--text-dim);">NZ</span></div>
-                        <div>9.5 Cr <button class="pick-btn">+</button></div>
-                    </li>
-                    <li class="fantasy-player" onclick="togglePlayer(this, 9.0)">
-                        <div><strong>K. Rabada (BOWL)</strong> <br><span style="font-size: 0.8rem; color: var(--text-dim);">SA</span></div>
-                        <div>9.0 Cr <button class="pick-btn">+</button></div>
-                    </li>
-                </ul>
-                <button class="btn" style="width: 100%; margin-top: 20px;">Save Team</button>
+            <div class="over-timeline" id="over-timeline" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 40px;">
+                <div class="ball-spot" style="width: 60px; height: 60px; border-radius: 50%; border: 3px dashed rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.5rem; color: #000;"></div>
+                <div class="ball-spot" style="width: 60px; height: 60px; border-radius: 50%; border: 3px dashed rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.5rem; color: #000;"></div>
+                <div class="ball-spot" style="width: 60px; height: 60px; border-radius: 50%; border: 3px dashed rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.5rem; color: #000;"></div>
+                <div class="ball-spot" style="width: 60px; height: 60px; border-radius: 50%; border: 3px dashed rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.5rem; color: #000;"></div>
+                <div class="ball-spot" style="width: 60px; height: 60px; border-radius: 50%; border: 3px dashed rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.5rem; color: #000;"></div>
+                <div class="ball-spot" style="width: 60px; height: 60px; border-radius: 50%; border: 3px dashed rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.5rem; color: #000;"></div>
             </div>
 
-        </div>>
+            <div class="game-commentary" id="game-commentary" style="background: rgba(0, 0, 0, 0.8); padding: 25px; border-radius: 8px; font-size: 1.4rem; min-height: 100px; display: flex; align-items: center; justify-content: center; margin-bottom: 40px; border-left: 5px solid var(--accent-neon);">
+                Step up to the crease. The bowler is running in...
+            </div>
+
+            <div class="action-area" style="text-align: center;">
+                <button id="swing-btn" class="swing-btn" onclick="swingBat()">🏏 SWING BAT 🏏</button>
+                <button id="restart-btn" class="btn" style="display: none; margin: 0 auto; font-size: 1.5rem; padding: 15px 40px;" onclick="resetGame()">Play Again</button>
+            </div>
+        </div>
     </main>
 
+    <footer style="margin-top: 60px;">
+        <p>&copy; 2026 CricPulse. All rights reserved.</p>
+    </footer>
+
     <script>
-        // Tab Switching Logic
-        function showTab(tabName) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            
-            document.getElementById(tabName).style.display = 'block';
-            event.target.classList.add('active');
-        }
+        let runsNeeded = 18;
+        let ballsLeft = 6;
+        let wicketsLeft = 2;
+        let currentBall = 0;
+        let gameOver = false;
 
-        // Fantasy Builder Logic
-        let budget = 100.0;
-        let selectedCount = 0;
+        const outcomes = [
+            { runs: 0, text: "Swung hard, but completely missed it! Dot ball.", type: "dot" },
+            { runs: 1, text: "Tapped to mid-wicket for a quick single.", type: "run" },
+            { runs: 2, text: "Placed beautifully in the gap. They push hard and get two!", type: "run" },
+            { runs: 4, text: "SMASHED! One bounce over the ropes for FOUR!", type: "boundary" },
+            { runs: 6, text: "OUT OF THE PARK! Massive SIX into the top tier!", type: "six" },
+            { runs: 'W', text: "Oh no! Edged and taken! WICKET down!", type: "wicket" },
+            { runs: 1, text: "Yorker dug out to point. Just a single.", type: "run" },
+            { runs: 4, text: "Thick edge, but it flies past the keeper for FOUR!", type: "boundary" },
+            { runs: 6, text: "In the slot, and dispatched over long-on for SIX!", type: "six" }
+        ];
 
-        function togglePlayer(element, cost) {
-            const isSelected = element.classList.contains('selected');
-            const btn = element.querySelector('.pick-btn');
+        function swingBat() {
+            if (gameOver) return;
 
-            if (isSelected) {
-                element.classList.remove('selected');
-                budget += cost;
-                selectedCount--;
-                btn.innerText = '+';
-                btn.style.background = 'transparent';
+            const randomOutcome = outcomes[Math.floor(Math.random() * outcomes.length)];
+            const commentaryBox = document.getElementById('game-commentary');
+            const timelineSpots = document.querySelectorAll('.ball-spot');
+
+            ballsLeft--;
+
+            if (randomOutcome.runs === 'W') {
+                wicketsLeft--;
+                updateTimeline(timelineSpots[currentBall], 'W', '#ff2a2a');
+                commentaryBox.innerHTML = `<span style="color: #ff2a2a; font-weight: bold;">WICKET!</span> ${randomOutcome.text}`;
             } else {
-                if (selectedCount >= 11) return alert("You already have 11 players!");
-                if (budget - cost < 0) return alert("Not enough budget!");
+                runsNeeded -= randomOutcome.runs;
                 
-                element.classList.add('selected');
-                budget -= cost;
-                selectedCount++;
-                btn.innerText = '✓';
-                btn.style.background = 'var(--accent-neon)';
-                btn.style.color = '#000';
+                let bgColor = '#e2e8f0'; 
+                if (randomOutcome.runs === 4) bgColor = 'var(--accent-blue)';
+                if (randomOutcome.runs === 6) bgColor = 'var(--accent-neon)';
+                if (randomOutcome.runs === 0) bgColor = '#94a3b8';
+
+                updateTimeline(timelineSpots[currentBall], randomOutcome.runs, bgColor);
+                
+                let runColor = randomOutcome.runs >= 4 ? 'var(--accent-neon)' : 'var(--text-bright)';
+                commentaryBox.innerHTML = `<span style="color: ${runColor}; font-weight: bold;">${randomOutcome.runs} RUNS!</span> ${randomOutcome.text}`;
             }
 
-            document.getElementById('budget').innerText = budget.toFixed(1);
-            document.getElementById('player-count').innerText = selectedCount;
+            currentBall++;
+            updateUI();
+            checkGameState();
+        }
+
+        function updateTimeline(spot, text, bgColor) {
+            spot.innerText = text;
+            spot.style.background = bgColor;
+            spot.style.border = 'none';
+            if (text === 'W') {
+                spot.style.color = '#fff';
+                spot.style.boxShadow = '0 0 15px #ff2a2a';
+            } else if (text === 4) {
+                spot.style.boxShadow = '0 0 15px var(--accent-blue)';
+            } else if (text === 6) {
+                spot.style.boxShadow = '0 0 15px var(--accent-neon)';
+            }
+        }
+
+        function updateUI() {
+            document.getElementById('runs-needed').innerText = Math.max(0, runsNeeded);
+            document.getElementById('balls-left').innerText = ballsLeft;
+            document.getElementById('wickets-left').innerText = wicketsLeft;
+        }
+
+        function checkGameState() {
+            const commentaryBox = document.getElementById('game-commentary');
+            const swingBtn = document.getElementById('swing-btn');
+            const restartBtn = document.getElementById('restart-btn');
+
+            if (runsNeeded <= 0) {
+                gameOver = true;
+                commentaryBox.innerHTML = `<span style="color: var(--accent-neon); font-size: 1.8rem; font-weight: 900;">🏆 YOU WIN! 🏆</span><br>What an unbelievable chase under pressure!`;
+                endGameUI(swingBtn, restartBtn);
+            } else if (wicketsLeft <= 0) {
+                gameOver = true;
+                commentaryBox.innerHTML = `<span style="color: #ff2a2a; font-size: 1.8rem; font-weight: 900;">❌ ALL OUT! ❌</span><br>You lost all your wickets. The bowling side wins!`;
+                endGameUI(swingBtn, restartBtn);
+            } else if (ballsLeft <= 0) {
+                gameOver = true;
+                commentaryBox.innerHTML = `<span style="color: #ff2a2a; font-size: 1.8rem; font-weight: 900;">❌ YOU LOSE! ❌</span><br>Out of deliveries. You fell short by ${runsNeeded} runs.`;
+                endGameUI(swingBtn, restartBtn);
+            }
+        }
+
+        function endGameUI(swingBtn, restartBtn) {
+            swingBtn.style.display = 'none';
+            restartBtn.style.display = 'block';
+            document.getElementById('runs-needed').parentElement.style.borderColor = 'rgba(255,255,255,0.1)';
+            document.getElementById('runs-needed').parentElement.style.boxShadow = 'none';
+            document.getElementById('balls-left').parentElement.style.borderColor = 'rgba(255,255,255,0.1)';
+            document.getElementById('balls-left').parentElement.style.boxShadow = 'none';
+        }
+
+        function resetGame() {
+            runsNeeded = 18;
+            ballsLeft = 6;
+            wicketsLeft = 2;
+            currentBall = 0;
+            gameOver = false;
+
+            document.getElementById('game-commentary').innerText = "Step up to the crease. The bowler is running in...";
+            document.getElementById('swing-btn').style.display = 'inline-block';
+            document.getElementById('restart-btn').style.display = 'none';
+            
+            document.getElementById('runs-needed').parentElement.style.borderColor = 'var(--accent-blue)';
+            document.getElementById('runs-needed').parentElement.style.boxShadow = '0 0 15px rgba(0, 210, 255, 0.2)';
+            document.getElementById('balls-left').parentElement.style.borderColor = 'var(--accent-blue)';
+            document.getElementById('balls-left').parentElement.style.boxShadow = '0 0 15px rgba(0, 210, 255, 0.2)';
+
+            const timelineSpots = document.querySelectorAll('.ball-spot');
+            timelineSpots.forEach(spot => {
+                spot.innerText = '';
+                spot.style.background = 'transparent';
+                spot.style.border = '3px dashed rgba(255,255,255,0.3)';
+                spot.style.boxShadow = 'none';
+            });
+
+            updateUI();
         }
     </script>
 </body>
