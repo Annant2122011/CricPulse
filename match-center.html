@@ -123,6 +123,41 @@
                         <button class="hand-btn" onclick="playHand(6)">6</button>
                     </div>
                 </div>
+                <div id="analysis-screen" style="display: none; margin-top: 40px; border-top: 2px dashed rgba(0, 210, 255, 0.3); padding-top: 30px;">
+                    <h3 class="neon-text" style="font-size: 2.2rem; margin-bottom: 20px;">📊 POST-MATCH ANALYSIS 📊</h3>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; margin-bottom: 30px;">
+                        
+                        <div class="score-card player-bg" style="padding: 20px;">
+                            <h4 style="color: var(--accent-blue); font-size: 1.5rem; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">👤 YOUR PERFORMANCE</h4>
+                            <ul style="list-style: none; color: var(--text-bright); font-size: 1.1rem; line-height: 1.8;">
+                                <li><b>Total Runs:</b> <span id="an-p-runs" style="color: var(--accent-blue); font-weight: bold;">0</span></li>
+                                <li><b>Balls Faced:</b> <span id="an-p-balls">0</span></li>
+                                <li><b>Strike Rate:</b> <span id="an-p-sr">0.00</span></li>
+                                <li><b>Run Rate (CRR):</b> <span id="an-p-rr">0.00</span></li>
+                                <li><b>Boundaries:</b> <span id="an-p-bounds">0</span> (4s: <span id="an-p-4s">0</span> | 6s: <span id="an-p-6s">0</span>)</li>
+                                <li><b>Dismissed On:</b> <span id="an-p-out" style="color: #ff2a2a; font-weight: bold;">-</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="score-card computer-bg" style="padding: 20px;">
+                            <h4 style="color: #ff2a2a; font-size: 1.5rem; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">🤖 COM PERFORMANCE</h4>
+                            <ul style="list-style: none; color: var(--text-bright); font-size: 1.1rem; line-height: 1.8;">
+                                <li><b>Total Runs:</b> <span id="an-c-runs" style="color: #ff2a2a; font-weight: bold;">0</span></li>
+                                <li><b>Balls Faced:</b> <span id="an-c-balls">0</span></li>
+                                <li><b>Strike Rate:</b> <span id="an-c-sr">0.00</span></li>
+                                <li><b>Run Rate (CRR):</b> <span id="an-c-rr">0.00</span></li>
+                                <li><b>Boundaries:</b> <span id="an-c-bounds">0</span> (4s: <span id="an-c-4s">0</span> | 6s: <span id="an-c-6s">0</span>)</li>
+                                <li><b>Dismissed On:</b> <span id="an-c-out" style="color: #ff2a2a; font-weight: bold;">-</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(0,0,0,0.6); border: 1px solid rgba(0,255,136,0.3); padding: 20px; border-radius: 12px; border-left: 5px solid var(--accent-neon);">
+                        <h4 style="color: var(--text-dim); margin-bottom: 10px; font-size: 1rem; letter-spacing: 2px;">🤖 EXPERT AI INSIGHT</h4>
+                        <p id="ai-insight-text" style="color: var(--accent-neon); font-size: 1.3rem; font-weight: bold; line-height: 1.5;"></p>
+                    </div>
+                </div>
 
                 <button id="hand-restart-btn" class="btn pulse-btn" style="display: none; margin: 20px auto 0;" onclick="resetToToss()">🔄 Play New Match</button>
             </div>
