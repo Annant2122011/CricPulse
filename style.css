@@ -1178,11 +1178,25 @@ footer {
 
 /* THE NEW CIRCULAR LOGO IMAGE */
 /* Make the image a perfect glowing circle - INCREASED SIZE */
+/* --- THE NEW COOKIE-CUTTER LOGO TRICK --- */
+
+/* 1. The Wrapper acts as the circular frame */
+.logo-wrapper {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    overflow: hidden; /* This is the cookie cutter! It hides anything outside the circle */
+    border: 2px solid var(--accent-neon);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Prevents the navbar from squishing it */
+}
+
+/* 2. The Image zooms in to hide its own dark background */
 .logo-img {
-    width: 75px;                 /* Increased from 50px to 75px! */
-    height: 75px;                /* Make sure this exactly matches the width */
-    border-radius: 100%;          
-    object-fit: cover;           
-    border: 2px solid var(--accent-neon); 
-    box-shadow: 0 0 15px rgba(0, 255, 136, 0.4); 
+    width: 145%;  /* Zooms in by 45% to push the dark background out of view */
+    height: 145%; /* Must match width to prevent stretching */
+    object-fit: cover;
 }
