@@ -1191,23 +1191,25 @@ header {
     text-shadow: 0 0 10px rgba(0, 255, 136, 0.4); 
 }
 
-/* 1. The Wrapper acts as the circular 75px frame */
+/* 1. The Wrapper acts as the circular frame */
 .logo-wrapper {
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    overflow: hidden; /* Hides the dark background outside the circle */
+    overflow: hidden;
     border: 2px solid var(--accent-neon);
     box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0; /* Forces it to stay exactly 75px no matter what */
+    position: relative; /* Allows us to perfectly target the center */
+    flex-shrink: 0;
 }
 
-/* 2. The Image zooms in slightly to fill the frame */
+/* 2. The Image is pinned to the exact dead-center */
 .logo-img {
     width: 145%;
     height: 145%;
     object-fit: cover;
+    position: absolute; /* Tells the image to ignore standard layout rules */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Locks the absolute dead-center of the image to the frame */
 }
