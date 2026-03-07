@@ -6,10 +6,10 @@
     <title>Fun-Gun Arena | CricPulse</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background: var(--bg-main);">
+<body>
 
     <header>
-        <a href="index.html" class="logo" style="text-shadow: 0 0 15px rgba(0, 255, 136, 0.6);">Cric<span>Pulse</span></a>
+        <a href="index.html" class="logo">Cric<span>Pulse</span></a>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -20,168 +20,69 @@
     </header>
 
     <main class="container">
-        
-        <div id="game-header-2" style="text-align: center; margin-bottom: 40px; margin-top: 20px;">
-            <h2 class="section-title" style="font-size: 3rem; text-shadow: 0 0 15px var(--accent-neon); border: none;">💥 HAND CRICKET CLASH 💥</h2>
-            <p style="color: var(--text-dim); font-size: 1.3rem;">Can you beat the computer in this high-energy Hand Cricket game?</p>
+        <div class="game-header">
+            <h2 class="section-title neon-text">💥 HAND CRICKET CLASH 💥</h2>
+            <p class="game-subtitle">Bat first, set a massive target, and defend it! Make sure your volume is UP 🔊</p>
         </div>
 
-        <div id="hand-cricket-game" class="game-board card" style="max-width: 800px; margin: 0 auto; box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 2px solid var(--accent-blue); padding: 30px;">
+        <div class="hand-cricket-board card">
             
-            <div id="hand-display" style="display: flex; justify-content: space-around; font-size: 8rem; margin-bottom: 30px;">
-                <div id="player-hand" style="text-shadow: 0 0 20px var(--accent-blue); color: var(--accent-blue);">👤</div>
-                <div style="font-size: 4rem; display: flex; align-items: center; color: var(--text-dim);">VS</div>
-                <div id="computer-hand" style="text-shadow: 0 0 20px var(--accent-neon); color: var(--accent-neon);">🤖</div>
-            </div>
+            <div id="innings-status" class="innings-badge">🏏 1ST INNINGS: YOU ARE BATTING</div>
 
-            <div id="hand-scoreboard" style="display: flex; justify-content: center; gap: 20px; font-size: 2rem; margin-bottom: 30px;">
-                <div style="text-align: center; border: 1px solid rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 8px; background: rgba(0,0,0,0.5);">
-                    <div style="color: var(--text-dim); font-size: 1rem;">YOUR SCORE</div>
-                    <div id="player-hand-score" style="font-weight: bold; color: var(--accent-blue);">0</div>
+            <div class="hand-display">
+                <div class="player-side">
+                    <p class="side-label">YOU</p>
+                    <div id="player-hand" class="hand-icon player-color">✊</div>
                 </div>
-                <div style="text-align: center; border: 1px solid rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 8px; background: rgba(0,0,0,0.5);">
-                    <div style="color: var(--text-dim); font-size: 1rem;">COMPUTER'S SCORE</div>
-                    <div id="computer-hand-score" style="font-weight: bold; color: var(--accent-neon);">0</div>
+                <div class="vs-text">VS</div>
+                <div class="computer-side">
+                    <p class="side-label">COMPUTER</p>
+                    <div id="computer-hand" class="hand-icon computer-color">✊</div>
                 </div>
             </div>
 
-            <div id="hand-action-area" style="text-align: center;">
-                <p style="color: var(--text-bright); margin-bottom: 20px; font-size: 1.3rem;">Choose your number to bat/bowl:</p>
-                <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 30px;">
-                    <button class="hand-btn" onclick="playHand(1)" style="font-size: 2rem; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent-blue); background: transparent; color: var(--accent-blue); cursor: pointer; transition: all 0.2s;">1</button>
-                    <button class="hand-btn" onclick="playHand(2)" style="font-size: 2rem; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent-blue); background: transparent; color: var(--accent-blue); cursor: pointer; transition: all 0.2s;">2</button>
-                    <button class="hand-btn" onclick="playHand(3)" style="font-size: 2rem; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent-blue); background: transparent; color: var(--accent-blue); cursor: pointer; transition: all 0.2s;">3</button>
-                    <button class="hand-btn" onclick="playHand(4)" style="font-size: 2rem; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent-blue); background: transparent; color: var(--accent-blue); cursor: pointer; transition: all 0.2s;">4</button>
-                    <button class="hand-btn" onclick="playHand(5)" style="font-size: 2rem; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent-blue); background: transparent; color: var(--accent-blue); cursor: pointer; transition: all 0.2s;">5</button>
-                    <button class="hand-btn" onclick="playHand(6)" style="font-size: 2rem; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent-blue); background: transparent; color: var(--accent-blue); cursor: pointer; transition: all 0.2s;">6</button>
+            <div class="hand-scoreboard">
+                <div class="score-card player-bg">
+                    <div class="score-label">YOUR SCORE</div>
+                    <div id="player-hand-score" class="score-number player-color">0</div>
                 </div>
-                <button id="hand-restart-btn" class="btn" style="display: none; margin: 0 auto; font-size: 1.5rem; padding: 15px 40px;" onclick="resetHandGame()">Play Again</button>
                 
-                <div id="hand-commentary" style="margin-top: 30px; font-size: 1.2rem; color: var(--text-dim); background: rgba(0, 0, 0, 0.6); padding: 15px; border-radius: 8px;">Welcome to Hand Cricket Clash! Choose a number to start.</div>
+                <div id="target-box" class="score-card target-bg" style="display: none;">
+                    <div class="score-label">TARGET</div>
+                    <div id="target-score" class="score-number text-white">0</div>
+                </div>
+
+                <div class="score-card computer-bg">
+                    <div class="score-label">COM SCORE</div>
+                    <div id="computer-hand-score" class="score-number computer-color">0</div>
+                </div>
             </div>
+
+            <div id="hand-commentary" class="commentary-box">
+                Step up to the pitch! Choose a number to hit your first run.
+            </div>
+
+            <div id="hand-action-area" class="action-area">
+                <p style="color: var(--text-bright); margin-bottom: 15px; font-weight: bold;">THROW YOUR NUMBER:</p>
+                <div class="button-grid">
+                    <button class="hand-btn" onclick="playHand(1)">1</button>
+                    <button class="hand-btn" onclick="playHand(2)">2</button>
+                    <button class="hand-btn" onclick="playHand(3)">3</button>
+                    <button class="hand-btn" onclick="playHand(4)">4</button>
+                    <button class="hand-btn" onclick="playHand(5)">5</button>
+                    <button class="hand-btn" onclick="playHand(6)">6</button>
+                </div>
+            </div>
+
+            <button id="hand-restart-btn" class="btn pulse-btn" style="display: none; margin: 20px auto 0;" onclick="resetHandGame()">🔄 Play Match Again</button>
 
         </div>
-
     </main>
 
-    <footer style="margin-top: 60px;">
+    <footer>
         <p>&copy; 2026 CricPulse. All rights reserved. The Heartbeat of Cricket.</p>
     </footer>
 
-    <script>
-        let playerScore = 0;
-        let computerScore = 0;
-        let isPlayerBatting = true;
-        let targetScore = 0;
-        let handGameOver = false;
-
-        function playHand(playerChoice) {
-            if (handGameOver) return;
-
-            const computerChoice = Math.floor(Math.random() * 6) + 1;
-            updateHandUI(playerChoice, computerChoice);
-
-            const resultMessage = document.getElementById('hand-commentary');
-
-            if (playerChoice === computerChoice) {
-                isPlayerBatting = !isPlayerBatting;
-                if (isPlayerBatting) {
-                    targetScore = playerScore + 1;
-                    resultMessage.innerText = `OUT! You are bowled! Computer score is ${computerScore}. You need ${targetScore} runs to win.`;
-                    speakCommentary(`Out! You are bowled! Computer score is ${computerScore}. You need ${targetScore} runs to win.`);
-                } else {
-                    resultMessage.innerText = `OUT! Computer is out! Now, it's your turn to bat. Your target is ${computerScore + 1} runs.`;
-                    speakCommentary(`Out! Computer is out! Now, it's your turn to bat. Your target is ${computerScore + 1} runs.`);
-                }
-            } else {
-                if (isPlayerBatting) {
-                    playerScore += playerChoice;
-                    document.getElementById('player-hand-score').innerText = playerScore;
-                    resultMessage.innerText = `You scored ${playerChoice} runs! Keep it up.`;
-                } else {
-                    computerScore += computerChoice;
-                    document.getElementById('computer-hand-score').innerText = computerScore;
-                    resultMessage.innerText = `Computer scored ${computerChoice} runs! Watch out.`;
-                }
-            }
-
-            checkHandGameState();
-        }
-
-        function updateHandUI(playerChoice, computerChoice) {
-            document.getElementById('player-hand').innerText = playerChoice;
-            document.getElementById('computer-hand').innerText = computerChoice;
-        }
-
-        function checkHandGameState() {
-            const resultMessage = document.getElementById('hand-commentary');
-            const restartBtn = document.getElementById('hand-restart-btn');
-
-            if (!isPlayerBatting && targetScore > 0 && playerScore >= targetScore) {
-                handGameOver = true;
-                resultMessage.innerText = `CONGRATULATIONS! You win by chasing ${targetScore} runs!`;
-                speakCommentary("Congratulations! You win!");
-                restartBtn.style.display = 'inline-block';
-                document.getElementById('hand-action-area').children[1].style.display = 'none'; // Hide numbers
-            } else if (isPlayerBatting && targetScore > 0 && computerScore >= targetScore) {
-                handGameOver = true;
-                resultMessage.innerText = `GAME OVER! Computer win by defending ${targetScore - 1} runs!`;
-                speakCommentary("Game over! Computer win!");
-                restartBtn.style.display = 'inline-block';
-                document.getElementById('hand-action-area').children[1].style.display = 'none'; // Hide numbers
-            } else if (!isPlayerBatting && targetScore > 0 && computerScore >= targetScore) {
-                 // Computer wins if it reaches the target score while player is bowling.
-                handGameOver = true;
-                resultMessage.innerText = `GAME OVER! Computer win!`;
-                speakCommentary("Game over! Computer win!");
-                restartBtn.style.display = 'inline-block';
-                document.getElementById('hand-action-area').children[1].style.display = 'none'; // Hide numbers
-            } else if (isPlayerBatting && targetScore > 0 && playerScore >= targetScore) {
-                // Player wins if they reach the target score while batting.
-                handGameOver = true;
-                resultMessage.innerText = `CONGRATULATIONS! You win!`;
-                speakCommentary("Congratulations! You win!");
-                restartBtn.style.display = 'inline-block';
-                document.getElementById('hand-action-area').children[1].style.display = 'none'; // Hide numbers
-            }
-        }
-
-        function resetHandGame() {
-            playerScore = 0;
-            computerScore = 0;
-            isPlayerBatting = true;
-            targetScore = 0;
-            handGameOver = false;
-
-            document.getElementById('player-hand-score').innerText = playerScore;
-            document.getElementById('computer-hand-score').innerText = computerScore;
-            document.getElementById('player-hand').innerText = '👤';
-            document.getElementById('computer-hand').innerText = '🤖';
-            document.getElementById('hand-commentary').innerText = "Welcome to Hand Cricket Clash! Choose a number to start.";
-            document.getElementById('hand-restart-btn').style.display = 'none';
-            document.getElementById('hand-action-area').children[1].style.display = 'flex'; // Show numbers
-        }
-
-        function speakCommentary(text) {
-            // Using browser's SpeechSynthesis for commentary
-            const synth = window.speechSynthesis;
-            if (synth.speaking) {
-                console.error('speechSynthesis.speaking');
-                return;
-            }
-            if (text !== '') {
-                const utterThis = new SpeechSynthesisUtterance(text);
-                 utterThis.onend = function (event) {
-                    console.log('SpeechSynthesisUtterance.onend');
-                }
-                utterThis.onerror = function (event) {
-                    console.error('SpeechSynthesisUtterance.onerror');
-                }
-                synth.speak(utterThis);
-            }
-        }
-
-    </script>
-
+    <script src="hand-cricket.js"></script>
 </body>
 </html>
