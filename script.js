@@ -27,24 +27,22 @@ let standings = [
 ];
 
 // 3. Full News Article Data for the Popup
+// 3. Full News Article Data for the Popup
 const newsData = {
     1: {
-        title: "Semi-Final Showdown: India & England Clash for Final Spot",
-        // Updated to the India vs England vector image
+        title: "Surya's Men Crush England to Seal 2026 World Cup Final Spot!",
         img: "https://img.freepik.com/premium-vector/india-vs-england-cricket-championship-match-with-flag-shield-beautiful-stadium-background_607751-1449.jpg",
-        body: "<p>With a spot in the grand finale on the line, Rohit Sharma’s men face a formidable English side tonight in a high-stakes blockbuster. Will India avenge their 2022 exit?</p><p>The pitch is expected to be on the slower side, bringing India's world-class spinners heavily into the game. However, England's deep batting lineup, featuring explosive openers, is well-equipped to handle the turning ball.</p><p>Weather forecasts suggest a clear evening, meaning fans can expect a full, uninterrupted 20-over thriller under the lights.</p>"
+        body: "<p>India has officially booked their ticket to the T20 World Cup 2026 Final! In a high-octane clash at the Wankhede Stadium, Suryakumar Yadav led from the front to dismantle a formidable English side.</p><p>India's spin trio of Axar Patel, Varun Chakaravarthy, and Washington Sundar choked the English batters in the middle overs, defending a par score of 185 with absolute precision. India will now face New Zealand in the ultimate championship match.</p>"
     },
     2: {
-        title: "Finn Allen's Masterclass Sinks South Africa in SF 1",
-        // Updated to the Finn Allen century image
+        title: "Unreal! Finn Allen's 33-Ball Blitzkrieg Demolishes South Africa",
         img: "https://assets.hmtvlive.com/h-upload/2026/03/04/406895-finn-allen-century.jpg",
-        body: "<p>A breathtaking 33-ball century from the explosive Kiwi opener dismantled the Proteas' bowling attack, comfortably securing New Zealand's ticket to the Final.</p><p>Chasing a modest total of 169, Allen showed absolutely no mercy to the South African pace battery, clearing the ropes 9 times in the first 10 overs alone. The match was practically over before the halfway mark of the chase.</p><p>New Zealand will now rest and wait to see who emerges victorious from the second semi-final between India and England.</p>"
+        body: "<p>History was rewritten at Eden Gardens tonight. New Zealand opener Finn Allen smashed the fastest century in T20 World Cup history, bringing up his 100 in just 33 deliveries against South Africa.</p><p>The Proteas' pace battery, including Kagiso Rabada and Anrich Nortje, looked completely helpless as Allen cleared the ropes 11 times. New Zealand chased down the target of 169 in a jaw-dropping 12.5 overs to storm into the Final.</p>"
     },
-    3: {
-        title: "The Rise of Spin: Pitch Factors Decoded for the Final",
-        // Updated to the pitch and ball image
-        img: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-        body: "<p>As the tournament reaches its climax, spinners are playing an increasingly crucial role. We break down the pitch conditions expected for the ultimate championship match.</p><p>Throughout the Super 8s, fast bowlers have seen their economy rates spike, while wrist spinners have consistently choked the run flow in the middle overs. The surface for the Final is notoriously dry, meaning the toss could be the deciding factor.</p><p>Teams will likely look to bat first, post a par score of around 160, and let their slower bowlers do the rest as the pitch deteriorates.</p>"
+   3: {
+        title: "The Ultimate Showdown: India vs New Zealand for the Crown",
+        img: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+        body: "<p>The 2026 T20 World Cup has reached its magnificent conclusion. Suryakumar Yadav's undefeated Indian squad will lock horns with a fearless New Zealand side in front of 130,000 roaring fans in Ahmedabad.</p><p>India's lethal spin chokehold will face its ultimate test against the brute force of Finn Allen and Devon Conway. With the pitch expected to be a batting paradise, experts are predicting a massive high-scoring thriller. The toss will be crucial, but both teams look absolutely ready for war.</p>"
     }
 };
 
