@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vault | Iconic Moments | CricPulse</title>
+    
+    <link rel="icon" type="image/png" href="https://i.ibb.co/wN4Bp4GS/Cric-Pulse-Logo.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/wN4Bp4GS/Cric-Pulse-Logo.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/wN4Bp4GS/Cric-Pulse-Logo.png">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* --- PARALLAX VAULT SPECIFIC STYLES --- */
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-main);
+            scroll-behavior: smooth;
+        }
+
+        /* The Magic Parallax Container */
+        .parallax-section {
+            height: 100vh; /* Forces the section to be exactly the height of the screen */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            /* These 3 lines create the 3D Parallax effect! */
+            background-attachment: fixed; 
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* A dark overlay so the neon text pops against the bright background images */
+        .parallax-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(10,14,23,0.3) 0%, rgba(10,14,23,0.8) 100%);
+            z-index: 1;
+        }
+
+        /* The Ultra Pro Max Glass Card */
+        .vault-glass-card {
+            position: relative;
+            z-index: 2;
+            background: rgba(18, 25, 38, 0.65); /* Highly transparent dark blue */
+            backdrop-filter: blur(16px); /* Strong glass blur */
+            -webkit-backdrop-filter: blur(16px);
+            padding: 50px;
+            border-radius: 24px;
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            border-top: 1px solid rgba(0, 255, 136, 0.5); /* Neon top highlight */
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5), inset 0 0 20px rgba(0, 210, 255, 0.1);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: floatUp 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes floatUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .vault-tag {
+            background: var(--accent-neon);
+            color: #000;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px var(--accent-neon);
+        }
+
+        .vault-title {
+            font-size: 3.5rem;
+            color: var(--text-bright);
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+            line-height: 1.1;
+        }
+
+        .vault-desc {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .vault-year {
+            font-size: 5rem;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: -30px;
+            right: 20px;
+            z-index: -1;
+        }
+        
+        /* Intro Header */
+        .vault-intro {
+            text-align: center;
+            padding: 80px 20px;
+            background: var(--bg-main);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">
+            <div class="logo-wrapper">
+                <img src="https://i.ibb.co/wN4Bp4GS/Cric-Pulse-Logo.png" alt="CricPulse Logo" class="logo-img">
+            </div>
+            <span class="logo-text">Cric<span style="color: var(--accent-neon); text-shadow: 0 0 10px rgba(0, 255, 136, 0.4);">Pulse</span></span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="vault.html" style="color: var(--accent-neon); border-bottom: 2px solid var(--accent-neon); padding-bottom: 5px;">Vault</a></li>
+                <li><a href="match-center.html">Fun-Gun</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="vault-intro">
+        <h1 style="font-size: 4rem; color: var(--text-bright); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px;">
+            The <span style="color: var(--accent-blue); text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);">Vault</span>
+        </h1>
+        <p style="color: var(--text-dim); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+            A digital museum dedicated to the moments that stopped time, defied logic, and became immortalized in cricket history. Scroll to explore.
+        </p>
+    </div>
+
+    <section class="parallax-section" style="background-image: url('https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/347800/347881.4.jpg');">
+        <div class="parallax-overlay"></div>
+        <div class="vault-glass-card">
+            <div class="vault-year">2022</div>
+            <span class="vault-tag">The Shot of an Emperor</span>
+            <h2 class="vault-title">MCG Magic: Down the Ground</h2>
+            <p class="vault-desc">90,000 fans holding their breath. 28 needed off 8 balls. Haris Rauf steaming in. What followed was a shot that defied physics—a back-foot punch straight back over the bowler's head for six. Virat Kohli didn't just win a match against Pakistan; he bent reality to his will.</p>
+        </div>
+    </section>
+
+    <section class="parallax-section" style="background-image: url('https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/128400/128483.jpg');">
+        <div class="parallax-overlay"></div>
+        <div class="vault-glass-card">
+            <div class="vault-year">2011</div>
+            <span class="vault-tag" style="background: var(--accent-blue); box-shadow: 0 0 15px var(--accent-blue);">A Nation Exhales</span>
+            <h2 class="vault-title">"Dhoni finishes off in style!"</h2>
+            <p class="vault-desc">A 28-year wait ended with one majestic swing of the bat. MS Dhoni launching Nuwan Kulasekara high into the Wankhede night sky remains the defining image of Indian cricket in the 21st century. The captain delivered when his country needed him the absolute most.</p>
+        </div>
+    </section>
+
+    <section class="parallax-section" style="background-image: url('https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/267600/267683.jpg');">
+        <div class="parallax-overlay"></div>
+        <div class="vault-glass-card">
+            <div class="vault-year">2007</div>
+            <span class="vault-tag">Pure Carnage</span>
+            <h2 class="vault-title">36 Runs. 6 Balls. 1 King.</h2>
+            <p class="vault-desc">Andrew Flintoff made the worst mistake in cricket history: he made Yuvraj Singh angry. In the inaugural T20 World Cup, Stuart Broad faced the wrath of a man possessed. Six consecutive deliveries dispatched over the Kingsmead boundaries, changing the T20 format forever.</p>
+        </div>
+    </section>
+
+    <section class="parallax-section" style="background-image: url('https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/239300/239383.jpg');">
+        <div class="parallax-overlay"></div>
+        <div class="vault-glass-card">
+            <div class="vault-year">2016</div>
+            <span class="vault-tag" style="background: #ff9900; box-shadow: 0 0 15px #ff9900;">The Ultimate Heist</span>
+            <h2 class="vault-title">"Carlos Brathwaite, Remember the Name!"</h2>
+            <p class="vault-desc">19 runs needed off the final over of a World Cup Final. Ben Stokes with the ball. Four balls later, the match was over. Carlos Brathwaite struck four consecutive, monstrous sixes into the Eden Gardens stands, cementing the West Indies as the undisputed kings of T20 cricket.</p>
+        </div>
+    </section>
+
+    <footer style="padding: 40px; text-align: center; background: var(--bg-main); border-top: 1px solid rgba(255,255,255,0.05);">
+        <p style="color: var(--text-dim);">&copy; 2026 CricPulse. All rights reserved. The Heartbeat of Cricket.</p>
+    </footer>
+
+</body>
+</html>
