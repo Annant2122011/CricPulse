@@ -1211,5 +1211,5 @@ header {
     position: absolute; /* Tells the image to ignore standard layout rules */
     top: 50%;
     left: 50%;
-    
+   transform: translate(-50%, -50%);
 }
