@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Cricket News | CricPulse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo" style="text-shadow: 0 0 15px rgba(0, 255, 136, 0.6);">Cric<span>Pulse</span></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html" style="color: var(--accent-neon); border-bottom: 2px solid var(--accent-neon); padding-bottom: 5px;">News</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="match-center.html">Fun-Gun</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div style="text-align: center; margin-bottom: 50px; margin-top: 30px;">
+            <h1 style="font-size: 3.5rem; color: var(--text-bright); text-shadow: 0 0 20px rgba(0, 210, 255, 0.4);">THE <span style="color: var(--accent-blue);">PULSE</span> DESK</h1>
+            <p style="color: var(--text-dim); font-size: 1.2rem; margin-top: 10px;">The latest insights, deep dives, and breaking stories from the world of Men's Cricket.</p>
+        </div>
+
+        <div class="ultra-news-grid" id="news-container">
+            </div>
+    </main>
+
+    <div id="ultra-modal" class="modal">
+        <div class="modal-content ultra-modal-content">
+            <span class="close-btn" onclick="closeUltraModal()">&times;</span>
+            <div class="ultra-modal-header">
+                <span id="ultra-modal-tag" class="news-tag">TAG</span>
+                <h2 id="ultra-modal-title">Title Here</h2>
+            </div>
+            <img id="ultra-modal-img" src="#" alt="News Image" class="ultra-modal-img">
+            <div id="ultra-modal-body" class="ultra-modal-text">
+                </div>
+        </div>
+    </div>
+
+    <footer style="margin-top: 60px;">
+        <p>&copy; 2026 CricPulse. All rights reserved. The Heartbeat of Cricket.</p>
+    </footer>
+
+    <script>
+        // Massive 15-Article Database (3-4 Paragraphs Each)
+        const newsDatabase = [
+            {
+                id: 1, tag: "🏆 WORLD CUP",
+                title: "The Grand Finale: India and New Zealand Prepare for Ultimate Glory",
+                img: "#",
+                desc: "The 2026 Men's T20 World Cup reaches its climax as two titans collide in Ahmedabad...",
+                body: "<p>The stage is set in Ahmedabad for what promises to be one of the most electric T20 World Cup Finals in history. India, riding high on an undefeated streak and backed by over 130,000 screaming fans, will face a fearless New Zealand side that has absolutely demolished every bowling attack in its path.</p><p>Suryakumar Yadav's captaincy will be tested against the tactical brilliance of the Kiwi setup. India's spin trio has been the story of the tournament, effectively choking runs in the middle overs. However, New Zealand's openers have shown a willingness to attack spin from ball one, setting up a mouth-watering tactical battle.</p><p>Experts predict a high-scoring thriller on a pitch known to favor batters under the lights. The toss will be crucial, with dew expected to play a major factor in the second innings. For India, it’s a chance to solidify a dynasty; for New Zealand, it's a chance to finally shed the 'runners-up' tag in ICC global events.</p>"
+            },
+            {
+                id: 2, tag: "🔥 SPOTLIGHT",
+                title: "Decoding Finn Allen: The Anatomy of a 33-Ball Century",
+                img: "#",
+                desc: "How the explosive Kiwi opener dismantled the South African attack and rewrote history...",
+                body: "<p>When Finn Allen walked out to bat at Eden Gardens, few could have predicted the absolute carnage that was about to unfold. Striking the fastest century in T20 World Cup history in just 33 balls, Allen didn't just beat South Africa; he broke their tactical spirit. His innings was a masterclass in aggressive intent and unparalleled hand-eye coordination.</p><p>Data analysts tracking the innings noted that Allen completely ignored traditional footwork, instead creating a massive base in the crease to target the arc between long-on and deep mid-wicket. By staying deep in his crease, he turned Kagiso Rabada's express pace into batting practice, launching length balls deep into the Kolkata night sky.</p><p>This innings signals a terrifying shift in modern T20 openers. The concept of an 'anchor' is rapidly fading, replaced by players who view a strike rate of 200 as the bare minimum. If Allen continues this form, no target in world cricket is safe from his willow.</p>"
+            },
+            {
+                id: 3, tag: "🏏 WTC FINAL",
+                title: "WTC Race Heats Up: India and Australia Neck-and-Neck",
+                img: "#",
+                desc: "With the current cycle nearing its end, the battle for Lord's has never been tighter...",
+                body: "<p>While the white-ball format dominates the current headlines, a silent war is brewing in the Men's World Test Championship. India and Australia are once again trading blows at the top of the points table, desperately trying to secure their boarding passes for the grand finale at Lord's next summer.</p><p>Australia's recent dominance on home soil has kept their percentage comfortably above 65%, largely thanks to their relentless pace cartel and the resurgence of Steve Smith's marathon knocks. However, India's flawless home record and crucial away victories have kept them within breathing distance, setting up a dramatic final few series of the cycle.</p><p>Lurking just behind them are South Africa and England, both mathematically still in the hunt. However, barring a catastrophic collapse from the top two, the cricketing world seems destined for yet another blockbuster clash between the modern era's fiercest Test rivals on neutral English soil.</p><p>The upcoming Border-Gavaskar trophy will likely act as a de-facto semi-final, with the winner virtually guaranteeing their spot at Lord's.</p>"
+            },
+            {
+                id: 4, tag: "⭐ MASTERCLASS",
+                title: "Jasprit Bumrah's Mechanics: A Scientific Analysis",
+                img: "#",
+                desc: "Breaking down the mechanics behind the most feared delivery in modern men's cricket...",
+                body: "<p>There is fast bowling, and then there is Jasprit Bumrah. Biomechanists and cricket coaches alike have spent years analyzing his hyper-extended elbow and stuttering run-up, trying to figure out how a seemingly unnatural action produces the most lethal yorker in the history of the game.</p><p>Recent high-speed camera analysis reveals that Bumrah's release point is significantly further ahead of the popping crease compared to traditional fast bowlers. This late release, combined with extreme shoulder rotation, creates an optical illusion for the batter, making the ball appear significantly faster than the radar gun suggests.</p><p>Furthermore, his ability to disguise the slower ball using the exact same arm speed has rendered traditional trigger movements useless. Batters are forced to commit a fraction of a second later, which is all the time Bumrah needs to shatter the base of the stumps. He is a generational talent operating at the peak of his powers.</p>"
+            },
+            {
+                id: 5, tag: "💰 AUCTION",
+                title: "IPL 2026 Mega Auction Rumors: Superstars Changing Colors",
+                img: "#",
+                desc: "Franchises are gearing up for the biggest auction in years. Who goes where?...",
+                body: "<p>The upcoming IPL Mega Auction is already sending shockwaves through the franchise cricket landscape. With teams only allowed a maximum of four retentions, several marquee players and international captains are set to hit the open market, triggering what is expected to be a historic bidding war.</p><p>Rumors are swirling around the Mumbai Indians and Chennai Super Kings camps regarding leadership transitions. With veteran players nearing the twilight of their careers, franchises are desperately hunting for young, aggressive core players to build their next decade around. Overseas fast bowlers are expected to command astronomical price tags.</p><p>All eyes are also on the purse expansions. With the salary cap increased, we could easily see the 30-crore barrier breached for the first time in history. Agents are working overtime, and franchise analysts are crunching numbers to uncover hidden gems in the associate nations to balance their massive marquee buys.</p>"
+            },
+            {
+                id: 6, tag: "📉 TEAM ANALYSIS",
+                title: "Pakistan's Transition Phase: Rebuilding the Men in Green",
+                img: "#",
+                desc: "A deep dive into the structural changes needed for Pakistan to bounce back...",
+                body: "<p>It has been a turbulent 18 months for Pakistan Men's Cricket. Following a string of early exits in global tournaments and uncharacteristic home series defeats, the PCB has initiated a massive overhaul of both the playing squad and the domestic structure designed to feed it.</p><p>The primary issue highlighted by critics has been a stagnation in batting intent. While the rest of the world has embraced ultra-aggressive powerplay tactics, Pakistan has often relied on cautious accumulation, leaving their world-class pace attack with subpar totals to defend. The new coaching staff has publicly demanded a shift in this mindset.</p><p>There is also a pressing need to groom the next generation of express fast bowlers. While Shaheen Afridi remains a lethal threat, the supporting cast has struggled with injuries and inconsistency. The upcoming domestic season will be closely monitored to fast-track raw, express pace talent straight into the national academy.</p>"
+            },
+            {
+                id: 7, tag: "🌪️ SPIN KINGS",
+                title: "Rashid Khan's Continued Dominance in T20 Cricket",
+                img: "#",
+                desc: "Why the Afghan maestro remains the most sought-after T20 bowler on the planet...",
+                body: "<p>In an era where batters are hitting the ball further and harder than ever before, Rashid Khan remains the ultimate cheat code in T20 cricket. As he enters the veteran stage of his career, the Afghan leg-spinner has only become more lethal, relying on subtle variations in pace rather than just raw turn.</p><p>What sets Rashid apart is his arm speed. Unlike traditional wrist spinners who rely on flight and dip, Rashid bowls at speeds pushing 100kph. This deprives the batter of any time to adjust if they misread the length, turning his wrong'un from a variation into his primary weapon of mass destruction.</p><p>Franchises around the globe still build their entire auction strategies around him. He virtually guarantees four overs for under 25 runs, taking the pressure off the rest of the bowling attack. His evolution from a mystery spinner to a calculated tactician ensures his reign at the top will continue for years.</p>"
+            },
+            {
+                id: 8, tag: "🚑 INJURY WARD",
+                title: "Australia's Pace Dilemma: Coping Without the Big Three",
+                img: "#",
+                desc: "How the Aussies are managing their fast-bowling stocks amidst an injury crisis...",
+                body: "<p>The Australian Men's team is currently facing an unprecedented crisis. With Pat Cummins, Mitchell Starc, and Josh Hazlewood all nursing simultaneous long-term injuries, the famed pace cartel has been temporarily disbanded, forcing selectors to test their depth on the global stage.</p><p>While this situation is far from ideal, it has provided a golden opportunity for the next tier of Australian quicks. Nathan Ellis and Spencer Johnson have been thrust into leadership roles within the bowling group, showcasing their unique skills. Johnson's left-arm angle and raw pace have particularly impressed pundits.</p><p>However, the lack of experience has shown in high-pressure death overs. Australia's traditional strategy of intimidating teams with pace has had to shift towards variations and cutters. The management is working around the clock with medical staff to ensure the veterans are fit for the upcoming Test summer.</p>"
+            },
+            {
+                id: 9, tag: "🚀 RISING STAR",
+                title: "Yashasvi Jaiswal: An All-Format Juggernaut",
+                img: "#",
+                desc: "From playing in the maidans to dominating international attacks, Jaiswal's incredible rise...",
+                body: "<p>The rise of Yashasvi Jaiswal is rapidly becoming one of the most romanticized stories in modern cricket. But beyond the inspirational backstory lies a technically brilliant, ruthlessly aggressive batter who is currently taking all three formats of the international game by storm.</p><p>Jaiswal possesses a rare ability to seamlessly transition gears. In Test cricket, he has shown the patience to bat for hours, coupled with the audacity to reverse-sweep fast bowlers when the field is spread. In T20s, he routinely capitalizes on the powerplay, destroying bowling plans within the first six overs.</p><p>Indian management views him as the definitive all-format successor to the previous generation of greats. With a solid technique against both high-pace bouncers and turning deliveries, Jaiswal has no obvious weakness, making him a nightmare for opposition analysts trying to formulate a plan against him.</p>"
+            },
+            {
+                id: 10, tag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 COMEBACK",
+                title: "Jofra Archer's Return: Can He Reclaim His Throne?",
+                img: "#",
+                desc: "The English speedster is back on the park, but is he the same terrifying force?...",
+                body: "<p>The sight of Jofra Archer charging in with a Dukes ball is enough to give opening batters sleepless nights. After enduring years of agonizing elbow and back injuries, the English tearaway fast bowler has finally made his return to international cricket, and the world is watching closely.</p><p>Early signs suggest the smooth, effortless run-up remains completely intact. However, the radar guns show he is operating slightly below his terrifying peak of 155kph, relying more on seam movement and heavy lengths rather than outright terrorizing pace. This is a deliberate medical strategy to preserve his body.</p><p>England's management is treating him like a fragile diamond, resting him strategically to ensure he doesn't suffer another breakdown. If Archer can manage his workload and adapt his game to rely on intelligence over pure speed, he still possesses the talent to be the most dangerous bowler in the world.</p>"
+            },
+            {
+                id: 11, tag: "💥 POWER HITTER",
+                title: "Nicholas Pooran Signs Record Global Deal",
+                img: "#",
+                desc: "The West Indian wicketkeeper-batter redefines the modern freelancer contract...",
+                body: "<p>In a watershed moment for cricket's financial ecosystem, West Indian powerhouse Nicholas Pooran has signed an unprecedented multi-league, multi-year contract with a single franchise ownership group. This deal effectively secures his services across the IPL, SA20, ILT20, and CPL under one massive umbrella.</p><p>This move highlights the shifting power dynamics in Men's cricket, where private franchises are now capable of offering contracts that dwarf national board retainers. Pooran, in the absolute prime of his ball-striking abilities, capitalized on his high demand to secure financial security for life.</p><p>While this is a massive win for the player, it raises serious questions about international availability. National boards are struggling to field their strongest XI in bilateral series, as stars prioritize franchise commitments. Pooran's deal sets a new blueprint that many other elite T20 specialists are expected to follow.</p><p>The era of the global cricket freelancer has officially evolved into the era of the franchise employee.</p>"
+            },
+            {
+                id: 12, tag: "💔 HEARTBREAK",
+                title: "The Semi-Final Curse: South Africa's Search for Answers",
+                img: "#",
+                desc: "Another knockout stage, another bitter exit for the Proteas Men...",
+                body: "<p>The post-match dressing room in Kolkata painted a painfully familiar picture for South African cricket fans. Despite boasting a squad filled with generational talent and dominating the group stages, the Proteas once again faltered when the pressure was at its absolute highest in a World Cup Semi-Final.</p><p>Analysts are struggling to pinpoint a technical flaw. The bowling attack was balanced, and the middle order featured some of the most destructive hitters in the world. However, the recurring theme seems to be psychological. When put under the pump by Finn Allen's early blitz, the team’s body language visibly dropped, and plans were hastily abandoned.</p><p>The South African board now faces tough questions regarding mental conditioning. The undeniable talent is there, but until the psychological ghost of past tournaments is exorcised, the Proteas will continue to hit a glass ceiling on the global stage. A complete reset of their knockout-match mentality is required.</p>"
+            },
+            {
+                id: 13, tag: "👑 LEGEND WATCH",
+                title: "Virat Kohli's Next Chapter: Focusing on the Red Ball?",
+                img: "#",
+                desc: "As T20Is fade into the rearview, Kohli sets his sights on dominating Test cricket once more...",
+                body: "<p>Following his glorious exit from T20 Internationals, the modern master Virat Kohli has recalibrated his absolute focus toward the purest format of the game. Sources close to the Indian camp suggest Kohli is currently undergoing intense conditioning camps designed specifically for the rigors of five-day cricket.</p><p>Without the constant burden of switching formats and adapting to the hyper-aggressive T20 demands, Kohli is reportedly tweaking his technique to tighten his defense outside the off-stump—a zone bowlers have targeted in recent years. His desire to score big hundreds in challenging overseas conditions remains as fiery as ever.</p><p>For cricket purists, the prospect of a refreshed, singular-focused Virat Kohli operating in Test cricket is a mouth-watering thought. With crucial tours to England and Australia looming in the World Test Championship cycle, India will rely heavily on their talisman to anchor the innings and guide the younger generation.</p>"
+            },
+            {
+                id: 14, tag: "🌍 GLOBAL EXPANSION",
+                title: "USA Cricket's Rapid Ascent in the Men's Arena",
+                img: "#",
+                desc: "How the United States is slowly but surely becoming a legitimate cricketing force...",
+                body: "<p>The United States Men's cricket team is no longer just a novelty act on the associate circuit. Following their impressive hosting of the World Cup matches and a string of upsets against full-member nations, USA Cricket is demanding a seat at the table, fueled by massive financial injections and a booming local league.</p><p>The success of Major League Cricket (MLC) has fundamentally changed the landscape. By importing world-class international talent, domestic American players are being exposed to elite standards on a daily basis. This rapid development program has unearthed genuine fast bowlers and aggressive middle-order bats previously hidden in the diaspora.</p><p>The ICC is watching closely. The US market represents the final frontier for cricket's commercial expansion. If the Men's national team can secure automatic qualification for the next World Cup, it could trigger an explosion in broadcast rights and sponsorship that would alter the global economy of the sport forever.</p>"
+            },
+            {
+                id: 15, tag: "⚔️ CAPTAINCY",
+                title: "The Burden of Leadership: Ben Stokes' Battle",
+                img: "#",
+                desc: "England's Test captain faces a crucial crossroad in his illustrious career...",
+                body: "<p>Ben Stokes is undeniably the spiritual heartbeat of the English Men's Test team. His 'Bazball' philosophy revolutionized the way England approached the five-day game, turning them into a relentless, entertaining force. However, the physical toll of his all-action style and chronic knee issues are forcing a difficult conversation.</p><p>Stokes has pushed his body to the absolute limit for his country, often bowling marathon spells through immense pain. Medical experts suggest that to prolong his career, he may have to permanently transition into a specialist batter. This creates a massive imbalance in the English side, which heavily relies on his all-rounder capabilities to balance the team sheet.</p><p>Furthermore, the mental fatigue of constant high-pressure decision-making is evident. While his tactical genius remains sharp, the weight of the captaincy during tough away tours has tested his resolve. English cricket faces a defining summer as they manage their most prized asset, ensuring they don't lose both a captain and a match-winner prematurely.</p>"
+            }
+        ];
+
+        // Function to render all 15 cards
+        function loadNewsCards() {
+            const container = document.getElementById('news-container');
+            let htmlContent = '';
+
+            newsDatabase.forEach(news => {
+                htmlContent += `
+                    <article class="news-card" onclick="openUltraModal(${news.id})">
+                        <div class="news-img-placeholder">
+                            <img src="${news.img}" alt="News Placeholder" class="news-img">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-tag">${news.tag}</span>
+                            <h3 class="news-title">${news.title}</h3>
+                            <p>${news.desc}</p>
+                        </div>
+                    </article>
+                `;
+            });
+
+            container.innerHTML = htmlContent;
+        }
+
+        // Modal Logic
+        function openUltraModal(id) {
+            const article = newsDatabase.find(item => item.id === id);
+            if(article) {
+                document.getElementById('ultra-modal-tag').innerText = article.tag;
+                document.getElementById('ultra-modal-title').innerText = article.title;
+                document.getElementById('ultra-modal-img').src = article.img;
+                document.getElementById('ultra-modal-body').innerHTML = article.body;
+                
+                document.getElementById('ultra-modal').style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Stop background scrolling
+            }
+        }
+
+        function closeUltraModal() {
+            document.getElementById('ultra-modal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('ultra-modal');
+            if (event.target === modal) {
+                closeUltraModal();
+            }
+        }
+
+        // Load cards when page opens
+        window.onload = loadNewsCards;
+    </script>
+</body>
+</html>
