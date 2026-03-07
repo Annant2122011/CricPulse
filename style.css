@@ -1205,8 +1205,8 @@ header {
 
 /* 2. The Image is pinned to the exact dead-center */
 .logo-img {
-    width: 120%;
-    height: 120%;
+    width: 125%;
+    height: 125%;
     object-fit: cover;
     position: absolute; /* Tells the image to ignore standard layout rules */
     top: 50%;
