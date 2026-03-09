@@ -1814,3 +1814,141 @@ header {
 .view-all-link:hover {
     color: var(--accent-neon);
 }
+/* =========================================
+   ULTRA PREMIUM NEWS GRID & CARDS
+========================================= */
+
+/* The Main Grid Layout */
+.ultra-news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* The Glassmorphism Card */
+.ultra-news-card {
+    background: rgba(18, 25, 38, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    /* Super smooth bounce transition */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+/* Hover Effects for the Card */
+.ultra-news-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 255, 136, 0.4); /* Neon green glow border */
+    box-shadow: 0 20px 40px rgba(0, 255, 136, 0.15);
+}
+
+/* Image Container & Hover Zoom */
+.ultra-news-img-placeholder {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ultra-news-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease; /* Smooth image scaling */
+}
+
+/* Zoom the image slightly when hovering over the card */
+.ultra-news-card:hover .ultra-news-img {
+    transform: scale(1.08);
+}
+
+/* Card Content Area */
+.ultra-news-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* The Neon Category Tag */
+.ultra-news-tag {
+    background: rgba(0, 210, 255, 0.1);
+    color: var(--accent-blue);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    box-shadow: inset 0 0 10px rgba(0, 210, 255, 0.05);
+}
+
+/* The Headline Title */
+.ultra-news-title {
+    color: var(--text-bright);
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin: 15px 0 10px;
+    transition: color 0.3s ease;
+}
+
+/* Turn title neon on hover */
+.ultra-news-card:hover .ultra-news-title {
+    color: var(--accent-neon);
+}
+
+/* The Description Text */
+.ultra-news-content p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Pushes the 'Read More' link to the bottom */
+}
+
+/* The "Read Full Article ➔" Link */
+.ultra-read-more {
+    color: var(--accent-blue);
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+/* Slide the arrow to the right on hover */
+.ultra-news-card:hover .ultra-read-more {
+    transform: translateX(8px);
+    color: var(--accent-neon);
+}
+
+/* =========================================
+   NEWS PAGE: SECTION HEADERS (e.g. "Today's Top Headlines")
+========================================= */
+.news-section-header-styled {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.news-section-header-styled::after {
+    content: '';
+    position: absolute;
+    bottom: -11px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-neon);
+    border-radius: 3px;
+    box-shadow: 0 0 10px var(--accent-neon);
+}
