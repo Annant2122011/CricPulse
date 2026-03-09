@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CricPulse | The Heartbeat of Cricket</title>
+    <title>Latest Cricket News | CricPulse</title>
     
     <link rel="icon" type="image/png" href="https://i.ibb.co/wN4Bp4GS/Cric-Pulse-Logo.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://i.ibb.co/wN4Bp4GS/Cric-Pulse-Logo.png" sizes="192x192">
     <link rel="apple-touch-icon" href="https://i.ibb.co/wN4Bp4GS/Cric-Pulse-Logo.png">
     
     <link rel="stylesheet" href="style.css">
+    
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -23,8 +24,8 @@
         </a>
         <nav>
             <ul>
-                <li><a href="index.html" class="active-nav-neon">Home</a></li>
-                <li><a href="news.html">News</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html" class="active-nav-neon">News</a></li>
                 <li><a href="stats.html">Stats</a></li>
                 <li><a href="vault.html">Vault</a></li>
                 <li><a href="match-center.html">Fun-Gun</a></li>
@@ -32,27 +33,26 @@
         </nav>
     </header>
 
-    <section class="hero-section">
-        <div class="hero-overlay"></div>
-        
-        <div class="match-ticker-container" id="match-ticker"></div>
-
-        <div class="hero-content">
-            <h1>FEEL THE <span class="neon-text">PULSE</span> OF THE GAME</h1>
-            <p>Your ultimate VIP pass for cricket. Live scores, deep stats, and elite stories.</p>
-        </div>
-    </section>
-
     <main class="container">
-        
-        <div class="home-section-header">
-            <h2>Top <span class="neon-text">Stories</span></h2>
-            <a href="news.html" class="view-all-link">View All News ➔</a>
+        <div class="ultra-news-header">
+            <h1>The <span class="neon-text">Pulse</span> Desk</h1>
+            <p>Elite Insights • Deep Dives • Breaking Stories</p>
         </div>
 
-        <div class="ultra-news-grid" id="top-news-container"></div>
-
+        <div id="news-container"></div>
     </main>
+
+    <div id="ultra-modal" class="ultra-modal-wrapper">
+        <div class="ultra-modal-box">
+            <span class="ultra-close-btn" id="close-modal-btn">&times;</span>
+            <div class="ultra-modal-header">
+                <span id="ultra-modal-tag" class="ultra-news-tag"></span>
+                <h2 id="ultra-modal-title"></h2>
+            </div>
+            <img id="ultra-modal-img" src="" alt="News Image" class="ultra-modal-hero-img">
+            <div id="ultra-modal-body" class="ultra-modal-body-text"></div>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 CricPulse. All rights reserved. The Heartbeat of Cricket.</p>
