@@ -1815,59 +1815,85 @@ header {
     color: var(--accent-neon);
 }
 /* =========================================
-   ULTRA PREMIUM NEWS GRID & CARDS
+   ULTRA PRO MAX NEWS GRID & CARDS
 ========================================= */
 
 /* The Main Grid Layout */
 .ultra-news-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    gap: 35px;
     margin-bottom: 60px;
 }
 
-/* The Glassmorphism Card */
+/* The Ultra Premium 3D Glass Card */
 .ultra-news-card {
-    background: rgba(18, 25, 38, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
+    position: relative;
+    background: linear-gradient(145deg, rgba(22, 30, 45, 0.8), rgba(10, 15, 25, 0.9));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.15); /* Catch light from top */
+    border-radius: 20px;
     overflow: hidden;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    /* Super smooth bounce transition */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 1;
 }
 
-/* Hover Effects for the Card */
+/* The Magic "Light Sweep" Effect on Hover */
+.ultra-news-card::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: -150%;
+    width: 100%; 
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.7s ease-in-out;
+    z-index: 10;
+    pointer-events: none; /* Allows clicking through the light */
+}
+
+/* Extreme Hover Animations */
 .ultra-news-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(0, 255, 136, 0.4); /* Neon green glow border */
-    box-shadow: 0 20px 40px rgba(0, 255, 136, 0.15);
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(0, 255, 136, 0.5); /* Strong neon green edge */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 
+                0 0 30px rgba(0, 255, 136, 0.2), /* Outer Neon Glow */
+                inset 0 0 20px rgba(0, 255, 136, 0.05); /* Inner Neon Glow */
+    z-index: 2;
 }
 
-/* Image Container & Hover Zoom */
+/* Trigger the light sweep */
+.ultra-news-card:hover::before {
+    left: 200%;
+}
+
+/* Image Container */
 .ultra-news-img-placeholder {
     width: 100%;
     height: 220px;
     overflow: hidden;
     position: relative;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Darken image slightly until hovered */
 .ultra-news-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease; /* Smooth image scaling */
+    filter: brightness(0.85);
+    transition: transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.5s ease;
 }
 
-/* Zoom the image slightly when hovering over the card */
 .ultra-news-card:hover .ultra-news-img {
-    transform: scale(1.08);
+    transform: scale(1.12); /* Deep zoom */
+    filter: brightness(1.1); /* Brighten on hover */
 }
 
 /* Card Content Area */
@@ -1876,20 +1902,22 @@ header {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    position: relative;
+    z-index: 5;
 }
 
-/* The Neon Category Tag */
+/* Glowing Category Tag */
 .ultra-news-tag {
-    background: rgba(0, 210, 255, 0.1);
+    background: linear-gradient(90deg, rgba(0, 210, 255, 0.15), rgba(0, 210, 255, 0.05));
     color: var(--accent-blue);
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.75rem;
-    font-weight: 800;
+    font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    border: 1px solid rgba(0, 210, 255, 0.2);
-    box-shadow: inset 0 0 10px rgba(0, 210, 255, 0.05);
+    letter-spacing: 1.5px;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
 }
 
 /* The Headline Title */
@@ -1898,21 +1926,21 @@ header {
     font-size: 1.4rem;
     line-height: 1.4;
     margin: 15px 0 10px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Turn title neon on hover */
 .ultra-news-card:hover .ultra-news-title {
     color: var(--accent-neon);
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
 }
 
-/* The Description Text */
+/* Description Text */
 .ultra-news-content p {
     color: var(--text-dim);
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 25px;
-    flex-grow: 1; /* Pushes the 'Read More' link to the bottom */
+    flex-grow: 1;
 }
 
 /* The "Read Full Article ➔" Link */
@@ -1921,44 +1949,26 @@ header {
     font-weight: 800;
     font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    transition: transform 0.3s ease, color 0.3s ease;
-    display: inline-block;
+    letter-spacing: 2px;
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
 }
 
-/* Slide the arrow to the right on hover */
 .ultra-news-card:hover .ultra-read-more {
-    transform: translateX(8px);
+    transform: translateX(10px);
     color: var(--accent-neon);
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
 }
 
-/* =========================================
-   NEWS PAGE: SECTION HEADERS (e.g. "Today's Top Headlines")
-========================================= */
-.news-section-header-styled {
-    position: relative;
-    display: inline-block;
-    padding-bottom: 10px;
-}
 
-.news-section-header-styled::after {
-    content: '';
-    position: absolute;
-    bottom: -11px;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: var(--accent-neon);
-    border-radius: 3px;
-    box-shadow: 0 0 10px var(--accent-neon);
-}
 /* =========================================
-   ACCORDION / COLLAPSIBLE MENUS
+   PRO MAX ACCORDION (COLLAPSIBLE MENUS)
 ========================================= */
 
 .accordion-container {
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 35px;
+    margin-bottom: 25px;
 }
 
 /* The Glassmorphism Clickable Header */
@@ -1966,78 +1976,92 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(18, 25, 38, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: linear-gradient(90deg, rgba(18, 25, 38, 0.8), rgba(25, 35, 55, 0.6));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-left: 4px solid var(--accent-neon);
-    padding: 20px 25px;
-    border-radius: 12px;
+    border-left: 5px solid var(--accent-neon);
+    padding: 22px 30px;
+    border-radius: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,255,255,0.05);
 }
 
 .accordion-header:hover {
-    background: rgba(30, 40, 60, 0.8);
-    border-color: rgba(0, 255, 136, 0.4);
-    box-shadow: 0 5px 20px rgba(0, 255, 136, 0.1);
+    background: linear-gradient(90deg, rgba(25, 35, 55, 0.9), rgba(35, 45, 75, 0.8));
+    border-color: rgba(0, 255, 136, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.15), inset 0 0 20px rgba(0, 255, 136, 0.05);
+    transform: scale(1.01); /* Slight pop out on hover */
 }
 
 /* Title text styling */
 .accordion-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: var(--text-bright);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     margin: 0;
+    font-weight: 900;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
-/* When the accordion is open, remove bottom rounding */
+.accordion-header:hover .accordion-title {
+    color: var(--accent-neon);
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+}
+
+/* Active State for Header */
 .accordion-header.active {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border-bottom-color: transparent;
+    background: rgba(18, 25, 38, 0.95);
 }
 
 /* The Animated Dropdown Arrow */
 .accordion-arrow {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: var(--accent-neon);
-    transition: transform 0.4s ease; /* Smooth rotation */
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Springy bounce rotation */
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
 }
 
 .accordion-header.active .accordion-arrow {
-    transform: rotate(-180deg); /* Flip arrow pointing up */
+    transform: rotate(-180deg);
 }
 
-/* THE SLIDING TRICK:
-   We use grid-template-rows: 0fr -> 1fr to perfectly animate height
-   without needing hardcoded pixel values!
-*/
+/* THE SLIDING TRICK */
 .accordion-wrapper {
     display: grid;
-    grid-template-rows: 0fr; /* Closed by default */
-    transition: grid-template-rows 0.4s ease-out;
-    background: rgba(10, 14, 23, 0.3);
+    grid-template-rows: 0fr; 
+    transition: grid-template-rows 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    background: linear-gradient(to bottom, rgba(18, 25, 38, 0.6), rgba(10, 14, 23, 0.2));
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-top: none;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    backdrop-filter: blur(10px);
 }
 
-/* When JS adds the .open class, the grid expands */
 .accordion-wrapper.open {
     grid-template-rows: 1fr; 
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 255, 136, 0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
 .accordion-inner {
-    overflow: hidden; /* Vital for the sliding animation to work */
-    padding: 0 20px; 
+    overflow: hidden; 
+    padding: 0 25px; 
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* Adds space under the cards when the accordion is fully open */
+/* Fade in the cards after it opens */
 .accordion-wrapper.open .accordion-inner {
-    padding-bottom: 30px; 
+    padding-bottom: 35px; 
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s; /* Waits a split second for the slide to start */
 }
