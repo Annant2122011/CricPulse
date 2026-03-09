@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             // Only try to fetch if we aren't using the demo key
-            if (apiKey === 'DEMO_KEY') throw new Error("Need real API key");
+            if (apiKey === 'e915a3b619adba4828ef97e47cb4df96') throw new Error("Need real API key");
 
             const response = await fetch(url);
             const data = await response.json();
