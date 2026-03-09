@@ -2070,3 +2070,118 @@ header {
     transform: translateY(0);
     transition-delay: 0.1s; /* Waits a split second for the slide to start */
 }
+/* =========================================
+   ULTRA ATTRACTIVE HOMEPAGE UPGRADES
+========================================= */
+
+/* 1. Ambient Background Floating Orbs */
+.home-body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.ambient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    z-index: 0;
+    pointer-events: none;
+    animation: floatOrb 12s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.orb-neon {
+    width: 400px;
+    height: 400px;
+    background: rgba(0, 255, 136, 0.15);
+    top: 10%;
+    left: -100px;
+}
+
+.orb-blue {
+    width: 500px;
+    height: 500px;
+    background: rgba(0, 210, 255, 0.15);
+    bottom: 20%;
+    right: -150px;
+    animation-delay: -5s; /* Out of sync with the other orb */
+}
+
+@keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, -80px) scale(1.2); }
+}
+
+/* 2. Hero Typography Upgrades */
+.hero-content {
+    z-index: 3; /* Ensures it sits above orbs and overlay */
+}
+
+/* The Animated Gradient Text */
+.animated-gradient-text {
+    font-size: 5.5rem;
+    font-weight: 900;
+    margin-bottom: -10px;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #ffffff, #a3c2ff, #ffffff);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: textShine 4s linear infinite;
+}
+
+@keyframes textShine {
+    to { background-position: 200% center; }
+}
+
+.pulse-glow {
+    color: var(--accent-neon);
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.6), 0 0 40px rgba(0, 255, 136, 0.2);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+}
+
+.hero-subtext {
+    font-size: 4rem;
+    color: var(--text-bright);
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.8);
+}
+
+/* 3. Bouncing Scroll Indicator */
+.scroll-indicator {
+    width: 30px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    margin: 40px auto 0;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+}
+
+.scroll-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-neon);
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollBounce 2s infinite cubic-bezier(0.15, 0.41, 0.69, 0.94);
+    box-shadow: 0 0 10px var(--accent-neon);
+}
+
+@keyframes scrollBounce {
+    0% { top: 8px; opacity: 1; }
+    80% { top: 32px; opacity: 0; }
+    100% { top: 32px; opacity: 0; }
+}
+
+/* 4. Enhanced Match Ticker Glassmorphism */
+.match-card-ticker {
+    background: linear-gradient(135deg, rgba(18, 25, 38, 0.7), rgba(10, 14, 23, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 210, 255, 0.05);
+}
