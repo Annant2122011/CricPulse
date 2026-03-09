@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Live Match Ticker Data
+    // ==========================================
+    // 1. LIVE MATCH TICKER LOGIC
+    // ==========================================
     const liveMatches = [
         {
             status: "RESULT • T20 World Cup SF 2",
@@ -47,54 +49,94 @@ document.addEventListener("DOMContentLoaded", () => {
         tickerContainer.innerHTML = tickerHTML;
     }
 
-    // 2. Top 5 Real-World News Articles
-    const topNews = [
+    // ==========================================
+    // 2. AUTOMATIC LIVE NEWS FETCHER
+    // ==========================================
+    
+    // Fallback data just in case the API limit is reached or internet is down
+    const fallbackNews = [
         {
-            id: 1, tag: "🏆 CHAMPIONS", title: "Virat Kohli's Emotional Post After India Lift T20 World Cup", 
-            img: "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/347800/347881.4.jpg",
-            desc: "Virat Kohli hailed India's national cricket team after their dominant 96-run triumph over New Zealand in the ICC Men's T20 World Cup final...",
+            title: "Virat Kohli's Emotional Post After India Lift World Cup", 
+            image: "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/347800/347881.4.jpg",
+            description: "Virat Kohli hailed India's national cricket team after their dominant triumph in the final...",
+            url: "#"
         },
         {
-            id: 2, tag: "🔥 SPOTLIGHT", title: "Jasprit Bumrah Finishes T20 World Cup 2026 as Joint-Highest Wicket Taker", 
-            img: "https://content.api.news/v3/images/bin/82340bdf69ceba068032c8f2d76f52e0",
-            desc: "Team India fast bowler Jasprit Bumrah boasts an incredible 5.66 economy rate as he shares the top wicket-taker spot with Varun Chakaravarthy...",
+            title: "Jasprit Bumrah Finishes as Joint-Highest Wicket Taker", 
+            image: "https://content.api.news/v3/images/bin/82340bdf69ceba068032c8f2d76f52e0",
+            description: "Team India fast bowler Jasprit Bumrah boasts an incredible 5.66 economy rate as he shares the top spot...",
+            url: "#"
         },
         {
-            id: 3, tag: "⭐ MASTERCLASS", title: "Sanju Samson Credits Sachin Tendulkar's Guidance for T20 World Cup Success", 
-            img: "https://static.wixstatic.com/media/8d5194_f7c33e229d1a46f5842cc65500f6a163~mv2.png/v1/fill/w_666,h_372,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8d5194_f7c33e229d1a46f5842cc65500f6a163~mv2.png",
-            desc: "After an incredible tournament, Player of the Tournament Sanju Samson reveals how constant conversations with Sachin Tendulkar helped him stay focused...",
-        },
-        {
-            id: 4, tag: "🏏 AUS-W VS IND-W", title: "Australia Women Cruise to 10-Wicket Test Win Over India", 
-            img: "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/128400/128483.jpg",
-            desc: "In the one-off Test at Mullanpur, Australia's women's team delivered a dominant performance to defeat India by 10 wickets...",
-        },
-        {
-            id: 5, tag: "📉 TEAM ANALYSIS", title: "New Zealand Lost T20 World Cup Final Even Before It Began: The Tactical Blunder", 
-            img: "https://assets-in.bmscdn.com/discovery-catalog/events/et00490363-bnbpphzmer-landscape.jpg",
-            desc: "Experts analyze how skipper Mitchell Santner's controversial team selection and decision to drop Cole McConchie cost the Kiwis the final...",
+            title: "Sanju Samson Credits Sachin Tendulkar's Guidance", 
+            image: "https://static.wixstatic.com/media/8d5194_f7c33e229d1a46f5842cc65500f6a163~mv2.png/v1/fill/w_666,h_372,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8d5194_f7c33e229d1a46f5842cc65500f6a163~mv2.png",
+            description: "After an incredible tournament, Sanju Samson reveals how constant conversations with Sachin helped...",
+            url: "#"
         }
     ];
 
-    const newsContainer = document.getElementById('top-news-container');
-    
-    if (newsContainer) {
+    const topNewsContainer = document.getElementById('top-news-container'); // Homepage
+    const fullNewsContainer = document.getElementById('news-container'); // News Page
+
+    // The function that automatically pulls live data from the internet
+    async function fetchLiveCricketNews() {
+        // NOTE: To make this live, you need a free API key from gnews.io
+        // Replace 'DEMO_KEY' with your actual free key when you get one.
+        const apiKey = 'DEMO_KEY'; 
+        const url = `https://gnews.io/api/v4/search?q=cricket&lang=en&max=6&apikey=${apiKey}`;
+
+        try {
+            // Only try to fetch if we aren't using the demo key
+            if (apiKey === 'DEMO_KEY') throw new Error("Need real API key");
+
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (data.articles && data.articles.length > 0) {
+                renderNewsCards(data.articles);
+            } else {
+                renderNewsCards(fallbackNews); // Fallback if API returns empty
+            }
+        } catch (error) {
+            console.log("Using Premium Fallback News (Live API requires a free key).");
+            renderNewsCards(fallbackNews);
+        }
+    }
+
+    // Function to draw the HTML onto the page
+    function renderNewsCards(articles) {
         let newsHTML = '';
-        topNews.forEach(news => {
+        
+        // Loop through the articles and build the glassmorphism cards
+        articles.forEach(article => {
+            // Clean up the data from the API
+            const imageUrl = article.image || article.urlToImage || "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=800&auto=format&fit=crop";
+            const title = article.title;
+            const desc = article.description || article.content || "Click to read the full story...";
+            const link = article.url || "#";
+
             newsHTML += `
-                <article class="ultra-news-card" onclick="window.location.href='news.html'">
+                <article class="ultra-news-card" onclick="window.open('${link}', '_blank')">
                     <div class="ultra-news-img-placeholder">
-                        <img src="${news.img}" alt="${news.title}" class="ultra-news-img">
+                        <img src="${imageUrl}" alt="${title}" class="ultra-news-img">
                     </div>
                     <div class="ultra-news-content">
-                        <span class="ultra-news-tag">${news.tag}</span>
-                        <h3 class="ultra-news-title">${news.title}</h3>
-                        <p>${news.desc}</p>
+                        <span class="ultra-news-tag">⚡ LIVE UPDATE</span>
+                        <h3 class="ultra-news-title">${title}</h3>
+                        <p>${desc.substring(0, 100)}...</p>
                         <span class="ultra-read-more">Read Full Article ➔</span>
                     </div>
                 </article>
             `;
         });
-        newsContainer.innerHTML = newsHTML;
+
+        // Inject the cards into whichever page the user is currently looking at
+        if (topNewsContainer) topNewsContainer.innerHTML = newsHTML;
+        if (fullNewsContainer) fullNewsContainer.innerHTML = newsHTML;
+    }
+
+    // Fire the engine!
+    if (topNewsContainer || fullNewsContainer) {
+        fetchLiveCricketNews();
     }
 });
