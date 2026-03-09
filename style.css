@@ -1213,3 +1213,154 @@ header {
     left: 50%;
    transform: translate(-50%, -50%);
 }
+/* =========================================
+   THE VAULT - PARALLAX STYLES
+========================================= */
+
+.vault-body {
+    background-color: var(--bg-main);
+    scroll-behavior: smooth;
+}
+
+/* --- Clean Typography & Layout Enhancements --- */
+.neon-text {
+    color: var(--accent-neon);
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
+}
+
+.active-nav-vault {
+    color: var(--accent-neon);
+    border-bottom: 2px solid var(--accent-neon);
+    padding-bottom: 5px;
+}
+
+/* Intro Section */
+.vault-intro {
+    text-align: center;
+    padding: 80px 20px;
+    background: var(--bg-main);
+}
+
+.vault-intro h1 {
+    font-size: 4rem;
+    color: var(--text-bright);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.vault-intro h1 span {
+    color: var(--accent-blue);
+    text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+}
+
+.vault-intro p {
+    color: var(--text-dim);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Footer Specific */
+.vault-footer {
+    padding: 40px;
+    text-align: center;
+    background: var(--bg-main);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.vault-footer p {
+    color: var(--text-dim);
+}
+
+/* --- Parallax Mechanics --- */
+.parallax-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-attachment: fixed; /* Creates the 3D effect */
+    background-position: center;
+    background-size: cover;
+}
+
+/* Background Images for Each Section */
+.bg-mcg { background-image: url('https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/347800/347881.4.jpg'); }
+.bg-dhoni { background-image: url('https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/128400/128483.jpg'); }
+.bg-yuvraj { background-image: url('https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/267600/267683.jpg'); }
+.bg-carlos { background-image: url('https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/239300/239383.jpg'); }
+
+.parallax-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(10,14,23,0.3) 0%, rgba(10,14,23,0.8) 100%);
+    z-index: 1;
+}
+
+/* --- Glassmorphism Cards --- */
+.vault-glass-card {
+    position: relative;
+    z-index: 2;
+    background: rgba(18, 25, 38, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 50px;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    border-top: 1px solid rgba(0, 255, 136, 0.5);
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5), inset 0 0 20px rgba(0, 210, 255, 0.1);
+    transform: translateY(50px);
+    opacity: 0;
+    animation: floatUp 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes floatUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tags and Typography */
+.vault-tag {
+    background: var(--accent-neon);
+    color: #000;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px var(--accent-neon);
+}
+
+.tag-blue { background: var(--accent-blue); box-shadow: 0 0 15px var(--accent-blue); }
+.tag-orange { background: #ff9900; box-shadow: 0 0 15px #ff9900; }
+
+.vault-title {
+    font-size: 3.5rem;
+    color: var(--text-bright);
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+    line-height: 1.1;
+}
+
+.vault-desc {
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.vault-year {
+    font-size: 5rem;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.1);
+    position: absolute;
+    top: -30px;
+    right: 20px;
+    z-index: -1;
+}
