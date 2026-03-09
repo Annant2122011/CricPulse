@@ -122,3 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
     renderTicker();
     renderPointsTable();
 });
+// script.js
+// The Vault page relies purely on CSS for its Parallax scroll effect.
+// This file is ready for future global website interactions (like mobile menus).
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("CricPulse scripts loaded successfully!");
+});
