@@ -82,12 +82,13 @@ document.addEventListener("DOMContentLoaded", () => {
     async function fetchLiveCricketNews() {
         // NOTE: To make this live, you need a free API key from gnews.io
         // Replace 'DEMO_KEY' with your actual free key when you get one.
-        const apiKey = 'DEMO_KEY'; 
+        // Replace the old line with this exact code:
+    const apiKey = '03419559bdmshfc41120057f4c41p187933jsn413df62fbc00'; 
         const url = `https://gnews.io/api/v4/search?q=cricket&lang=en&max=6&apikey=${apiKey}`;
 
         try {
             // Only try to fetch if we aren't using the demo key
-            if (apiKey === 'e915a3b619adba4828ef97e47cb4df96') throw new Error("Need real API key");
+            if (apiKey === '03419559bdmshfc41120057f4c41p187933jsn413df62fbc00') throw new Error("Need real API key");
 
             const response = await fetch(url);
             const data = await response.json();
