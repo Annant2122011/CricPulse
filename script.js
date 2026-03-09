@@ -199,8 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const fullNewsContainer = document.getElementById('news-container');
     
     if (fullNewsContainer) {
-        // Remove the default grid class so we can stack headers and grids vertically
-        fullNewsContainer.className = ""; 
+        fullNewsContainer.className = ""; // Remove default grid to stack sections properly
         let fullNewsHTML = '';
         
         // We structure the 15 articles into 3 distinct sections
@@ -211,7 +210,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ];
 
         sections.forEach(section => {
-            // Add Section Header
             fullNewsHTML += `
                 <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-top: 50px;">
                     <h2 style="font-size: 2rem; color: var(--text-bright); text-transform: uppercase; letter-spacing: 1px;">${section.title}</h2>
@@ -219,7 +217,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="ultra-news-grid">
             `;
             
-            // Add Cards for this specific section
             section.items.forEach(news => {
                 fullNewsHTML += `
                     <article class="ultra-news-card" data-id="${news.id}">
@@ -238,8 +235,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     </article>
                 `;
             });
-            
-            // Close the grid container
             fullNewsHTML += `</div>`;
         });
 
