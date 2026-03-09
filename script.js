@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
             color: "var(--accent-blue)"
         },
         {
-            status: "RESULT • Women's Only Test",
-            team1: "IND-W", score1: "198 & 149", overs1: "",
-            team2: "AUS-W", score2: "323 & 28/0", overs2: "",
-            result: "AUS-W won by 10 wickets",
+            status: "RESULT • Border-Gavaskar Trophy",
+            team1: "IND", score1: "345 & 212", overs1: "",
+            team2: "AUS", score2: "280 & 250", overs2: "",
+            result: "IND won by 27 runs",
             color: "#ff9900"
         }
     ];
@@ -69,15 +69,15 @@ document.addEventListener("DOMContentLoaded", () => {
             body: `<p>Jasprit Bumrah proved once again why he is a generational talent. In a high-scoring tournament on flat pitches, Bumrah maintained a stunning economy rate of 5.66. His 4/15 in the final completely derailed the Kiwi chase.</p><p>Bumrah's performance allowed him to finish joint-top of the bowling charts alongside Varun Chakaravarthy, cementing his status as the premier fast bowler in world cricket today.</p>`
         },
         {
-            id: 3, tag: "🏏 WPL 2026", date: "March 9, 2026",
-            title: "WPL: Mumbai Indians Secure Playoff Berth with Thrilling Last-Ball Win", 
-            img: "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/356300/356372.jpg",
-            desc: "Harmanpreet Kaur's explosive 65* guided the Mumbai Indians to a dramatic victory over the Delhi Capitals in a top-of-the-table WPL clash.",
-            body: `<p>Women's Premier League action reached a fever pitch today as the Mumbai Indians snatched a victory from the jaws of defeat. Chasing 178 against a formidable Delhi Capitals attack, MI needed 14 off the final over.</p><p>Captain Harmanpreet Kaur took matters into her own hands, striking two massive sixes to punch MI's ticket directly to the playoffs, setting the stage for a spectacular WPL endgame.</p>`
+            id: 3, tag: "💣 MEGA AUCTION", date: "March 9, 2026",
+            title: "Rohit Sharma Confirms Participation in IPL 2026 Mega Auction", 
+            img: "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/382000/382046.jpg",
+            desc: "The former Mumbai Indians captain will enter the auction pool for the first time in over a decade, sparking massive franchise interest.",
+            body: `<p>In a move that has sent shockwaves through the cricketing fraternity, Rohit Sharma has officially announced he will enter the IPL 2026 Mega Auction.</p><p>After a legendary stint with the Mumbai Indians, the 'Hitman' is looking for a fresh challenge. Insiders suggest that at least four franchises have already set aside a massive chunk of their purse to bid for the veteran opener and proven leader.</p>`
         },
         {
             id: 4, tag: "💰 AUCTION", date: "March 9, 2026",
-            title: "Mega Auction Fever: Franchises Prepare Record Bids for Travis Head", 
+            title: "Franchises Prepare Record Bids for Travis Head", 
             img: "https://img.etimg.com/thumb/width-1200,height-900,imgsize-60568,resizemode-75,msid-125950172/news/sports/ipl-2026-auction-what-the-ten-teams-have-and-who-theyll-be-desperate-to-get.jpg",
             desc: "With the upcoming IPL 2026 mega auction, insiders report that at least three franchises are preparing 30+ crore bids for the Australian opener.",
             body: `<p>The upcoming IPL Mega Auction is already sending shockwaves through the franchise cricket landscape. With teams only allowed a maximum of four retentions, several marquee players are set to hit the open market.</p><p>According to today's insider leaks, Australian powerhouse Travis Head is expected to shatter all previous auction records, with multiple franchises expanding their purses specifically to secure his explosive top-order services.</p>`
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
             body: `<p>The International Cricket Council released a stunning mandate this morning. Starting April 1st, 2026, any team that falls behind the allotted over-rate time will be forced to play with only 10 men on the field for the remainder of the innings.</p><p>This drastic rule change comes after numerous complaints from broadcasters regarding matches extending well beyond their scheduled programming windows.</p>`
         },
 
-        // --- WORLD CUP EXCLUSIVES (OLDER DATES) ---
+        // --- WORLD CUP EXCLUSIVES & TEST SERIES (OLDER DATES) ---
         {
             id: 6, tag: "⭐ INTERVIEW", date: "March 8, 2026",
             title: "Sanju Samson Credits Sachin's Guidance for World Cup Success", 
@@ -99,11 +99,11 @@ document.addEventListener("DOMContentLoaded", () => {
             body: `<p>Scoring 321 runs across the tournament, including a brilliant 89 in the final, Sanju Samson was the undisputed star of India's batting lineup. Following the victory, Samson opened up about his mental preparation.</p><p>"My career felt like it was on the line a few years ago," Samson admitted. "But constant conversations with Sachin Sir gave me the clarity I needed. It was God's plan."</p>`
         },
         {
-            id: 7, tag: "🏏 WOMEN'S TESTS", date: "March 8, 2026",
-            title: "Australia Women Cruise to 10-Wicket Test Win Over India", 
-            img: "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/373900/373934.jpg",
-            desc: "In the one-off Test, Australia's women's team delivered a dominant all-round performance to defeat India.",
-            body: `<p>Australia's Women showed exactly why they are the undisputed queens of the longest format. Despite a valiant first-innings 75 from Smriti Mandhana, India was bundled out for 198 and 149 in their two innings.</p><p>Ellyse Perry's brilliant century setup the game for the visitors, and their spinners made light work of the Indian middle order on a turning pitch, chasing down the target with ease.</p>`
+            id: 7, tag: "🏏 TEST CRICKET", date: "March 8, 2026",
+            title: "Dhruv Jurel's Heroics Save India in Crucial Test Encounter", 
+            img: "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/377300/377325.jpg",
+            desc: "The young wicketkeeper-batter displayed immense maturity with a gritty 90 to rescue India from a middle-order collapse.",
+            body: `<p>When India was reeling at 161/5, young Dhruv Jurel stepped up to play the innings of his life. Showing composure well beyond his years, he stitched together a vital partnership with the lower order.</p><p>His gritty 90 runs off 145 balls not only saved India from a massive first-innings deficit but also shifted the momentum entirely, proving once again the incredible depth of India's domestic circuit.</p>`
         },
         {
             id: 8, tag: "🧠 COACH'S CORNER", date: "March 7, 2026",
@@ -198,10 +198,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const fullNewsContainer = document.getElementById('news-container');
     
     if (fullNewsContainer) {
-        fullNewsContainer.className = ""; // Remove default grid class to stack accordions
+        fullNewsContainer.className = ""; 
         let fullNewsHTML = '';
         
-        // Structure the 15 articles into 3 distinct sections
         const sections = [
             { title: "🔴 Today's Top Headlines", items: newsDatabase.slice(0, 5) },
             { title: "🏆 World Cup Exclusives", items: newsDatabase.slice(5, 10) },
@@ -209,7 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ];
 
         sections.forEach((section, index) => {
-            // Build the Accordion Header
             fullNewsHTML += `
                 <div class="accordion-container">
                     <div class="accordion-header">
@@ -222,7 +220,6 @@ document.addEventListener("DOMContentLoaded", () => {
                             <div class="ultra-news-grid" style="margin-bottom: 0; padding-top: 25px;">
             `;
             
-            // Add Cards for this specific section inside the wrapper
             section.items.forEach(news => {
                 fullNewsHTML += `
                     <article class="ultra-news-card" data-id="${news.id}">
@@ -242,7 +239,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 `;
             });
             
-            // Close the Grid and Accordion containers
             fullNewsHTML += `
                             </div>
                         </div>
@@ -253,14 +249,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         fullNewsContainer.innerHTML = fullNewsHTML;
 
-        // ACCORDION TOGGLE LOGIC: Open/Close smoothly on click
+        // ACCORDION TOGGLE LOGIC
         const headers = document.querySelectorAll('.accordion-header');
         headers.forEach(header => {
             header.addEventListener('click', function() {
-                // Toggle the 'active' class on the clicked header (for the arrow rotation)
                 this.classList.toggle('active');
-                
-                // Select the associated wrapper and toggle the 'open' class
                 const wrapper = this.nextElementSibling;
                 wrapper.classList.toggle('open');
             });
