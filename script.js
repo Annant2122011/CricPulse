@@ -171,7 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const topNewsContainer = document.getElementById('top-news-container');
     if (topNewsContainer) {
         let topNewsHTML = '';
-        // Slice the array to only show the first 5 (Today's) articles on the homepage
         newsDatabase.slice(0, 5).forEach(news => {
             topNewsHTML += `
                 <article class="ultra-news-card" onclick="window.location.href='news.html'">
@@ -194,29 +193,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 4. RENDER FULL NEWS PAGE (WITH SECTIONS)
+    // 4. RENDER FULL NEWS PAGE (COLLAPSIBLE ACCORDIONS)
     // ==========================================
     const fullNewsContainer = document.getElementById('news-container');
     
     if (fullNewsContainer) {
-        fullNewsContainer.className = ""; // Remove default grid to stack sections properly
+        fullNewsContainer.className = ""; // Remove default grid class to stack accordions
         let fullNewsHTML = '';
         
-        // We structure the 15 articles into 3 distinct sections
+        // Structure the 15 articles into 3 distinct sections
         const sections = [
             { title: "🔴 Today's Top Headlines", items: newsDatabase.slice(0, 5) },
             { title: "🏆 World Cup Exclusives", items: newsDatabase.slice(5, 10) },
             { title: "📰 Deep Dives & Editor's Picks", items: newsDatabase.slice(10, 15) }
         ];
 
-        sections.forEach(section => {
+        sections.forEach((section, index) => {
+            // Build the Accordion Header
             fullNewsHTML += `
-                <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-top: 50px;">
-                    <h2 style="font-size: 2rem; color: var(--text-bright); text-transform: uppercase; letter-spacing: 1px;">${section.title}</h2>
-                </div>
-                <div class="ultra-news-grid">
+                <div class="accordion-container">
+                    <div class="accordion-header">
+                        <h2 class="accordion-title">${section.title}</h2>
+                        <span class="accordion-arrow">▼</span>
+                    </div>
+                    
+                    <div class="accordion-wrapper">
+                        <div class="accordion-inner">
+                            <div class="ultra-news-grid" style="margin-bottom: 0; padding-top: 25px;">
             `;
             
+            // Add Cards for this specific section inside the wrapper
             section.items.forEach(news => {
                 fullNewsHTML += `
                     <article class="ultra-news-card" data-id="${news.id}">
@@ -235,12 +241,32 @@ document.addEventListener("DOMContentLoaded", () => {
                     </article>
                 `;
             });
-            fullNewsHTML += `</div>`;
+            
+            // Close the Grid and Accordion containers
+            fullNewsHTML += `
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
         });
 
         fullNewsContainer.innerHTML = fullNewsHTML;
 
-        // Add Click Listeners to open the Modal
+        // ACCORDION TOGGLE LOGIC: Open/Close smoothly on click
+        const headers = document.querySelectorAll('.accordion-header');
+        headers.forEach(header => {
+            header.addEventListener('click', function() {
+                // Toggle the 'active' class on the clicked header (for the arrow rotation)
+                this.classList.toggle('active');
+                
+                // Select the associated wrapper and toggle the 'open' class
+                const wrapper = this.nextElementSibling;
+                wrapper.classList.toggle('open');
+            });
+        });
+
+        // Add Click Listeners to open the News Modal Popup
         document.querySelectorAll('.ultra-news-card').forEach(card => {
             card.addEventListener('click', function() {
                 const articleId = parseInt(this.getAttribute('data-id'));
