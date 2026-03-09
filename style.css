@@ -1952,3 +1952,92 @@ header {
     border-radius: 3px;
     box-shadow: 0 0 10px var(--accent-neon);
 }
+/* =========================================
+   ACCORDION / COLLAPSIBLE MENUS
+========================================= */
+
+.accordion-container {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* The Glassmorphism Clickable Header */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(18, 25, 38, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 4px solid var(--accent-neon);
+    padding: 20px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.accordion-header:hover {
+    background: rgba(30, 40, 60, 0.8);
+    border-color: rgba(0, 255, 136, 0.4);
+    box-shadow: 0 5px 20px rgba(0, 255, 136, 0.1);
+}
+
+/* Title text styling */
+.accordion-title {
+    font-size: 1.6rem;
+    color: var(--text-bright);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* When the accordion is open, remove bottom rounding */
+.accordion-header.active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: transparent;
+}
+
+/* The Animated Dropdown Arrow */
+.accordion-arrow {
+    font-size: 1.2rem;
+    color: var(--accent-neon);
+    transition: transform 0.4s ease; /* Smooth rotation */
+}
+
+.accordion-header.active .accordion-arrow {
+    transform: rotate(-180deg); /* Flip arrow pointing up */
+}
+
+/* THE SLIDING TRICK:
+   We use grid-template-rows: 0fr -> 1fr to perfectly animate height
+   without needing hardcoded pixel values!
+*/
+.accordion-wrapper {
+    display: grid;
+    grid-template-rows: 0fr; /* Closed by default */
+    transition: grid-template-rows 0.4s ease-out;
+    background: rgba(10, 14, 23, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: none;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* When JS adds the .open class, the grid expands */
+.accordion-wrapper.open {
+    grid-template-rows: 1fr; 
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.accordion-inner {
+    overflow: hidden; /* Vital for the sliding animation to work */
+    padding: 0 20px; 
+}
+
+/* Adds space under the cards when the accordion is fully open */
+.accordion-wrapper.open .accordion-inner {
+    padding-bottom: 30px; 
+}
