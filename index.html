@@ -1,83 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <link rel="icon" type="image/png" href="https://i.ibb.co/cc6DJrZt/Cric-Pulse-Logo-meow.png" sizes="32x32">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CricPulse | The Heartbeat of Cricket</title>
+    <title>Latest Cricket News | CricPulse</title>
+    
+    <link rel="icon" type="image/png" href="https://i.ibb.co/wN4Bp4GS/Cric-Pulse-Logo.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/wN4Bp4GS/Cric-Pulse-Logo.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/wN4Bp4GS/Cric-Pulse-Logo.png">
+    
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script src="news.js" defer></script>
 </head>
 <body>
 
     <header>
-     <a href="index.html" class="logo">
+        <a href="index.html" class="logo">
             <div class="logo-wrapper">
                 <img src="https://i.ibb.co/wN4Bp4GS/Cric-Pulse-Logo.png" alt="CricPulse Logo" class="logo-img">
             </div>
-            <span class="logo-text">Cric<span style="color: var(--accent-neon); text-shadow: 0 0 10px rgba(0, 255, 136, 0.4);">Pulse</span></span>
+            <span class="logo-text">Cric<span class="neon-text">Pulse</span></span>
         </a>
         <nav>
             <ul>
-                <li><a href="index.html" style="color: var(--accent-neon); border-bottom: 2px solid var(--accent-neon); padding-bottom: 5px;">Home</a></li>
-                <li><a href="news.html">News</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html" class="active-nav-neon">News</a></li>
                 <li><a href="stats.html">Stats</a></li>
+                <li><a href="vault.html">Vault</a></li>
                 <li><a href="match-center.html">Fun-Gun</a></li>
-             <li><a href="vault.html">Vault</a></li>
-                
             </ul>
         </nav>
     </header>
 
-    <div class="score-ticker" id="ticker-container">
-        Loading live scores...
-    </div>
-
-    <section class="hero" style="background: linear-gradient(to bottom, rgba(10, 14, 23, 0.4), var(--bg-main)), url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;">
-        <h1 style="text-shadow: 2px 4px 10px rgba(0,0,0,0.8); font-size: 4rem;">Feel the <span style="color: var(--accent-neon);">Pulse</span> of the Game</h1>
-        <p style="font-size: 1.3rem; font-weight: 500; text-shadow: 1px 2px 5px rgba(0,0,0,0.8);">Your ultimate VIP pass to the 2026 T20 World Cup. Live scores, lethal stats, and breaking news.</p>
-        <a href="match-center.html" class="btn" style="box-shadow: 0 0 20px rgba(0, 210, 255, 0.5); font-size: 1.1rem;">Enter Fun-Gun Arena</a>
-    </section>
-
     <main class="container">
-        <h2 class="section-title">Trending Now</h2>
-        <div class="news-grid">
-            
-            <article class="news-card" style="cursor: pointer; position: relative;" onclick="openModal(1)">
-                <span style="position: absolute; top: 15px; left: 15px; background: #ff2a2a; color: white; padding: 5px 10px; font-size: 0.8rem; font-weight: bold; border-radius: 4px; z-index: 10; box-shadow: 0 0 10px #ff2a2a;">🚨 MATCH REPORT</span>
-                <img src="https://img.freepik.com/premium-vector/india-vs-england-cricket-championship-match-with-flag-shield-beautiful-stadium-background_607751-1449.jpg" alt="India vs England" class="news-img">
-                <div class="news-content">
-                    <h3 class="news-title">Surya's Men Crush England to Seal 2026 World Cup Final Spot!</h3>
-                    <p>A masterclass in spin bowling at the Wankhede sends the defending champions packing. India marches into the grand finale...</p>
-                </div>
-            </article>
-            
-            <article class="news-card" style="cursor: pointer; position: relative;" onclick="openModal(2)">
-                <span style="position: absolute; top: 15px; left: 15px; background: var(--accent-blue); color: black; padding: 5px 10px; font-size: 0.8rem; font-weight: bold; border-radius: 4px; z-index: 10;">🔥 RECORD BROKEN</span>
-                <img src="https://assets.hmtvlive.com/h-upload/2026/03/04/406895-finn-allen-century.jpg" alt="Finn Allen" class="news-img">
-                <div class="news-content">
-                    <h3 class="news-title">Unreal! Finn Allen's 33-Ball Blitzkrieg Demolishes South Africa</h3>
-                    <p>The fastest century in T20 World Cup history. Finn Allen showed absolute no mercy to Rabada and co. in Semi-Final 1...</p>
-                </div>
-            </article>
-            
-           <article class="news-card" style="cursor: pointer; position: relative;" onclick="openModal(3)">
-                <span style="position: absolute; top: 15px; left: 15px; background: var(--accent-neon); color: black; padding: 5px 10px; font-size: 0.8rem; font-weight: bold; border-radius: 4px; z-index: 10;">🏆 FINAL PREVIEW</span>
-                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Cricket Stadium" class="news-img">
-                <div class="news-content">
-                    <h3 class="news-title">The Ultimate Showdown: India vs New Zealand for the Crown</h3>
-                    <p>With both teams in red-hot form, the stage is set for the biggest T20 match of the year. Who will lift the trophy...</p>
-                </div>
-            </article>
+        <div class="ultra-news-header">
+            <h1>The <span class="neon-text">Pulse</span> Desk</h1>
+            <p>Elite Insights • Deep Dives • Breaking Stories</p>
         </div>
+
+        <div class="ultra-news-grid" id="news-container"></div>
     </main>
 
-    <div id="news-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <img id="modal-img" src="" alt="News Image">
-            <h2 id="modal-title"></h2>
-            <div id="modal-body"></div>
+    <div id="ultra-modal" class="ultra-modal-wrapper">
+        <div class="ultra-modal-box">
+            <span class="ultra-close-btn" id="close-modal-btn">&times;</span>
+            <div class="ultra-modal-header">
+                <span id="ultra-modal-tag" class="ultra-news-tag"></span>
+                <h2 id="ultra-modal-title"></h2>
+            </div>
+            <img id="ultra-modal-img" src="" alt="News Image" class="ultra-modal-hero-img">
+            <div id="ultra-modal-body" class="ultra-modal-body-text"></div>
         </div>
     </div>
 
