@@ -47,32 +47,32 @@ document.addEventListener("DOMContentLoaded", () => {
         tickerContainer.innerHTML = tickerHTML;
     }
 
-    // 2. Top 5 News Articles Data
+    // 2. Top 5 Real-World News Articles
     const topNews = [
         {
-            id: 1, tag: "🏆 WORLD CUP", title: "The Grand Finale: India and New Zealand Prepare for Ultimate Glory", 
-            img: "https://assets-in.bmscdn.com/discovery-catalog/events/et00490363-bnbpphzmer-landscape.jpg",
-            desc: "The 2026 Men's T20 World Cup reaches its climax as two titans collide in Ahmedabad...",
+            id: 1, tag: "🏆 CHAMPIONS", title: "Virat Kohli's Emotional Post After India Lift T20 World Cup", 
+            img: "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/347800/347881.4.jpg",
+            desc: "Virat Kohli hailed India's national cricket team after their dominant 96-run triumph over New Zealand in the ICC Men's T20 World Cup final...",
         },
         {
-            id: 2, tag: "🔥 SPOTLIGHT", title: "Decoding Finn Allen: The Anatomy of a 33-Ball Century", 
-            img: "https://static.wixstatic.com/media/8d5194_f7c33e229d1a46f5842cc65500f6a163~mv2.png/v1/fill/w_666,h_372,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8d5194_f7c33e229d1a46f5842cc65500f6a163~mv2.png",
-            desc: "How the explosive Kiwi opener dismantled the South African attack and rewrote history...",
-        },
-        {
-            id: 3, tag: "📈 EVOLUTION", title: "The 500-Run Frontier: Is the Ultimate ODI Record About to Fall?", 
-            img: "https://www.cricindeed.com/wp-content/uploads/2026/02/fastest-400-in-odi-1024x566.jpg",
-            desc: "With batting strike rates skyrocketing, experts believe the mythical 500-run mark is finally within reach...",
-        },
-        {
-            id: 4, tag: "⭐ MASTERCLASS", title: "Jasprit Bumrah's Mechanics: A Scientific Analysis", 
+            id: 2, tag: "🔥 SPOTLIGHT", title: "Jasprit Bumrah Finishes T20 World Cup 2026 as Joint-Highest Wicket Taker", 
             img: "https://content.api.news/v3/images/bin/82340bdf69ceba068032c8f2d76f52e0",
-            desc: "Breaking down the mechanics behind the most feared delivery in modern men's cricket...",
+            desc: "Team India fast bowler Jasprit Bumrah boasts an incredible 5.66 economy rate as he shares the top wicket-taker spot with Varun Chakaravarthy...",
         },
         {
-            id: 5, tag: "💰 AUCTION", title: "IPL 2026 Mega Auction Rumors: Superstars Changing Colors", 
-            img: "https://img.etimg.com/thumb/width-1200,height-900,imgsize-60568,resizemode-75,msid-125950172/news/sports/ipl-2026-auction-what-the-ten-teams-have-and-who-theyll-be-desperate-to-get.jpg",
-            desc: "Franchises are gearing up for the biggest auction in years. Who goes where?...",
+            id: 3, tag: "⭐ MASTERCLASS", title: "Sanju Samson Credits Sachin Tendulkar's Guidance for T20 World Cup Success", 
+            img: "https://static.wixstatic.com/media/8d5194_f7c33e229d1a46f5842cc65500f6a163~mv2.png/v1/fill/w_666,h_372,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8d5194_f7c33e229d1a46f5842cc65500f6a163~mv2.png",
+            desc: "After an incredible tournament, Player of the Tournament Sanju Samson reveals how constant conversations with Sachin Tendulkar helped him stay focused...",
+        },
+        {
+            id: 4, tag: "🏏 AUS-W VS IND-W", title: "Australia Women Cruise to 10-Wicket Test Win Over India", 
+            img: "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/128400/128483.jpg",
+            desc: "In the one-off Test at Mullanpur, Australia's women's team delivered a dominant performance to defeat India by 10 wickets...",
+        },
+        {
+            id: 5, tag: "📉 TEAM ANALYSIS", title: "New Zealand Lost T20 World Cup Final Even Before It Began: The Tactical Blunder", 
+            img: "https://assets-in.bmscdn.com/discovery-catalog/events/et00490363-bnbpphzmer-landscape.jpg",
+            desc: "Experts analyze how skipper Mitchell Santner's controversial team selection and decision to drop Cole McConchie cost the Kiwis the final...",
         }
     ];
 
