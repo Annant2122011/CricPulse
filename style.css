@@ -1290,6 +1290,11 @@ header {
 .bg-dhoni { background-image: url('https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/128400/128483.jpg'); }
 .bg-yuvraj { background-image: url('https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/267600/267683.jpg'); }
 .bg-carlos { background-image: url('https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/239300/239383.jpg'); }
+/* Vault Background Images - Adding the new moments! */
+.bg-maxwell { background-image: url('https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/370700/370784.jpg'); }
+.bg-stokes { background-image: url('https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/293100/293155.jpg'); }
+.bg-sachin { background-image: url('https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/109000/109004.jpg'); }
+.bg-kapil { background-image: url('https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/283600/283617.jpg'); }
 
 .parallax-overlay {
     position: absolute;
